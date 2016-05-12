@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-05-11T03:05:46.245Z</updated>
+  <updated>2016-05-12T14:06:55.969Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,102 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从C到C++1：面向对象是什么</title>
+    <link href="http://yoursite.com/2016/05/12/cplus1/"/>
+    <id>http://yoursite.com/2016/05/12/cplus1/</id>
+    <published>2016-05-12T11:31:57.848Z</published>
+    <updated>2016-05-12T14:06:55.969Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;本文目的是让读者更简单的理解面向对象的概念，所以会有不严谨的地方，请原谅&lt;/p&gt;
+&lt;p&gt;本系列内容适合有C基础的朋友阅读，如没有请戳&lt;a href=&quot;http://c.biancheng.net/cpp/u/c18/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;1-什么是对象&quot;&gt;&lt;a href=&quot;#1-什么是对象&quot; class=&quot;headerlink&quot; title=&quot;1.什么是对象&quot;&gt;&lt;/a&gt;1.什么是对象&lt;/h2&gt;&lt;p&gt;   对象是什么？你的女朋友，或者你未来会有的女朋友，然后呢，举个小学语文上的例子：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt; 小明在篮球场跳&lt;a href=&quot;http://www.bilibili.com/video/av2130097/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;普通的disco&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;   是谁在篮球场发疯呢？是小明，也就是说，在篮球场上发疯的&lt;strong&gt;对象&lt;/strong&gt;是&lt;strong&gt;小明&lt;/strong&gt;，小明就是一个对象;那我们换个问法呢，小明在哪儿发疯呢？是篮球场，同理我们可以得出，&lt;strong&gt;篮球场&lt;/strong&gt;是小明跳舞的&lt;strong&gt;对象&lt;/strong&gt;。当然，智商比作者高的你肯定能得出一个结论，那普通的disco也是对象咯？答案是正确的，我们可以得出一个结论：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt; &lt;strong&gt;万物皆对象&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;   “但是，小明他爱跳跳，关我卵事啊？”&lt;/p&gt;
+&lt;p&gt;   是的，我们并不关心小明跳不跳舞，我们只关心我们需要的东西，所以，在编程中，我们将我们需要解决的问题，这个问题所需要的东西，抽象为对象。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在编程中，我们只会用到自己需要的对象，并舍弃不必要的对象&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;2-什么是类，类和对象asshole-trade&quot;&gt;&lt;a href=&quot;#2-什么是类，类和对象asshole-trade&quot; class=&quot;headerlink&quot; title=&quot;2.什么是类，类和对象asshole trade&quot;&gt;&lt;/a&gt;2.什么是类，类和对象asshole trade&lt;/h2&gt;&lt;p&gt;   我们会经常用到类这个字，比如说，人类，鸟类，鱼类……当我们把一些事物称为类的时候，他们往往都具有一些相同的特点，比如，马都有四条腿，马都能跑，但他们也并不是一样，可能这只马是腿长，那只马腿短，这只马壮实，那只马单薄，&lt;strong&gt;两匹马并不完全一样，但他们都是马类&lt;/strong&gt;，由此，我们可以得出类的定义&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt; 类是拥有相同特点的不同个体的集合&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;   编程中的类也一样，我们将一个或多个对象中的特点抽取出来，抽象成一个类，在C++中，我们使用class来定义一个类，比如说，我们定义一个上面提到的马类:&lt;/p&gt;
+&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; horse&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; :  &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; legcount; &lt;span class=&quot;comment&quot;&gt;//腿数，一般都是4&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; leglength[&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;]; &lt;span class=&quot;comment&quot;&gt;//腿长，这里每个马不一样&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;pao&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; qidian,&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; zhongdian)&lt;/span&gt;&lt;/span&gt;; &lt;span class=&quot;comment&quot;&gt;//每个马都能跑&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;; &lt;span class=&quot;comment&quot;&gt;//别忘了这个分号&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt; 有C基础的同学，可以将其暂时理解为，具有内置函数的结构体&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;   &lt;strong&gt;对象是类的具体实现&lt;/strong&gt;，比如说如果类是马，对象是就是其中的一匹马，类是horses，对象就是thehorse;对象是个体，拥有马类对象的一个个体；在C++中，我们可以按以下格式生成一个对象:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[class名] 对象名;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;   比如，生成一个马的对象：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;horse andy;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;   如上，我们定义了一个叫andy的马，他有四条腿，但不知道他腿有多长，他能跑，在C++中，我们可以用.运算符来访问它，比如:&lt;/p&gt;
+ &lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; tui0;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;horse andy;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;andy.leglength[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;]=tui0;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在C++中，我们需要在使用类之前定义类&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;   同样我们也可用&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;horse anglababy;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;   来定义一个叫anglababy的马，他也有四条腿，他也有四条不知道多长的腿,他也能跑，我们可以用定义andy的方法来定义它&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;andy.leglength[0]=tui1;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;   也就是：&lt;/p&gt;
+&lt;p&gt;   &lt;strong&gt;同一类型的对象可以接受同样的消息&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&quot;3-什么是面向对象编程&quot;&gt;&lt;a href=&quot;#3-什么是面向对象编程&quot; class=&quot;headerlink&quot; title=&quot;3.什么是面向对象编程&quot;&gt;&lt;/a&gt;3.什么是面向对象编程&lt;/h2&gt;&lt;p&gt;   面向对象编程，就是&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;将问题分解为对象之间的交互&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;   我们返回上边小明跳舞那里，现在，我们要实现小明跳舞这个事件。按照面向对象的设计思路，我们先提取出三个对象:&lt;/p&gt;
+&lt;p&gt; &lt;em&gt;小明
+ &lt;/em&gt;篮球场&lt;br&gt; *普通的disco&lt;/p&gt;
+&lt;p&gt;   为了实现这三个对象，我们需要生成三个类：&lt;/p&gt;
+&lt;p&gt; &lt;em&gt;人类
+ &lt;/em&gt;地点类&lt;br&gt; *歌曲类&lt;/p&gt;
+&lt;p&gt;   抽象出对象之间的交互：&lt;/p&gt;
+&lt;p&gt; &lt;em&gt;人在地点上
+ &lt;/em&gt;人在跳舞&lt;/p&gt;
+&lt;p&gt;   构建类:&lt;br&gt;&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; didian&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt;:&lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt; didianming; &lt;span class=&quot;comment&quot;&gt;//地点名字&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; wu&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt;:&lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt; wuming; &lt;span class=&quot;comment&quot;&gt;//舞曲名字&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; human&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt;:&lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt; xingming; &lt;span class=&quot;comment&quot;&gt;//人名&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	   &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;tiaowu&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(wu a)&lt;/span&gt;&lt;/span&gt;; &lt;span class=&quot;comment&quot;&gt;//跳舞&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	   &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;zaidi&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(didian a)&lt;/span&gt;&lt;/span&gt;; &lt;span class=&quot;comment&quot;&gt;//在地方&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;  小明跳舞的实现:&lt;/p&gt;
+&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   human xiaom;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   didian lanqiuc;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   wu disco;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   xiaom.tiaowu(disco);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   xiaom.zaidi(lanqiuc);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这里省去一些烦人的参数设置&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;4-面向对象设计的优点&quot;&gt;&lt;a href=&quot;#4-面向对象设计的优点&quot; class=&quot;headerlink&quot; title=&quot;4.面向对象设计的优点&quot;&gt;&lt;/a&gt;4.面向对象设计的优点&lt;/h2&gt;&lt;p&gt;  面相对象设计简化了&lt;strong&gt;程序设计&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;  上述例子较为简单，使用面向过程的思想也较容易实现，但在实际的应用中，我们面对的不是小明在篮球场上跳舞这么简单的问题，而是：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;一个身高1m8胡子拉碴的基佬小明穿着校服在中华人民共和国陕西省西安市西安电子科技大学北操场和一群人团体跳超大音响播放的普通的disco&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  这看起来可能相当复杂，但实际上我们只要将小明，操场，舞曲的特点加到类里，就可以很容易的实现了。&lt;/p&gt;
+&lt;p&gt;  同理，再实现了胡子拉碴基佬小明的舞蹈之后，我们也可以实现皮肤很白的十分妹的跳舞，也可以实现广场舞大妈的跳舞，面向对象提供了不小的适用性。&lt;/p&gt;
+&lt;p&gt;  另一方面，也可以让这个程序交给完全不同的三个人设计——前提是他们商量好了交互的协议，甚至是&lt;strong&gt;程序设计的流水线&lt;/strong&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文目的是让读者更简单的理解面向对象的概念，所以会有不严谨的地方，请原谅&lt;/p&gt;
+&lt;p&gt;本系列内容适合有C基础的朋友阅读，如没有请戳&lt;a href=&quot;http://c.biancheng.net/cpp/u/c18/&quot; target=&quot;_blank
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
