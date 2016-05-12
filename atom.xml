@@ -5,22 +5,22 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-05-12T14:17:45.771Z</updated>
+  <updated>2016-05-12T14:51:53.595Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
-    <name>John Doe</name>
+    <name>Scannery</name>
     
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>从C到C++1：面向对象是什么</title>
+    <title>从C到C++(1)：面向对象是什么</title>
     <link href="http://yoursite.com/2016/05/12/cplus1/"/>
     <id>http://yoursite.com/2016/05/12/cplus1/</id>
     <published>2016-05-12T11:31:57.848Z</published>
-    <updated>2016-05-12T14:17:45.771Z</updated>
+    <updated>2016-05-12T14:51:53.595Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;本文目的是让读者更简单的理解面向对象的概念，所以会有不严谨的地方，请原谅&lt;/p&gt;
@@ -96,8 +96,7 @@
 &lt;p&gt;  这看起来可能相当复杂，但实际上我们只要将小明，操场，舞曲的特点加到类里，就可以很容易的实现了。&lt;/p&gt;
 &lt;p&gt;  同理，再实现了胡子拉碴基佬小明的舞蹈之后，我们也可以实现皮肤很白的十分妹的跳舞，也可以实现广场舞大妈的跳舞，面向对象提供了不小的适用性。&lt;/p&gt;
 &lt;p&gt;  另一方面，也可以让这个程序交给完全不同的三个人设计——前提是他们商量好了交互的协议，甚至是&lt;strong&gt;程序设计的流水线&lt;/strong&gt;&lt;/p&gt;
-&lt;h3 id=&quot;下篇&quot;&gt;&lt;a href=&quot;#下篇&quot; class=&quot;headerlink&quot; title=&quot;下篇&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#&quot;&gt;下篇&lt;/a&gt;&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;从C到C++2：你好，世界
-&lt;/code&gt;&lt;/pre&gt;</content>
+&lt;h3 id=&quot;下篇-从C到C-2-：你好，世界&quot;&gt;&lt;a href=&quot;#下篇-从C到C-2-：你好，世界&quot; class=&quot;headerlink&quot; title=&quot;下篇 从C到C++(2)：你好，世界&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#&quot;&gt;下篇&lt;/a&gt; 从C到C++(2)：你好，世界&lt;/h3&gt;</content>
     
     <summary type="html">
     

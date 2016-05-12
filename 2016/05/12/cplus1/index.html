@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>从C到C++1：面向对象是什么 | Hexo</title>
+  <title>从C到C++(1)：面向对象是什么 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="本文目的是让读者更简单的理解面向对象的概念，所以会有不严谨的地方，请原谅
 本系列内容适合有C基础的朋友阅读，如没有请戳这里
@@ -13,7 +13,7 @@
    小明在篮球场跳普通的disco
    是谁在篮球场发疯呢？是小明，也就是说，在篮球场上发疯的对象是小明，小明就是一个对象;那我们换个问法呢，小明在哪儿发疯呢？是篮球场">
 <meta property="og:type" content="article">
-<meta property="og:title" content="从C到C++1：面向对象是什么">
+<meta property="og:title" content="从C到C++(1)：面向对象是什么">
 <meta property="og:url" content="http://yoursite.com/2016/05/12/cplus1/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="本文目的是让读者更简单的理解面向对象的概念，所以会有不严谨的地方，请原谅
@@ -22,9 +22,9 @@
 1.什么是对象   对象是什么？你的女朋友，或者你未来会有的女朋友，然后呢，举个小学语文上的例子：
    小明在篮球场跳普通的disco
    是谁在篮球场发疯呢？是小明，也就是说，在篮球场上发疯的对象是小明，小明就是一个对象;那我们换个问法呢，小明在哪儿发疯呢？是篮球场">
-<meta property="og:updated_time" content="2016-05-12T14:17:45.771Z">
+<meta property="og:updated_time" content="2016-05-12T14:51:53.595Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从C到C++1：面向对象是什么">
+<meta name="twitter:title" content="从C到C++(1)：面向对象是什么">
 <meta name="twitter:description" content="本文目的是让读者更简单的理解面向对象的概念，所以会有不严谨的地方，请原谅
 本系列内容适合有C基础的朋友阅读，如没有请戳这里
 
@@ -48,12 +48,12 @@
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
-			<img lazy-src="null" class="js-avatar">
+			<img lazy-src="http://i3.buimg.com/f3f5b895fc28068c.png" class="js-avatar">
 			
 		</a>
 
 		<hgroup>
-		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		  <h1 class="header-author"><a href="/">Scannery</a></h1>
 		</hgroup>
 
 		
@@ -117,11 +117,9 @@
 							
 								<a class="github" target="_blank" href="#" title="github">github</a>
 					        
-								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
-					        
 								<a class="rss" target="_blank" href="#" title="rss">rss</a>
 					        
-								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+								<a class="mail" target="_blank" href="/tycf0013@126.com" title="mail">mail</a>
 					        
 						</div>
 					</nav>
@@ -159,7 +157,7 @@
 				
 				<section class="switch-part switch-part4">
 				
-					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+					<div id="js-aboutme">从还没入门到夺门而逃</div>
 				</section>
 				
 			</div>
@@ -172,17 +170,17 @@
       <nav id="mobile-nav">
   	<div class="overlay">
   		<div class="slider-trigger"></div>
-  		<h1 class="header-author js-mobile-header hide">John Doe</h1>
+  		<h1 class="header-author js-mobile-header hide">Scannery</h1>
   	</div>
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
 			
-				<img lazy-src="null" class="js-avatar">
+				<img lazy-src="http://i3.buimg.com/f3f5b895fc28068c.png" class="js-avatar">
 			
 			</div>
 			<hgroup>
-			  <h1 class="header-author">John Doe</h1>
+			  <h1 class="header-author">Scannery</h1>
 			</hgroup>
 			
 			<nav class="header-menu">
@@ -200,11 +198,9 @@
 					
 						<a class="github" target="_blank" href="#" title="github">github</a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
-			        
 						<a class="rss" target="_blank" href="#" title="rss">rss</a>
 			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+						<a class="mail" target="_blank" href="/tycf0013@126.com" title="mail">mail</a>
 			        
 				</div>
 			</nav>
@@ -229,7 +225,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      从C到C++1：面向对象是什么
+      从C到C++(1)：面向对象是什么
     </h1>
   
 
@@ -319,8 +315,7 @@
 <p>  这看起来可能相当复杂，但实际上我们只要将小明，操场，舞曲的特点加到类里，就可以很容易的实现了。</p>
 <p>  同理，再实现了胡子拉碴基佬小明的舞蹈之后，我们也可以实现皮肤很白的十分妹的跳舞，也可以实现广场舞大妈的跳舞，面向对象提供了不小的适用性。</p>
 <p>  另一方面，也可以让这个程序交给完全不同的三个人设计——前提是他们商量好了交互的协议，甚至是<strong>程序设计的流水线</strong></p>
-<h3 id="下篇"><a href="#下篇" class="headerlink" title="下篇"></a><a href="#">下篇</a></h3><pre><code>从C到C++2：你好，世界
-</code></pre>
+<h3 id="下篇-从C到C-2-：你好，世界"><a href="#下篇-从C到C-2-：你好，世界" class="headerlink" title="下篇 从C到C++(2)：你好，世界"></a><a href="#">下篇</a> 从C到C++(2)：你好，世界</h3>
       
     </div>
     
@@ -366,11 +361,11 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="cplus1" data-title="从C到C++1：面向对象是什么" data-url="http://yoursite.com/2016/05/12/cplus1/"></div>
+	<div class="ds-thread" data-thread-key="cplus1" data-title="从C到C++(1)：面向对象是什么" data-url="http://yoursite.com/2016/05/12/cplus1/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"true"};
+	var duoshuoQuery = {short_name:"scannery"};
 	(function() {
 		var ds = document.createElement('script');
 		ds.type = 'text/javascript';ds.async = true;
@@ -391,7 +386,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2016 John Doe
+    		&copy; 2016 Scannery
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
