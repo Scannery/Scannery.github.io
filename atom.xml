@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/Scannery/Scannery.github.io/"/>
-  <updated>2016-05-12T14:51:53.595Z</updated>
+  <updated>2016-05-13T17:33:32.666Z</updated>
   <id>https://github.com/Scannery/Scannery.github.io/</id>
   
   <author>
@@ -14,6 +14,203 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何hexo搭建属于自己的博客</title>
+    <link href="https://github.com/Scannery/Scannery.github.io/2016/05/13/blogmake/"/>
+    <id>https://github.com/Scannery/Scannery.github.io/2016/05/13/blogmake/</id>
+    <published>2016-05-13T14:27:59.915Z</published>
+    <updated>2016-05-13T17:33:32.666Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;本文旨在说明如何使用hexo搭建与操作博客的过程&lt;/p&gt;
+&lt;p&gt;感谢这位朋友的博客，让我得以搭建成功，关于github的操作大家可以参考&lt;a href=&quot;http://www.jianshu.com/p/985d07d88ef4&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这篇文档&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;本篇默认读者为windows系统，并已经成功建立github的IO库，有git shell的运行环境；没有请参考上方文档&lt;/p&gt;
+&lt;p&gt;未建立IO库的读者，建议在读完上方文档关于github的操作后，返回读本章节&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;第一步-翻墙&quot;&gt;&lt;a href=&quot;#第一步-翻墙&quot; class=&quot;headerlink&quot; title=&quot;第一步.翻墙&quot;&gt;&lt;/a&gt;第一步.翻墙&lt;/h1&gt;&lt;p&gt;  这是非常重要的一步，没翻墙，访问github网址巨慢，这里提供一个出去的办法，戳&lt;a href=&quot;http://pan.baidu.com/s/1nv9yZAp&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;获得软件，安装到电脑中并运行即可&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果链接被吞或者想了解更多，戳&lt;a href=&quot;http://nopescript.com/2016/05/11/great-wall-0/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;提供一个备用软件，&lt;a href=&quot;http://www.ishadowsocks.net/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ishaowsocks&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;第二步-安装与配置hexo&quot;&gt;&lt;a href=&quot;#第二步-安装与配置hexo&quot; class=&quot;headerlink&quot; title=&quot;第二步.安装与配置hexo&quot;&gt;&lt;/a&gt;第二步.安装与配置hexo&lt;/h1&gt;&lt;h2 id=&quot;1-git-shell简介&quot;&gt;&lt;a href=&quot;#1-git-shell简介&quot; class=&quot;headerlink&quot; title=&quot;1.git shell简介&quot;&gt;&lt;/a&gt;1.git shell简介&lt;/h2&gt;&lt;p&gt;  git shell可以使你在电脑上运行shell语言，换而言之，你可以在这个窗口上运行部分linux系统上的命令行。你不懂也没关系，这里给出了一些常用的shell命令:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;方括号用来说明后边跟什么，输命令的时候不需要加上方括号&lt;/p&gt;
+&lt;p&gt;最后提醒一遍，不知道说啥的朋友请先看&lt;a href=&quot;http://www.jianshu.com/p/985d07d88ef4&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这篇文档&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;cd [路径名]:进入指定路径. 如 &lt;strong&gt;cd c:\Users\temp&lt;/strong&gt; 进入c\用户\temp的路径&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;路径是什么呢？就是这个东西，表示控制终端工作的地方，如图：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;http://i2.buimg.com/16d1c9d91dd04aff.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;特殊的，当前路径可以用 &lt;strong&gt;.&lt;/strong&gt; 来表示，比如 &lt;strong&gt;cd .&lt;/strong&gt; 就是进入当前文件夹,也就是没动……上一层的路径可以用 &lt;strong&gt;..&lt;/strong&gt; 来表示， &lt;strong&gt;cd ..&lt;/strong&gt; 就是进入上层路径&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;touch [文件名]:创建指定文件.如 &lt;strong&gt;touch cac.txt&lt;/strong&gt; 创建一个名为cac的txt文件&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;cat [文件名]:将指定文件打印到控制台&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;rm [文件名]:删除指定文件&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;vim [文件名]:用vim文本编辑器打开文件，熟悉这个命令的朋友可以用vim来编辑下边谈到的文件，不熟悉的朋友建议别碰&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;2-hexo安装与部署&quot;&gt;&lt;a href=&quot;#2-hexo安装与部署&quot; class=&quot;headerlink&quot; title=&quot;2.hexo安装与部署&quot;&gt;&lt;/a&gt;2.hexo安装与部署&lt;/h2&gt;&lt;p&gt;  打开gitshell，记住你的当前路径，输入以下命令进行安装：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;cnpm install hexo-cli -g&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;大部分教程里使用npm，这里使用cnpm，前边的c代表China，下载起来更快一些。我们等下载成功之后，也就是出现的代码中不出现error，使用以下命令进行安装:&lt;/p&gt;
+&lt;p&gt;如果npm/cnmp无效，原因是Node.JS没有装好，建议重装，具体参考置顶链接&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;hexo init Hexo&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;  这步出现以下返回即为安装成功:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;INFO Copying date to 你的路径\Hexo&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;INFO You are almost done!…………&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;   这步完成之后会在目录下生成hexo文件夹，我们需要在hexo文件夹里加入hexo运行需要的依赖文件，在控制台中输入以下命令:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;cd .\Hexo&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cnpm install&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;   除此之外，我们还需要一些其他的依赖文件,输入以下命令:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;cnpm install hexo-generator-index --save&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cnpm install hexo-generator-archive --save&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cnpm install hexo-generator-category --save&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cnpm install hexo-generator-tag --save&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cnpm install hexo-deployer-git --save&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cnpm install hexo-deployer-heroku --save&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cnpm install hexo-deployer-rsync --save&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cnpm install hexo-deployer-openshift --save&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cnpm install hexo-renderer-marked@0.2 --save&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cnpm install hexo-renderer-stylus@0.2 --save&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cnpm install hexo-generator-feed@1 --save&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cnpm install hexo-generator-sitemap@1 --save&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果cnpm命令失败，可以考虑去掉C使用npm，如果都不行，请检查网络&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;第三步-生成本地文件，并将其推到github&quot;&gt;&lt;a href=&quot;#第三步-生成本地文件，并将其推到github&quot; class=&quot;headerlink&quot; title=&quot;第三步.生成本地文件，并将其推到github&quot;&gt;&lt;/a&gt;第三步.生成本地文件，并将其推到github&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;本教程使用Sublime Text来编译文本，有经验的朋友可以用vim来编译&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;不要直接用记事本打开&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  下载Sublime Text,戳&lt;a href=&quot;http://pan.baidu.com/s/1gf2PBJt&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;进行度盘下载，如链接失效，请在下载并购买正版，或网上随便找一个破解版。&lt;/p&gt;
+&lt;p&gt;  安装sublime text,最好建个快捷方式到桌面，之后打开，点击file\open Folder，打开上面安装的hexo文件夹&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;忘了路径的朋友可以打开git shell进行确认,就在git shell工作路径下&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  打开hexo文件夹里的&lt;strong&gt;_config.yml&lt;/strong&gt;,找到文件尾，修改为如下格式:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;斜杠后边是注释，不要写上去&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;deploy:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  type: git //出错试试github&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  repository: https://github.com/Scannery/Scannery.github.io.git //此处为你github里的IO库&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  branch: master&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;！格式一点都不能变，deploy要顶格写，type/re/branch前边要有&lt;strong&gt;两个&lt;/strong&gt;空格，冒号后边要有&lt;strong&gt;一个&lt;/strong&gt;空格，还有，一定要用&lt;strong&gt;英文&lt;/strong&gt;的冒号！！！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  接下来，请依次输入以下命令:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;hexo g&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;hexo d&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;g指generate，生成本地文件&lt;/p&gt;
+&lt;p&gt;d指deploy,将本地文件deploy到你用的github文件库里，这个需要联网的&lt;/p&gt;
+&lt;p&gt;如果d不出现任何返回值，请检查是否遗漏步骤，漏掉必须的依赖库&lt;/p&gt;
+&lt;p&gt;如果g失败，请检查_config.yml文件&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  接下来，就可以一睹你博客的真容了，取你的库地址如&lt;a href=&quot;https://github.com/Scannery/Scannery.github.io.git，去掉最后一个斜杠前边的部分和后边的git，如Scannery.github.io，就是你的博客地址了。&quot;&gt;https://github.com/Scannery/Scannery.github.io.git，去掉最后一个斜杠前边的部分和后边的git，如Scannery.github.io，就是你的博客地址了。&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;  附一些_config.yml中常用可修改的地方:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;title:&lt;/strong&gt; 此为你博客网页的名称&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;subtitle:&lt;/strong&gt; 副标题，根据博客主题显示在不同的位置&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;author:&lt;/strong&gt; 作者，建议改成你自己的ID……&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;url:&lt;/strong&gt; 建议改为你自己的IO库&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意，以上命令冒号后边一定要加个空格&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;第四步-使用markdown书写一篇博文&quot;&gt;&lt;a href=&quot;#第四步-使用markdown书写一篇博文&quot; class=&quot;headerlink&quot; title=&quot;第四步.使用markdown书写一篇博文&quot;&gt;&lt;/a&gt;第四步.使用markdown书写一篇博文&lt;/h1&gt;&lt;p&gt;  markdown是一种文本编写方式，可以实现书写+排版同时进行，节省排版的时间，详细参考&lt;a href=&quot;http://baike.baidu.com/link?url=jIXWbh5bJdAgu65DV7ZnV3sH7ELKwp7G38VT0BhulUW-xraidGK3o5qDcBi3F4eaLVF5c2Ty1sderlmZ-b_iqa&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;百度百科&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;1-新建一个markdown文件&quot;&gt;&lt;a href=&quot;#1-新建一个markdown文件&quot; class=&quot;headerlink&quot; title=&quot;1.新建一个markdown文件&quot;&gt;&lt;/a&gt;1.新建一个markdown文件&lt;/h2&gt;&lt;p&gt;  +在sublime里，寻找到hexo文件夹里的source文件夹，进入其中找到_posts，打开文件夹。&lt;/p&gt;
+&lt;p&gt;  +&lt;strong&gt;点击左上角file,new file,创建一个新的文件，在sublime右下方找到plain text标签，左键，在列表中找到Markdown，点击并选取里边的markdown选项&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;  +按&lt;strong&gt;Ctrl+s&lt;/strong&gt;，选择到hexo\source_post文件夹下，并保存。&lt;/p&gt;
+&lt;p&gt;  +在新建的文件上点击右键rename,将其改为md后缀名&lt;/p&gt;
+&lt;h2 id=&quot;2-简单的markdown编写&quot;&gt;&lt;a href=&quot;#2-简单的markdown编写&quot; class=&quot;headerlink&quot; title=&quot;2.简单的markdown编写&quot;&gt;&lt;/a&gt;2.简单的markdown编写&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;不加任何特殊符号的文本为普通文本&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;使用如下代码生成主标题:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;---&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;title: 如何hexo搭建属于自己的博客&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;---&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;使用#,##,###表示一级，二级，三级标题，如：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# 标题1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;## 标题2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;### 标题3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;使用&lt;strong&gt;文本&lt;/strong&gt;来高亮一段文本&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;使用&lt;strong&gt;+&lt;/strong&gt;或&lt;strong&gt;-&lt;/strong&gt;来生成无序表格，或标签:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;+ 文本1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;+ 文本2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;+ 文本3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;使用以下方式生成一个表格:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;| Tables        | Are           | Cool  |&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;| ------------- |:-------------:| -----:|&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;| col 3 is      | right-aligned | $1600 |&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;| col 2 is      | centered      |   $12 |&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;| zebra stripes | are neat      |    $1 |&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;效果如下：&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Tables&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;Are&lt;/th&gt;
+&lt;th style=&quot;text-align:right&quot;&gt;Cool&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;col 3 is&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;right-aligned&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;$1600&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;col 2 is&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;centered&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;$12&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;zebra stripes&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;are neat&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;$1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;使用 &lt;strong&gt;&amp;gt;&lt;/strong&gt; 进行引用:&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; 这段文字被引用了&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;   效果如下:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这段文字被引用了&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;插入图片或链接:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;不知道说啥的朋友请先看[这篇文档](http://www.jianshu.com/p/985d07d88ef4)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;将文字扩方括号来表示点击区域，括号后方为链接&lt;/p&gt;
+&lt;p&gt;图片：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;![](http://i2.buimg.com/16d1c9d91dd04aff.jpg)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;引用图片格式为，感叹号后接方括号，后面再接图片的网络地址&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;网络图片的地址可以通过右键获得。本地图片可以上传到图床，比如&lt;a href=&quot;http://tuchuang.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这个&lt;/a&gt;后获得网络地址&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;插入代码块，使用上下各三个~来分割代码区。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;第五步-配置hexo的主题&quot;&gt;&lt;a href=&quot;#第五步-配置hexo的主题&quot; class=&quot;headerlink&quot; title=&quot;第五步.配置hexo的主题&quot;&gt;&lt;/a&gt;第五步.配置hexo的主题&lt;/h1&gt;&lt;p&gt;   主题可以让你拥有自己的规划的外观，例如此处使用的yilia主题，详情参考&lt;a href=&quot;https://github.com/litten/hexo-theme-yilia&quot;&gt;此处&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;   主题存放在hexo\theme里，也有属于自己的_config.yml，可以通过修改这个文件进行主题操作，各主题相异就不具体讨论了。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意，主题_config.yml里的favicon是你的网站图标，需要为png格式&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;   知乎大大推荐的主题，戳&lt;a href=&quot;http://www.zhihu.com/question/24422335&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;第六步-将主站挂到google&quot;&gt;&lt;a href=&quot;#第六步-将主站挂到google&quot; class=&quot;headerlink&quot; title=&quot;第六步.将主站挂到google&quot;&gt;&lt;/a&gt;第六步.将主站挂到google&lt;/h1&gt;&lt;p&gt;  百度作者并没有试过，大家可以试一试。好像要到百度的站长之家里看&lt;/p&gt;
+&lt;p&gt;  google的话，使用Search Console添加即可，google自身提供了非常详细的教程，这里就不赘述了。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果采用html的验证方式，请将google给的文件放到hexo\public目录下即可&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文旨在说明如何使用hexo搭建与操作博客的过程&lt;/p&gt;
+&lt;p&gt;感谢这位朋友的博客，让我得以搭建成功，关于github的操作大家可以参考&lt;a href=&quot;http://www.jianshu.com/p/985d07d88ef4&quot; target=&quot;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>从C到C++(1)：面向对象是什么</title>
