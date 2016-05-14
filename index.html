@@ -79,7 +79,7 @@
 						<li>Links</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -292,10 +292,10 @@
       
         <blockquote>
 <p>本文目的是让读者更简单的理解面向对象的概念，所以会有不严谨的地方，请原谅</p>
-<p>本系列内容适合有C基础的朋友阅读，如没有请戳<a href="http://c.biancheng.net/cpp/u/c18/" target="_blank" rel="external">这里</a></p>
+<p>本系列内容适合有C基础的朋友阅读，如没有请戳<a href="http://c.biancheng.net/cpp/u/c18/">这里</a></p>
 </blockquote>
 <h2 id="1-什么是对象"><a href="#1-什么是对象" class="headerlink" title="1.什么是对象"></a>1.什么是对象</h2><p>   对象是什么？你的女朋友，或者你未来会有的女朋友，然后呢，举个小学语文上的例子：</p>
-<p>   小明在篮球场跳<a href="http://www.bilibili.com/video/av2130097/" target="_blank" rel="external">普通的disco</a></p>
+<p>   小明在篮球场跳<a href="http://www.bilibili.com/video/av2130097/">普通的disco</a></p>
 <p>   是谁在篮球场发疯呢？是小明，也就是说，在篮球场上发疯的<strong>对象</strong>是<strong>小明</strong>，小明就是一个对象;那我们换个问法呢，小明在哪儿发疯呢？是篮球场，同理我们可以得出，<strong>篮球场</strong>是小明跳舞的<strong>对象</strong>。当然，智商比作者高的你肯定能得出一个结论，那普通的disco也是对象咯？答案是正确的，我们可以得出一个结论：</p>
 <blockquote>
 <p> <strong>万物皆对象</strong></p>
@@ -305,67 +305,6 @@
 <blockquote>
 <p>在编程中，我们只会用到自己需要的对象，并舍弃不必要的对象</p>
 </blockquote>
-<p>&lt; !–more–&gt;</p>
-<h2 id="2-什么是类，类和对象asshole-trade"><a href="#2-什么是类，类和对象asshole-trade" class="headerlink" title="2.什么是类，类和对象asshole trade"></a>2.什么是类，类和对象asshole trade</h2><p>   我们会经常用到类这个字，比如说，人类，鸟类，鱼类……当我们把一些事物称为类的时候，他们往往都具有一些相同的特点，比如，马都有四条腿，马都能跑，但他们也并不是一样，可能这只马是腿长，那只马腿短，这只马壮实，那只马单薄，<strong>两匹马并不完全一样，但他们都是马类</strong>，由此，我们可以得出类的定义</p>
-<blockquote>
-<p> 类是拥有相同特点的不同个体的集合</p>
-</blockquote>
-<p>   编程中的类也一样，我们将一个或多个对象中的特点抽取出来，抽象成一个类，在C++中，我们使用class来定义一个类，比如说，我们定义一个上面提到的马类:</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> horse&#123;</span><br><span class="line"><span class="keyword">public</span> :  <span class="keyword">int</span> legcount; <span class="comment">//腿数，一般都是4</span></span><br><span class="line">          <span class="keyword">int</span> leglength[<span class="number">4</span>]; <span class="comment">//腿长，这里每个马不一样</span></span><br><span class="line">          <span class="function"><span class="keyword">void</span> <span class="title">pao</span><span class="params">(<span class="keyword">int</span> qidian,<span class="keyword">int</span> zhongdian)</span></span>; <span class="comment">//每个马都能跑</span></span><br><span class="line">&#125;; <span class="comment">//别忘了这个分号</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p> 有C基础的同学，可以将其暂时理解为，具有内置函数的结构体</p>
-</blockquote>
-<p>   <strong>对象是类的具体实现</strong>，比如说如果类是马，对象是就是其中的一匹马，类是horses，对象就是thehorse;对象是个体，拥有马类对象的一个个体；在C++中，我们可以按以下格式生成一个对象:</p>
-<pre><code>[class名] 对象名;
-</code></pre><p>   比如，生成一个马的对象：</p>
-<pre><code>horse andy;
-</code></pre><p>   如上，我们定义了一个叫andy的马，他有四条腿，但不知道他腿有多长，他能跑，在C++中，我们可以用.运算符来访问它，比如:</p>
- <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> tui0;</span><br><span class="line">horse andy;</span><br><span class="line">andy.leglength[<span class="number">0</span>]=tui0;</span><br></pre></td></tr></table></figure>
-<p>   在C++中，我们需要在使用类之前定义类</p>
-<p>   同样我们也可用</p>
-<p>   horse anglababy;</p>
-<p>   来定义一个叫anglababy的马，他也有四条腿，他也有四条不知道多长的腿,他也能跑，我们可以用定义andy的方法来定义它</p>
-<p>   anglababy.leglength[0]=tui1;</p>
-<p>   也就是：</p>
-<blockquote>
-<p><strong>同一类型的对象可以接受同样的消息</strong></p>
-</blockquote>
-<h2 id="3-什么是面向对象编程"><a href="#3-什么是面向对象编程" class="headerlink" title="3.什么是面向对象编程"></a>3.什么是面向对象编程</h2><p>   面向对象编程，就是</p>
-<blockquote>
-<p><strong>将问题分解为对象之间的交互</strong></p>
-</blockquote>
-<p>   我们返回上边小明跳舞那里，现在，我们要实现小明跳舞这个事件。按照面向对象的设计思路，我们先提取出三个对象:</p>
-<ul>
-<li>小明</li>
-<li>篮球场</li>
-<li><p>普通的disco</p>
-<p>为了实现这三个对象，我们需要生成三个类：</p>
-</li>
-<li><p>人类</p>
-</li>
-<li>地点类</li>
-<li><p>歌曲类</p>
-<p>抽象出对象之间的交互：</p>
-</li>
-<li><p>人在地点上</p>
-</li>
-<li><p>人在跳舞</p>
-<p>构建类:</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> didian</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:<span class="built_in">string</span> didianming; <span class="comment">//地点名字</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> wu</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:<span class="built_in">string</span> wuming; <span class="comment">//舞曲名字</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> human&#123;</span><br><span class="line"><span class="keyword">public</span>:<span class="built_in">string</span> xingming; <span class="comment">//人名</span></span><br><span class="line">	   <span class="function"><span class="keyword">void</span> <span class="title">tiaowu</span><span class="params">(wu a)</span></span>; <span class="comment">//跳舞</span></span><br><span class="line">	   <span class="function"><span class="keyword">void</span> <span class="title">zaidi</span><span class="params">(didian a)</span></span>; <span class="comment">//在地方</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>小明跳舞的实现:</p>
-</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">   human xiaom;</span><br><span class="line">   didian lanqiuc;</span><br><span class="line">   wu disco;</span><br><span class="line">   xiaom.tiaowu(disco);</span><br><span class="line">   xiaom.zaidi(lanqiuc);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<pre><code>这里省了去一些烦人的参数设置
-</code></pre><h2 id="4-面向对象设计的优点"><a href="#4-面向对象设计的优点" class="headerlink" title="4.面向对象设计的优点"></a>4.面向对象设计的优点</h2><p>  面相对象设计简化了<strong>程序设计</strong></p>
-<p>  上述例子较为简单，使用面向过程的思想也较容易实现，但在实际的应用中，我们面对的不是小明在篮球场上跳舞这么简单的问题，而是：</p>
-<blockquote>
-<p>一个身高1m8胡子拉碴的基佬小明穿着校服在中华人民共和国陕西省西安市西安电子科技大学北操场和一群人团体跳超大音响播放的普通的disco</p>
-</blockquote>
-<p>  这看起来可能相当复杂，但实际上我们只要将小明，操场，舞曲的特点加到类里，就可以很容易的实现了。</p>
-<p>  同理，再实现了胡子拉碴基佬小明的舞蹈之后，我们也可以实现皮肤很白的十分妹的跳舞，也可以实现广场舞大妈的跳舞，面向对象提供了不小的适用性。</p>
-<p>  另一方面，也可以让这个程序交给完全不同的三个人设计——前提是他们商量好了交互的协议，甚至是<strong>程序设计的流水线</strong></p>
-<h3 id="下篇-从C到C-2-：你好，世界"><a href="#下篇-从C到C-2-：你好，世界" class="headerlink" title="下篇 从C到C++(2)：你好，世界"></a><a href="#">下篇</a> 从C到C++(2)：你好，世界</h3>
       
     </div>
     
@@ -374,6 +313,10 @@
       
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/05/12/cplus1/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>

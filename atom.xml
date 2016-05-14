@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/Scannery/Scannery.github.io/"/>
-  <updated>2016-05-14T02:51:09.351Z</updated>
+  <updated>2016-05-14T02:56:04.392Z</updated>
   <id>https://github.com/Scannery/Scannery.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://github.com/Scannery/Scannery.github.io/2016/05/13/blogmake/"/>
     <id>https://github.com/Scannery/Scannery.github.io/2016/05/13/blogmake/</id>
     <published>2016-05-13T14:27:59.915Z</published>
-    <updated>2016-05-14T02:51:09.351Z</updated>
+    <updated>2016-05-14T02:56:04.392Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;本文旨在说明如何使用hexo搭建与操作博客的过程&lt;/p&gt;
@@ -232,7 +232,7 @@
     <link href="https://github.com/Scannery/Scannery.github.io/2016/05/12/cplus1/"/>
     <id>https://github.com/Scannery/Scannery.github.io/2016/05/12/cplus1/</id>
     <published>2016-05-12T11:31:57.848Z</published>
-    <updated>2016-05-14T02:50:09.799Z</updated>
+    <updated>2016-05-14T02:56:01.936Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;本文目的是让读者更简单的理解面向对象的概念，所以会有不严谨的地方，请原谅&lt;/p&gt;
@@ -249,7 +249,7 @@
 &lt;blockquote&gt;
 &lt;p&gt;在编程中，我们只会用到自己需要的对象，并舍弃不必要的对象&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&amp;lt; !–more–&amp;gt;&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h2 id=&quot;2-什么是类，类和对象asshole-trade&quot;&gt;&lt;a href=&quot;#2-什么是类，类和对象asshole-trade&quot; class=&quot;headerlink&quot; title=&quot;2.什么是类，类和对象asshole trade&quot;&gt;&lt;/a&gt;2.什么是类，类和对象asshole trade&lt;/h2&gt;&lt;p&gt;   我们会经常用到类这个字，比如说，人类，鸟类，鱼类……当我们把一些事物称为类的时候，他们往往都具有一些相同的特点，比如，马都有四条腿，马都能跑，但他们也并不是一样，可能这只马是腿长，那只马腿短，这只马壮实，那只马单薄，&lt;strong&gt;两匹马并不完全一样，但他们都是马类&lt;/strong&gt;，由此，我们可以得出类的定义&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt; 类是拥有相同特点的不同个体的集合&lt;/p&gt;
@@ -315,7 +315,19 @@
     
       &lt;blockquote&gt;
 &lt;p&gt;本文目的是让读者更简单的理解面向对象的概念，所以会有不严谨的地方，请原谅&lt;/p&gt;
-&lt;p&gt;本系列内容适合有C基础的朋友阅读，如没有请戳&lt;a href=&quot;http://c.biancheng.net/cpp/u/c18/&quot; target=&quot;_blank
+&lt;p&gt;本系列内容适合有C基础的朋友阅读，如没有请戳&lt;a href=&quot;http://c.biancheng.net/cpp/u/c18/&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;1-什么是对象&quot;&gt;&lt;a href=&quot;#1-什么是对象&quot; class=&quot;headerlink&quot; title=&quot;1.什么是对象&quot;&gt;&lt;/a&gt;1.什么是对象&lt;/h2&gt;&lt;p&gt;   对象是什么？你的女朋友，或者你未来会有的女朋友，然后呢，举个小学语文上的例子：&lt;/p&gt;
+&lt;p&gt;   小明在篮球场跳&lt;a href=&quot;http://www.bilibili.com/video/av2130097/&quot;&gt;普通的disco&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;   是谁在篮球场发疯呢？是小明，也就是说，在篮球场上发疯的&lt;strong&gt;对象&lt;/strong&gt;是&lt;strong&gt;小明&lt;/strong&gt;，小明就是一个对象;那我们换个问法呢，小明在哪儿发疯呢？是篮球场，同理我们可以得出，&lt;strong&gt;篮球场&lt;/strong&gt;是小明跳舞的&lt;strong&gt;对象&lt;/strong&gt;。当然，智商比作者高的你肯定能得出一个结论，那普通的disco也是对象咯？答案是正确的，我们可以得出一个结论：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt; &lt;strong&gt;万物皆对象&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;   “但是，小明他爱跳跳，关我卵事啊？”&lt;/p&gt;
+&lt;p&gt;   是的，我们并不关心小明跳不跳舞，我们只关心我们需要的东西，所以，在编程中，我们将我们需要解决的问题，这个问题所需要的东西，抽象为对象。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在编程中，我们只会用到自己需要的对象，并舍弃不必要的对象&lt;/p&gt;
+&lt;/blockquote&gt;
     
     </summary>
     
@@ -327,7 +339,7 @@
     <link href="https://github.com/Scannery/Scannery.github.io/2016/05/10/hello-world/"/>
     <id>https://github.com/Scannery/Scannery.github.io/2016/05/10/hello-world/</id>
     <published>2016-05-10T15:42:44.935Z</published>
-    <updated>2016-05-14T02:54:19.256Z</updated>
+    <updated>2016-05-14T02:55:58.601Z</updated>
     
     <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
