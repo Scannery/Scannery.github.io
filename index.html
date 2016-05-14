@@ -79,7 +79,7 @@
 						<li>Links</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -226,182 +226,15 @@
       
         <blockquote>
 <p>本文旨在说明如何使用hexo搭建与操作博客的过程</p>
-<p>感谢这位朋友的博客，让我得以搭建成功，关于github的操作大家可以参考<a href="http://www.jianshu.com/p/985d07d88ef4" target="_blank" rel="external">这篇文档</a></p>
-<p>本篇默认读者为windows系统，并已经成功建立github的IO库，有git shell的运行环境；没有请参考上方文档</p>
-<p>未建立IO库的读者，建议在读完上方文档关于github的操作后，返回读本章节</p>
+<p>感谢这位朋友的博客，让我得以搭建成功，关于github的操作大家可以参考<a href="http://www.jianshu.com/p/985d07d88ef4">这篇文档</a></p>
+<p>本篇默认读者为windows系统，并已经成功建立github的代码仓库，并安装了git shell；没有请参考上方文档</p>
+<p>未建立代码仓库的读者，建议在读完上方文档关于github的操作后，返回读本章节</p>
 </blockquote>
-<h1 id="第一步-翻墙"><a href="#第一步-翻墙" class="headerlink" title="第一步.翻墙"></a>第一步.翻墙</h1><p>  这是非常重要的一步，没翻墙，访问github网址巨慢，这里提供一个出去的办法，戳<a href="http://pan.baidu.com/s/1nv9yZAp" target="_blank" rel="external">这里</a>获得软件，安装到电脑中并运行即可</p>
+<h1 id="第一步-翻墙"><a href="#第一步-翻墙" class="headerlink" title="第一步.翻墙"></a>第一步.翻墙</h1><p>  这是非常重要的一步，没翻墙，访问github网址巨慢，这里提供一个出去的办法，戳<a href="http://pan.baidu.com/s/1nv9yZAp">这里</a>获得软件，安装到电脑中并运行即可</p>
 <blockquote>
-<p>如果链接被吞或者想了解更多，戳<a href="http://nopescript.com/2016/05/11/great-wall-0/" target="_blank" rel="external">这里</a></p>
-<p>提供一个备用软件，<a href="http://www.ishadowsocks.net/" target="_blank" rel="external">ishaowsocks</a></p>
+<p>如果链接被吞或者想了解更多，戳<a href="http://nopescript.com/2016/05/11/great-wall-0/">这里</a></p>
+<p>提供一个备用软件，<a href="http://www.ishadowsocks.net/">ishadowsocks</a></p>
 </blockquote>
-<h1 id="第二步-安装与配置hexo"><a href="#第二步-安装与配置hexo" class="headerlink" title="第二步.安装与配置hexo"></a>第二步.安装与配置hexo</h1><h2 id="1-git-shell简介"><a href="#1-git-shell简介" class="headerlink" title="1.git shell简介"></a>1.git shell简介</h2><p>  git shell可以使你在电脑上运行shell语言，换而言之，你可以在这个窗口上运行部分linux系统上的命令行。你不懂也没关系，这里给出了一些常用的shell命令:</p>
-<blockquote>
-<p>方括号用来说明后边跟什么，输命令的时候不需要加上方括号</p>
-<p>最后提醒一遍，不知道说啥的朋友请先看<a href="http://www.jianshu.com/p/985d07d88ef4" target="_blank" rel="external">这篇文档</a></p>
-</blockquote>
-<ul>
-<li><p>cd [路径名]:进入指定路径. 如 <strong>cd c:\Users\temp</strong> 进入c\用户\temp的路径</p>
-<blockquote>
-<p>路径是什么呢？就是这个东西，表示控制终端工作的地方，如图：</p>
-</blockquote>
-<p><img src="http://i2.buimg.com/16d1c9d91dd04aff.jpg" alt=""></p>
-<blockquote>
-<p>特殊的，当前路径可以用 <strong>.</strong> 来表示，比如 <strong>cd .</strong> 就是进入当前文件夹,也就是没动……上一层的路径可以用 <strong>..</strong> 来表示， <strong>cd ..</strong> 就是进入上层路径</p>
-</blockquote>
-</li>
-<li><p>touch [文件名]:创建指定文件.如 <strong>touch cac.txt</strong> 创建一个名为cac的txt文件</p>
-</li>
-<li><p>cat [文件名]:将指定文件打印到控制台</p>
-</li>
-<li><p>rm [文件名]:删除指定文件</p>
-</li>
-<li><p>vim [文件名]:用vim文本编辑器打开文件，熟悉这个命令的朋友可以用vim来编辑下边谈到的文件，不熟悉的朋友建议别碰</p>
-</li>
-</ul>
-<h2 id="2-hexo安装与部署"><a href="#2-hexo安装与部署" class="headerlink" title="2.hexo安装与部署"></a>2.hexo安装与部署</h2><p>  打开gitshell，记住你的当前路径，输入以下命令进行安装：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install hexo-cli -g</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>大部分教程里使用npm，这里使用cnpm，前边的c代表China，下载起来更快一些。我们等下载成功之后，也就是出现的代码中不出现error，使用以下命令进行安装:</p>
-<p>如果npm/cnmp无效，原因是Node.JS没有装好，建议重装，具体参考置顶链接</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init Hexo</span><br></pre></td></tr></table></figure>
-<p>  这步出现以下返回即为安装成功:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">INFO Copying date to 你的路径\Hexo</span><br><span class="line">INFO You are almost done!…………</span><br></pre></td></tr></table></figure>
-<p>   这步完成之后会在目录下生成hexo文件夹，我们需要在hexo文件夹里加入hexo运行需要的依赖文件，在控制台中输入以下命令:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd .\Hexo</span><br><span class="line">cnpm install</span><br></pre></td></tr></table></figure>
-<p>   除此之外，我们还需要一些其他的依赖文件,输入以下命令:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">cnpm install hexo-generator-index --save</span><br><span class="line">cnpm install hexo-generator-archive --save</span><br><span class="line">cnpm install hexo-generator-category --save</span><br><span class="line">cnpm install hexo-generator-tag --save</span><br><span class="line">cnpm install hexo-deployer-git --save</span><br><span class="line">cnpm install hexo-deployer-heroku --save</span><br><span class="line">cnpm install hexo-deployer-rsync --save</span><br><span class="line">cnpm install hexo-deployer-openshift --save</span><br><span class="line">cnpm install hexo-renderer-marked@0.2 --save</span><br><span class="line">cnpm install hexo-renderer-stylus@0.2 --save</span><br><span class="line">cnpm install hexo-generator-feed@1 --save</span><br><span class="line">cnpm install hexo-generator-sitemap@1 --save</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>如果cnpm命令失败，可以考虑去掉C使用npm，如果都不行，请检查网络</p>
-</blockquote>
-<h1 id="第三步-生成本地文件，并将其推到github"><a href="#第三步-生成本地文件，并将其推到github" class="headerlink" title="第三步.生成本地文件，并将其推到github"></a>第三步.生成本地文件，并将其推到github</h1><blockquote>
-<p>本教程使用Sublime Text来编译文本，有经验的朋友可以用vim来编译</p>
-<p><strong>不要直接用记事本打开</strong></p>
-</blockquote>
-<p>  下载Sublime Text,戳<a href="http://pan.baidu.com/s/1gf2PBJt" target="_blank" rel="external">这里</a>进行度盘下载，如链接失效，请在下载并购买正版，或网上随便找一个破解版。</p>
-<p>  安装sublime text,最好建个快捷方式到桌面，之后打开，点击file\open Folder，打开上面安装的hexo文件夹</p>
-<blockquote>
-<p>忘了路径的朋友可以打开git shell进行确认,就在git shell工作路径下</p>
-</blockquote>
-<p>  打开hexo文件夹里的<strong>_config.yml</strong>,找到文件尾，修改为如下格式:</p>
-<blockquote>
-<p>斜杠后边是注释，不要写上去</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git //出错试试github</span><br><span class="line">  repository: https://github.com/Scannery/Scannery.github.io.git //此处为你github里的IO库</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>注意</strong>！格式一点都不能变，deploy要顶格写，type/re/branch前边要有<strong>两个</strong>空格，冒号后边要有<strong>一个</strong>空格，还有，一定要用<strong>英文</strong>的冒号！！！</p>
-</blockquote>
-<p>  接下来，请依次输入以下命令:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>g指generate，生成本地文件</p>
-<p>d指deploy,将本地文件deploy到你用的github文件库里，这个需要联网的</p>
-<p>如果d不出现任何返回值，请检查是否遗漏步骤，漏掉必须的依赖库</p>
-<p>如果g失败，请检查_config.yml文件</p>
-</blockquote>
-<p>  接下来，就可以一睹你博客的真容了，取你的库地址如<a href="https://github.com/Scannery/Scannery.github.io.git，去掉最后一个斜杠前边的部分和后边的git，如Scannery.github.io，就是你的博客地址了。">https://github.com/Scannery/Scannery.github.io.git，去掉最后一个斜杠前边的部分和后边的git，如Scannery.github.io，就是你的博客地址了。</a></p>
-<p>  附一些_config.yml中常用可修改的地方:</p>
-<ul>
-<li><p><strong>title:</strong> 此为你博客网页的名称</p>
-</li>
-<li><p><strong>subtitle:</strong> 副标题，根据博客主题显示在不同的位置</p>
-</li>
-<li><p><strong>author:</strong> 作者，建议改成你自己的ID……</p>
-</li>
-<li><p><strong>url:</strong> 建议改为你自己的IO库</p>
-<blockquote>
-<p>注意，以上命令冒号后边一定要加个空格</p>
-</blockquote>
-</li>
-</ul>
-<h1 id="第四步-使用markdown书写一篇博文"><a href="#第四步-使用markdown书写一篇博文" class="headerlink" title="第四步.使用markdown书写一篇博文"></a>第四步.使用markdown书写一篇博文</h1><p>  markdown是一种文本编写方式，可以实现书写+排版同时进行，节省排版的时间，详细参考<a href="http://baike.baidu.com/link?url=jIXWbh5bJdAgu65DV7ZnV3sH7ELKwp7G38VT0BhulUW-xraidGK3o5qDcBi3F4eaLVF5c2Ty1sderlmZ-b_iqa" target="_blank" rel="external">百度百科</a></p>
-<h2 id="1-新建一个markdown文件"><a href="#1-新建一个markdown文件" class="headerlink" title="1.新建一个markdown文件"></a>1.新建一个markdown文件</h2><p>  +在sublime里，寻找到hexo文件夹里的source文件夹，进入其中找到_posts，打开文件夹。</p>
-<p>  +<strong>点击左上角file,new file,创建一个新的文件，在sublime右下方找到plain text标签，左键，在列表中找到Markdown，点击并选取里边的markdown选项</strong></p>
-<p>  +按<strong>Ctrl+s</strong>，选择到hexo\source_post文件夹下，并保存。</p>
-<p>  +在新建的文件上点击右键rename,将其改为md后缀名</p>
-<h2 id="2-简单的markdown编写"><a href="#2-简单的markdown编写" class="headerlink" title="2.简单的markdown编写"></a>2.简单的markdown编写</h2><blockquote>
-<p>不加任何特殊符号的文本为普通文本</p>
-</blockquote>
-<ul>
-<li>使用如下代码生成主标题:</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 如何hexo搭建属于自己的博客</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<ul>
-<li>使用#,##,###表示一级，二级，三级标题，如：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 标题1</span><br><span class="line">## 标题2</span><br><span class="line">### 标题3</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>使用<strong>文本</strong>来高亮一段文本</p>
-</li>
-<li><p>使用<strong>+</strong>或<strong>-</strong>来生成无序表格，或标签:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+ 文本1</span><br><span class="line">+ 文本2</span><br><span class="line">+ 文本3</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用以下方式生成一个表格:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">| Tables        | Are           | Cool  |</span><br><span class="line">| ------------- |:-------------:| -----:|</span><br><span class="line">| col 3 is      | right-aligned | $1600 |</span><br><span class="line">| col 2 is      | centered      |   $12 |</span><br><span class="line">| zebra stripes | are neat      |    $1 |</span><br></pre></td></tr></table></figure>
-<p>效果如下：</p>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>Tables</th>
-<th style="text-align:center">Are</th>
-<th style="text-align:right">Cool</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>col 3 is</td>
-<td style="text-align:center">right-aligned</td>
-<td style="text-align:right">$1600</td>
-</tr>
-<tr>
-<td>col 2 is</td>
-<td style="text-align:center">centered</td>
-<td style="text-align:right">$12</td>
-</tr>
-<tr>
-<td>zebra stripes</td>
-<td style="text-align:center">are neat</td>
-<td style="text-align:right">$1</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>使用 <strong>&gt;</strong> 进行引用:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; 这段文字被引用了</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>   效果如下:</p>
-<blockquote>
-<p>这段文字被引用了</p>
-</blockquote>
-<ul>
-<li><p>插入图片或链接:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">不知道说啥的朋友请先看[这篇文档](http://www.jianshu.com/p/985d07d88ef4)</span><br></pre></td></tr></table></figure>
-<p>将文字扩方括号来表示点击区域，括号后方为链接</p>
-<p>图片：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![](http://i2.buimg.com/16d1c9d91dd04aff.jpg)</span><br></pre></td></tr></table></figure>
-<p>引用图片格式为，感叹号后接方括号，后面再接图片的网络地址</p>
-<blockquote>
-<p>网络图片的地址可以通过右键获得。本地图片可以上传到图床，比如<a href="http://tuchuang.org/" target="_blank" rel="external">这个</a>后获得网络地址</p>
-</blockquote>
-</li>
-<li><p>插入代码块，使用上下各三个~来分割代码区。</p>
-</li>
-</ul>
-<h1 id="第五步-配置hexo的主题"><a href="#第五步-配置hexo的主题" class="headerlink" title="第五步.配置hexo的主题"></a>第五步.配置hexo的主题</h1><p>   主题可以让你拥有自己的规划的外观，例如此处使用的yilia主题，详情参考<a href="https://github.com/litten/hexo-theme-yilia">此处</a></p>
-<p>   主题存放在hexo\theme里，也有属于自己的_config.yml，可以通过修改这个文件进行主题操作，各主题相异就不具体讨论了。</p>
-<blockquote>
-<p>注意，主题_config.yml里的favicon是你的网站图标，需要为png格式</p>
-</blockquote>
-<p>   知乎大大推荐的主题，戳<a href="http://www.zhihu.com/question/24422335" target="_blank" rel="external">这里</a></p>
-<h1 id="第六步-将主站挂到google"><a href="#第六步-将主站挂到google" class="headerlink" title="第六步.将主站挂到google"></a>第六步.将主站挂到google</h1><p>  百度作者并没有试过，大家可以试一试。好像要到百度的站长之家里看</p>
-<p>  google的话，使用Search Console添加即可，google自身提供了非常详细的教程，这里就不赘述了。</p>
-<blockquote>
-<p>如果采用html的验证方式，请将google给的文件放到hexo\public目录下即可</p>
-</blockquote>
-
       
     </div>
     
@@ -410,6 +243,10 @@
       
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/05/13/blogmake/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -468,6 +305,7 @@
 <blockquote>
 <p>在编程中，我们只会用到自己需要的对象，并舍弃不必要的对象</p>
 </blockquote>
+<p>&lt; !–more–&gt;</p>
 <h2 id="2-什么是类，类和对象asshole-trade"><a href="#2-什么是类，类和对象asshole-trade" class="headerlink" title="2.什么是类，类和对象asshole trade"></a>2.什么是类，类和对象asshole trade</h2><p>   我们会经常用到类这个字，比如说，人类，鸟类，鱼类……当我们把一些事物称为类的时候，他们往往都具有一些相同的特点，比如，马都有四条腿，马都能跑，但他们也并不是一样，可能这只马是腿长，那只马腿短，这只马壮实，那只马单薄，<strong>两匹马并不完全一样，但他们都是马类</strong>，由此，我们可以得出类的定义</p>
 <blockquote>
 <p> 类是拥有相同特点的不同个体的集合</p>
