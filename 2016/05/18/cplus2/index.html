@@ -18,7 +18,7 @@
 
 1.你好，世界   我们可以在任意文本编译器或IDE中，输入以下程序:
 1234567#include&amp;lt;iostream&amp;gt;using namespace std;void main()&amp;#123;   cout&amp;lt;&amp;lt;&quot;hello world&quot;&amp;lt;&amp;lt;endl;   system(&quot;pause&quot;); //">
-<meta property="og:updated_time" content="2016-05-19T13:09:07.231Z">
+<meta property="og:updated_time" content="2016-05-19T13:15:58.717Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从C到C++(2)：你好，世界">
 <meta name="twitter:description" content="本文将介绍C++的控制台输入输出，与string类的部分操作
@@ -246,6 +246,10 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">   <span class="built_in">cout</span>&lt;&lt;<span class="string">"hello world"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">   system(<span class="string">"pause"</span>); <span class="comment">//用vs的同学请加上这句</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>   经过编译，就可以在 cmd 上看到我们的成果了<br><a id="more"></a></p>
 <h1 id="2-C-中的标准输入和输出"><a href="#2-C-中的标准输入和输出" class="headerlink" title="2.C++中的标准输入和输出"></a>2.C++中的标准输入和输出</h1><blockquote>
+<p>cin 与 cout 函数存在于头文件 <strong>iostream</strong> 中</p>
+</blockquote>
+<p>  这里说的输入输出只包括控制台的输出</p>
+<blockquote>
 <p>std::cin&gt;&gt;s&gt;&gt;s1&gt;&gt;s2&gt;&gt;sn;</p>
 </blockquote>
 <p>  上式为标准输入，将控制台输入的值置入s中,s可以为整型，长整，浮点，字符串……</p>
@@ -271,7 +275,10 @@
 <p><strong>不能用 cin 或 cout 直接输出非特殊类的对象</strong></p>
 </blockquote>
 <p>  ps:大家可以通过问度来获取这些函数更多的用法，问谷歌可以得到更多，上谷歌需要翻墙才可以进行访问，有需求的朋友可以参考<a href="http://scannery.github.io/2016/05/13/blogmake/" target="_blank" rel="external">我的另一篇博客</a></p>
-<h1 id="3-字符串类string与c-style-string"><a href="#3-字符串类string与c-style-string" class="headerlink" title="3.字符串类string与c_style string"></a>3.字符串类string与c_style string</h1><p>  相信大家都了解c_style的字符串的表达方式，在C中，我们用 <strong>字符串</strong> 加上 <strong>\0</strong> 的方式来存储一个字符串</p>
+<h1 id="3-字符串类string与c-style-string"><a href="#3-字符串类string与c-style-string" class="headerlink" title="3.字符串类string与c_style string"></a>3.字符串类string与c_style string</h1><blockquote>
+<p>string类的头文件为 <strong>string</strong></p>
+</blockquote>
+<p>  相信大家都了解c_style的字符串的表达方式，在C中，我们用 <strong>字符串</strong> 加上 <strong>\0</strong> 的方式来存储一个字符串</p>
 <p>  比如说，如果我输入的字符串是 <strong>c++isverygood</strong>,c会以一下方式来存储</p>
 <blockquote>
 <p>c++isverygood\0</p>
@@ -333,7 +340,7 @@
 </blockquote>
 <p>  返回一个C风格的字符串，或者说成字符数组，用 c_str 将会有 \0 的结束符，data 则没有 \0 的结束符</p>
 <h1 id="6-两个简单的应用-string-类程序"><a href="#6-两个简单的应用-string-类程序" class="headerlink" title="6.两个简单的应用 string 类程序"></a>6.两个简单的应用 string 类程序</h1><p>  遍历string中的数据:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for(char a: str) cout&lt;&lt;a&lt;&lt;endl;</span><br></pre></td></tr></table></figure></p>
-<p>  在C++中，我们可以用for(数据类型，不知道为auto : 数组名，vector 名，string 名)来遍历其中的数据</p>
+<p>  在C++中，我们可以用for(数据类型，不知道直接怼为auto : 数组名，vector 名，string 名)来遍历其中的数据</p>
 <p>##6.1,split方法</p>
 <p>  string split的方法，将字符串用指定标示符来分割:</p>
 <p>  如果字符串为 abcdeca ，用指定符 c 来分割，结果为 ab de a 三个字符串</p>

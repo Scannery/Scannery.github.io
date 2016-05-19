@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/Scannery/Scannery.github.io/"/>
-  <updated>2016-05-19T13:09:07.231Z</updated>
+  <updated>2016-05-19T13:15:58.717Z</updated>
   <id>https://github.com/Scannery/Scannery.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://github.com/Scannery/Scannery.github.io/2016/05/18/cplus2/"/>
     <id>https://github.com/Scannery/Scannery.github.io/2016/05/18/cplus2/</id>
     <published>2016-05-18T13:32:45.609Z</published>
-    <updated>2016-05-19T13:09:07.231Z</updated>
+    <updated>2016-05-19T13:15:58.717Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;本文将介绍C++的控制台输入输出，与string类的部分操作&lt;/p&gt;
@@ -29,6 +29,10 @@
 &lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;meta-string&quot;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;std&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;built_in&quot;&gt;cout&lt;/span&gt;&amp;lt;&amp;lt;&lt;span class=&quot;string&quot;&gt;&quot;hello world&quot;&lt;/span&gt;&amp;lt;&amp;lt;&lt;span class=&quot;built_in&quot;&gt;endl&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   system(&lt;span class=&quot;string&quot;&gt;&quot;pause&quot;&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//用vs的同学请加上这句&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;   经过编译，就可以在 cmd 上看到我们的成果了&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;2-C-中的标准输入和输出&quot;&gt;&lt;a href=&quot;#2-C-中的标准输入和输出&quot; class=&quot;headerlink&quot; title=&quot;2.C++中的标准输入和输出&quot;&gt;&lt;/a&gt;2.C++中的标准输入和输出&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;cin 与 cout 函数存在于头文件 &lt;strong&gt;iostream&lt;/strong&gt; 中&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  这里说的输入输出只包括控制台的输出&lt;/p&gt;
+&lt;blockquote&gt;
 &lt;p&gt;std::cin&amp;gt;&amp;gt;s&amp;gt;&amp;gt;s1&amp;gt;&amp;gt;s2&amp;gt;&amp;gt;sn;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;  上式为标准输入，将控制台输入的值置入s中,s可以为整型，长整，浮点，字符串……&lt;/p&gt;
@@ -54,7 +58,10 @@
 &lt;p&gt;&lt;strong&gt;不能用 cin 或 cout 直接输出非特殊类的对象&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;  ps:大家可以通过问度来获取这些函数更多的用法，问谷歌可以得到更多，上谷歌需要翻墙才可以进行访问，有需求的朋友可以参考&lt;a href=&quot;http://scannery.github.io/2016/05/13/blogmake/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;我的另一篇博客&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;3-字符串类string与c-style-string&quot;&gt;&lt;a href=&quot;#3-字符串类string与c-style-string&quot; class=&quot;headerlink&quot; title=&quot;3.字符串类string与c_style string&quot;&gt;&lt;/a&gt;3.字符串类string与c_style string&lt;/h1&gt;&lt;p&gt;  相信大家都了解c_style的字符串的表达方式，在C中，我们用 &lt;strong&gt;字符串&lt;/strong&gt; 加上 &lt;strong&gt;\0&lt;/strong&gt; 的方式来存储一个字符串&lt;/p&gt;
+&lt;h1 id=&quot;3-字符串类string与c-style-string&quot;&gt;&lt;a href=&quot;#3-字符串类string与c-style-string&quot; class=&quot;headerlink&quot; title=&quot;3.字符串类string与c_style string&quot;&gt;&lt;/a&gt;3.字符串类string与c_style string&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;string类的头文件为 &lt;strong&gt;string&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  相信大家都了解c_style的字符串的表达方式，在C中，我们用 &lt;strong&gt;字符串&lt;/strong&gt; 加上 &lt;strong&gt;\0&lt;/strong&gt; 的方式来存储一个字符串&lt;/p&gt;
 &lt;p&gt;  比如说，如果我输入的字符串是 &lt;strong&gt;c++isverygood&lt;/strong&gt;,c会以一下方式来存储&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;c++isverygood\0&lt;/p&gt;
@@ -116,7 +123,7 @@
 &lt;/blockquote&gt;
 &lt;p&gt;  返回一个C风格的字符串，或者说成字符数组，用 c_str 将会有 \0 的结束符，data 则没有 \0 的结束符&lt;/p&gt;
 &lt;h1 id=&quot;6-两个简单的应用-string-类程序&quot;&gt;&lt;a href=&quot;#6-两个简单的应用-string-类程序&quot; class=&quot;headerlink&quot; title=&quot;6.两个简单的应用 string 类程序&quot;&gt;&lt;/a&gt;6.两个简单的应用 string 类程序&lt;/h1&gt;&lt;p&gt;  遍历string中的数据:&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;for(char a: str) cout&amp;lt;&amp;lt;a&amp;lt;&amp;lt;endl;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;  在C++中，我们可以用for(数据类型，不知道为auto : 数组名，vector 名，string 名)来遍历其中的数据&lt;/p&gt;
+&lt;p&gt;  在C++中，我们可以用for(数据类型，不知道直接怼为auto : 数组名，vector 名，string 名)来遍历其中的数据&lt;/p&gt;
 &lt;p&gt;##6.1,split方法&lt;/p&gt;
 &lt;p&gt;  string split的方法，将字符串用指定标示符来分割:&lt;/p&gt;
 &lt;p&gt;  如果字符串为 abcdeca ，用指定符 c 来分割，结果为 ab de a 三个字符串&lt;/p&gt;
