@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>从C到C++(2)：你好，世界 | Scannery的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文将介绍C++的控制台输入输出，与string类的部分操作
+
+1.你好，世界   我们可以在任意文本编译器或IDE中，输入以下程序:
+1234567#include&amp;lt;iostream&amp;gt;using namespace std;void main()&amp;#123;   cout&amp;lt;&amp;lt;&quot;hello world&quot;&amp;lt;&amp;lt;endl;   system(&quot;pause&quot;); //">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从C到C++(2)：你好，世界">
+<meta property="og:url" content="https://github.com/Scannery/Scannery.github.io/2016/05/18/cplus2/index.html">
+<meta property="og:site_name" content="Scannery的博客">
+<meta property="og:description" content="本文将介绍C++的控制台输入输出，与string类的部分操作
+
+1.你好，世界   我们可以在任意文本编译器或IDE中，输入以下程序:
+1234567#include&amp;lt;iostream&amp;gt;using namespace std;void main()&amp;#123;   cout&amp;lt;&amp;lt;&quot;hello world&quot;&amp;lt;&amp;lt;endl;   system(&quot;pause&quot;); //">
+<meta property="og:updated_time" content="2016-05-19T12:55:25.172Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="从C到C++(2)：你好，世界">
+<meta name="twitter:description" content="本文将介绍C++的控制台输入输出，与string类的部分操作
+
+1.你好，世界   我们可以在任意文本编译器或IDE中，输入以下程序:
+1234567#include&amp;lt;iostream&amp;gt;using namespace std;void main()&amp;#123;   cout&amp;lt;&amp;lt;&quot;hello world&quot;&amp;lt;&amp;lt;endl;   system(&quot;pause&quot;); //">
+  
+    <link rel="alternative" href="/atom.xml" title="Scannery的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://i3.buimg.com/4c24f206badd271f.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://i2.buimg.com/ac712072589d8d98.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Scannery</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">让我看看你是否学有所成</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>About</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="mail" target="_blank" href="/tycf0013@126.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://tieba.baidu.com/f?kw=%D9%BB%C5%AE%D3%C4%BB%EA%C2%BC">倩女幽魂录吧</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://pan.baidu.com/s/1kVGUACB">百度网盘</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">从还没入门到夺门而逃</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Scannery</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img src="http://i2.buimg.com/ac712072589d8d98.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Scannery</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">让我看看你是否学有所成</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="mail" target="_blank" href="/tycf0013@126.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-cplus2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/18/cplus2/" class="article-date">
+  	<time datetime="2016-05-18T13:32:45.609Z" itemprop="datePublished">2016-05-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      从C到C++(2)：你好，世界
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>本文将介绍C++的控制台输入输出，与string类的部分操作</p>
+</blockquote>
+<h2 id="1-你好，世界"><a href="#1-你好，世界" class="headerlink" title="1.你好，世界"></a>1.你好，世界</h2><p>   我们可以在任意文本编译器或IDE中，输入以下程序:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">   <span class="built_in">cout</span>&lt;&lt;<span class="string">"hello world"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">   system(<span class="string">"pause"</span>); <span class="comment">//用vs的同学请加上这句</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>   经过编译，就可以在 cmd 上看到我们的成果了<br><a id="more"></a></p>
+<h2 id="2-C-中的标准输入和输出"><a href="#2-C-中的标准输入和输出" class="headerlink" title="2.C++中的标准输入和输出"></a>2.C++中的标准输入和输出</h2><blockquote>
+<p>std::cin&gt;&gt;s&gt;&gt;s1&gt;&gt;s2&gt;&gt;sn;</p>
+</blockquote>
+<p>  上式为标准输入，将控制台输入的值置入s中,s可以为整型，长整，浮点，字符串……</p>
+<p>  在标注了 using namespace std; 的情况下，上式可以简化为:</p>
+<blockquote>
+<p>cin&gt;&gt;s1&gt;&gt;s2&gt;&gt;sn;</p>
+</blockquote>
+<p>  注意：<strong>使用连续的输入时，可以用空格来分割两个输入，也可以一个一个输入，即输入一个数据接空格</strong></p>
+<p>  比如，我用cin&gt;&gt;s1&gt;&gt;s2&gt;&gt;s3时，我可以这么输入:</p>
+<p>  s1\回车<br>  s2 s3\回车</p>
+<p>  c++的标准输出如下：</p>
+<blockquote>
+<p>std::cout&lt;&lt;输出1&lt;&lt;输出2&lt;&lt;输出n&lt;&lt;std::endl;</p>
+</blockquote>
+<p>  c++标准输出由cout与endl两部分组成，输出为任意变量或用双引号引起的字符串</p>
+<p>  同理，在 using 掉 std 的情况下，上式简化为:</p>
+<blockquote>
+<p>cout&lt;&lt;输出1&lt;&lt;输出n&lt;&lt;endl;</p>
+</blockquote>
+<p>  其中， endl 是end line 的意思，表明输出之后将自动换行</p>
+<p>  值得注意的是：</p>
+<blockquote>
+<p><strong>不能用 cin 或 cout 直接输出非特殊类的对象</strong></p>
+</blockquote>
+<p>  ps:大家可以通过问度来获取这些函数更多的用法，问谷歌可以得到更多，上谷歌需要翻墙才可以进行访问，有需求的朋友可以参考<a href="http://scannery.github.io/2016/05/13/blogmake/" target="_blank" rel="external">我的另一篇博客</a></p>
+<h2 id="3-字符串类string与c-style-string"><a href="#3-字符串类string与c-style-string" class="headerlink" title="3.字符串类string与c_style string"></a>3.字符串类string与c_style string</h2><p>  相信大家都了解c_style的字符串的表达方式，在C中，我们用 <strong>字符串</strong> 加上 <strong>\0</strong> 的方式来存储一个字符串</p>
+<p>  比如说，如果我输入的字符串是 <strong>c++isverygood</strong>,c会以一下方式来存储</p>
+<blockquote>
+<p>c++isverygood\0</p>
+</blockquote>
+<p>  如果这个字符串s来表示，s存储的将是这个字符串第一位的位置，也就c的存储位置，系统在读取字符串时，会沿c往后读，直到遇到\0</p>
+<p>  这种方式是不是很眼熟呢？没错：</p>
+<blockquote>
+<p>在C中，字符串的存储方式的本质是一个 <strong>字符数组</strong></p>
+</blockquote>
+<p>  在C++中，我们同样可以用这种方式来定义一个字符串。但在本文中，我们将介绍另外一种更好用的定义方法：</p>
+<p>  如下，用string类来定义并使用一个字符串</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">void</span> main</span><br><span class="line">&#123;</span><br><span class="line">   <span class="built_in">string</span> s;</span><br><span class="line">   <span class="built_in">cin</span>&gt;&gt;s;</span><br><span class="line">   <span class="built_in">cout</span>&lt;&lt;s&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  注意，string类可以直接调用cin来输入；</p>
+<h2 id="4-string类的初始化"><a href="#4-string类的初始化" class="headerlink" title="4.string类的初始化"></a>4.string类的初始化</h2><p>  在上面的程序中，我们用 string s 来声明一个字符串，但在声明的同时，给其赋予了初值空；</p>
+<blockquote>
+<p>同样的，我们再定义其他数据类型时，系统也会赋予其一个初始值。如 int 型将被赋予0， boolean 型将被赋予 false</p>
+</blockquote>
+<p>  我们可以使用以下方式声明并初始化一个字符串:</p>
+ <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> s=<span class="string">"abc"</span>； <span class="comment">//将abc复制入s</span></span><br><span class="line"><span class="built_in">string</span> s(<span class="string">"abc"</span>); <span class="comment">//将s定义为abc</span></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">s</span><span class="params">(<span class="string">'c'</span>,<span class="number">10</span>)</span></span>; <span class="comment">//s为cccccccccc</span></span><br><span class="line"><span class="built_in">string</span> s; <span class="comment">//s是一个空的字符串</span></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">s</span><span class="params">(s1)</span></span>; <span class="comment">//将s1的值赋予s</span></span><br></pre></td></tr></table></figure>
+<p>  关于 string 类型还有很多的定义方法，但需要用 c++ 的朋友来说，这些足够了，需要拿 c++ 去应试的朋友，还是老老实实学更多吧</p>
+<h2 id="5-string-类的常用方法"><a href="#5-string-类的常用方法" class="headerlink" title="5.string 类的常用方法"></a>5.string 类的常用方法</h2><blockquote>
+<p>s.empty()</p>
+</blockquote>
+<p>  返回一个布尔值，如果字符串s为空，返回 true ，否则返回 false </p>
+<blockquote>
+<p>布尔值用 <strong>boolean 变量</strong> 定义,取值有 true 和 false ，在C语言中，我们用0表示 false ，用非0表示 true </p>
+</blockquote>
+<p>  关于更多布尔值的资料，请戳<a href="#">这里</a></p>
+<blockquote>
+<p>s.size()</p>
+</blockquote>
+<p>  返回字符串的长度，注意，字符串的顺序是0到长度-1；</p>
+<blockquote>
+<p>s[n]</p>
+</blockquote>
+<p>  返回字符串 s 在 n 位置的 <strong>char</strong> 的引用，大家可以将其理解为值，更多的引用得说明，请参照<a href="#">下篇</a></p>
+<p>  初学的朋友可以无视引用二字，理解为在n位置上的值就可以了</p>
+<p>  <strong>注意， s[s.size()] 越界了，最后一个字符是 s[s.size()-1]!!!</strong></p>
+<blockquote>
+<p>s1+s2</p>
+</blockquote>
+<p>  将 s1 与 s2 相连，如 s1 为 abc ，s2 为 bcd ，那么 s1+s2 的值为 abcbcd</p>
+<blockquote>
+<p>s1=s2</p>
+</blockquote>
+<p>  将 s2 的值赋予 s1;</p>
+<blockquote>
+<p>s.erase(起点,终点)<br>s.erase(位置)</p>
+</blockquote>
+<p>  第一种方式，擦除字符串内起点到终点位置的字符，起点终点可以为 int 型或迭代器 string::iterator 型</p>
+<p>  第二种方式，擦除字符串中指定位置的字符，起点终点可以为 int 型或迭代器 string::iterator 型</p>
+<blockquote>
+<p>s.push_back(字符)</p>
+</blockquote>
+<p>  在字符串尾部加入一个字符</p>
+<p>  你也可以写成 <strong>s+字符</strong> 来达成这个效果</p>
+<blockquote>
+<p>s.c_str()<br>s.data()</p>
+</blockquote>
+<p>  返回一个C风格的字符串，或者说成字符数组，用 c_str 将会有 \0 的结束符，data 则没有 \0 的结束符</p>
+<h2 id="6-两个简单的应用-string-类程序"><a href="#6-两个简单的应用-string-类程序" class="headerlink" title="6.两个简单的应用 string 类程序"></a>6.两个简单的应用 string 类程序</h2><p>  遍历string中的数据:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for(char a: str) cout&lt;&lt;a&lt;&lt;endl;</span><br></pre></td></tr></table></figure></p>
+<p>  在C++中，我们可以用for(数据类型，不知道为auto : 数组名，vector 名，string 名)来遍历其中的数据</p>
+<p>  string split的方法，将字符串用指定标示符来分割:</p>
+<p>  如果字符串为 abcdeca ，用指定符 c 来分割，结果为 ab de a 三个字符串</p>
+<p>  &lt;&lt; 本函数将结果存储在 Vector 中，Vector 的使用将在下篇提及:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;string&gt; str_split(string str, char sign)</span><br><span class="line">&#123;</span><br><span class="line">	vector&lt;string&gt; strs;</span><br><span class="line">	string split(&quot;&quot;);</span><br><span class="line">	for (char c : str)</span><br><span class="line">	&#123;</span><br><span class="line">		if (c == sign)</span><br><span class="line">		&#123;</span><br><span class="line">			strs.push_back(split);</span><br><span class="line">			split = &quot;&quot;;</span><br><span class="line">		&#125;</span><br><span class="line">		else split = split + c;</span><br><span class="line">	&#125;</span><br><span class="line">	strs.push_back(split);</span><br><span class="line">	return strs;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="下篇-从C到C-3-：reference-vector和iterator"><a href="#下篇-从C到C-3-：reference-vector和iterator" class="headerlink" title="下篇 从C到C++(3)：reference,vector和iterator"></a><a href="#">下篇</a> 从C到C++(3)：reference,vector和iterator</h3>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/05/13/blogmake/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">如何hexo搭建属于自己的博客</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="cplus2" data-title="从C到C++(2)：你好，世界" data-url="https://github.com/Scannery/Scannery.github.io/2016/05/18/cplus2/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"scannery"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Scannery
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: false,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

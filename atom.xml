@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/Scannery/Scannery.github.io/"/>
-  <updated>2016-05-14T02:56:04.392Z</updated>
+  <updated>2016-05-19T12:55:25.172Z</updated>
   <id>https://github.com/Scannery/Scannery.github.io/</id>
   
   <author>
@@ -14,6 +14,128 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从C到C++(2)：你好，世界</title>
+    <link href="https://github.com/Scannery/Scannery.github.io/2016/05/18/cplus2/"/>
+    <id>https://github.com/Scannery/Scannery.github.io/2016/05/18/cplus2/</id>
+    <published>2016-05-18T13:32:45.609Z</published>
+    <updated>2016-05-19T12:55:25.172Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;本文将介绍C++的控制台输入输出，与string类的部分操作&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;1-你好，世界&quot;&gt;&lt;a href=&quot;#1-你好，世界&quot; class=&quot;headerlink&quot; title=&quot;1.你好，世界&quot;&gt;&lt;/a&gt;1.你好，世界&lt;/h2&gt;&lt;p&gt;   我们可以在任意文本编译器或IDE中，输入以下程序:&lt;/p&gt;
+&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;meta-string&quot;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;std&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;built_in&quot;&gt;cout&lt;/span&gt;&amp;lt;&amp;lt;&lt;span class=&quot;string&quot;&gt;&quot;hello world&quot;&lt;/span&gt;&amp;lt;&amp;lt;&lt;span class=&quot;built_in&quot;&gt;endl&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   system(&lt;span class=&quot;string&quot;&gt;&quot;pause&quot;&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//用vs的同学请加上这句&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;   经过编译，就可以在 cmd 上看到我们的成果了&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;2-C-中的标准输入和输出&quot;&gt;&lt;a href=&quot;#2-C-中的标准输入和输出&quot; class=&quot;headerlink&quot; title=&quot;2.C++中的标准输入和输出&quot;&gt;&lt;/a&gt;2.C++中的标准输入和输出&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;std::cin&amp;gt;&amp;gt;s&amp;gt;&amp;gt;s1&amp;gt;&amp;gt;s2&amp;gt;&amp;gt;sn;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  上式为标准输入，将控制台输入的值置入s中,s可以为整型，长整，浮点，字符串……&lt;/p&gt;
+&lt;p&gt;  在标注了 using namespace std; 的情况下，上式可以简化为:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;cin&amp;gt;&amp;gt;s1&amp;gt;&amp;gt;s2&amp;gt;&amp;gt;sn;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  注意：&lt;strong&gt;使用连续的输入时，可以用空格来分割两个输入，也可以一个一个输入，即输入一个数据接空格&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;  比如，我用cin&amp;gt;&amp;gt;s1&amp;gt;&amp;gt;s2&amp;gt;&amp;gt;s3时，我可以这么输入:&lt;/p&gt;
+&lt;p&gt;  s1\回车&lt;br&gt;  s2 s3\回车&lt;/p&gt;
+&lt;p&gt;  c++的标准输出如下：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;std::cout&amp;lt;&amp;lt;输出1&amp;lt;&amp;lt;输出2&amp;lt;&amp;lt;输出n&amp;lt;&amp;lt;std::endl;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  c++标准输出由cout与endl两部分组成，输出为任意变量或用双引号引起的字符串&lt;/p&gt;
+&lt;p&gt;  同理，在 using 掉 std 的情况下，上式简化为:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;cout&amp;lt;&amp;lt;输出1&amp;lt;&amp;lt;输出n&amp;lt;&amp;lt;endl;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  其中， endl 是end line 的意思，表明输出之后将自动换行&lt;/p&gt;
+&lt;p&gt;  值得注意的是：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;不能用 cin 或 cout 直接输出非特殊类的对象&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  ps:大家可以通过问度来获取这些函数更多的用法，问谷歌可以得到更多，上谷歌需要翻墙才可以进行访问，有需求的朋友可以参考&lt;a href=&quot;http://scannery.github.io/2016/05/13/blogmake/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;我的另一篇博客&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;3-字符串类string与c-style-string&quot;&gt;&lt;a href=&quot;#3-字符串类string与c-style-string&quot; class=&quot;headerlink&quot; title=&quot;3.字符串类string与c_style string&quot;&gt;&lt;/a&gt;3.字符串类string与c_style string&lt;/h2&gt;&lt;p&gt;  相信大家都了解c_style的字符串的表达方式，在C中，我们用 &lt;strong&gt;字符串&lt;/strong&gt; 加上 &lt;strong&gt;\0&lt;/strong&gt; 的方式来存储一个字符串&lt;/p&gt;
+&lt;p&gt;  比如说，如果我输入的字符串是 &lt;strong&gt;c++isverygood&lt;/strong&gt;,c会以一下方式来存储&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;c++isverygood\0&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  如果这个字符串s来表示，s存储的将是这个字符串第一位的位置，也就c的存储位置，系统在读取字符串时，会沿c往后读，直到遇到\0&lt;/p&gt;
+&lt;p&gt;  这种方式是不是很眼熟呢？没错：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在C中，字符串的存储方式的本质是一个 &lt;strong&gt;字符数组&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  在C++中，我们同样可以用这种方式来定义一个字符串。但在本文中，我们将介绍另外一种更好用的定义方法：&lt;/p&gt;
+&lt;p&gt;  如下，用string类来定义并使用一个字符串&lt;/p&gt;
+&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;meta-string&quot;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;meta-string&quot;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;std&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; main&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt; s;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;built_in&quot;&gt;cin&lt;/span&gt;&amp;gt;&amp;gt;s;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;built_in&quot;&gt;cout&lt;/span&gt;&amp;lt;&amp;lt;s&amp;lt;&amp;lt;&lt;span class=&quot;built_in&quot;&gt;endl&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;  注意，string类可以直接调用cin来输入；&lt;/p&gt;
+&lt;h2 id=&quot;4-string类的初始化&quot;&gt;&lt;a href=&quot;#4-string类的初始化&quot; class=&quot;headerlink&quot; title=&quot;4.string类的初始化&quot;&gt;&lt;/a&gt;4.string类的初始化&lt;/h2&gt;&lt;p&gt;  在上面的程序中，我们用 string s 来声明一个字符串，但在声明的同时，给其赋予了初值空；&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;同样的，我们再定义其他数据类型时，系统也会赋予其一个初始值。如 int 型将被赋予0， boolean 型将被赋予 false&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  我们可以使用以下方式声明并初始化一个字符串:&lt;/p&gt;
+ &lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt; s=&lt;span class=&quot;string&quot;&gt;&quot;abc&quot;&lt;/span&gt;； &lt;span class=&quot;comment&quot;&gt;//将abc复制入s&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt; s(&lt;span class=&quot;string&quot;&gt;&quot;abc&quot;&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//将s定义为abc&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;string&quot;&gt;&#39;c&#39;&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;; &lt;span class=&quot;comment&quot;&gt;//s为cccccccccc&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt; s; &lt;span class=&quot;comment&quot;&gt;//s是一个空的字符串&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(s1)&lt;/span&gt;&lt;/span&gt;; &lt;span class=&quot;comment&quot;&gt;//将s1的值赋予s&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;  关于 string 类型还有很多的定义方法，但需要用 c++ 的朋友来说，这些足够了，需要拿 c++ 去应试的朋友，还是老老实实学更多吧&lt;/p&gt;
+&lt;h2 id=&quot;5-string-类的常用方法&quot;&gt;&lt;a href=&quot;#5-string-类的常用方法&quot; class=&quot;headerlink&quot; title=&quot;5.string 类的常用方法&quot;&gt;&lt;/a&gt;5.string 类的常用方法&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;s.empty()&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  返回一个布尔值，如果字符串s为空，返回 true ，否则返回 false &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;布尔值用 &lt;strong&gt;boolean 变量&lt;/strong&gt; 定义,取值有 true 和 false ，在C语言中，我们用0表示 false ，用非0表示 true &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  关于更多布尔值的资料，请戳&lt;a href=&quot;#&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;s.size()&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  返回字符串的长度，注意，字符串的顺序是0到长度-1；&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;s[n]&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  返回字符串 s 在 n 位置的 &lt;strong&gt;char&lt;/strong&gt; 的引用，大家可以将其理解为值，更多的引用得说明，请参照&lt;a href=&quot;#&quot;&gt;下篇&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;  初学的朋友可以无视引用二字，理解为在n位置上的值就可以了&lt;/p&gt;
+&lt;p&gt;  &lt;strong&gt;注意， s[s.size()] 越界了，最后一个字符是 s[s.size()-1]!!!&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;s1+s2&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  将 s1 与 s2 相连，如 s1 为 abc ，s2 为 bcd ，那么 s1+s2 的值为 abcbcd&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;s1=s2&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  将 s2 的值赋予 s1;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;s.erase(起点,终点)&lt;br&gt;s.erase(位置)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  第一种方式，擦除字符串内起点到终点位置的字符，起点终点可以为 int 型或迭代器 string::iterator 型&lt;/p&gt;
+&lt;p&gt;  第二种方式，擦除字符串中指定位置的字符，起点终点可以为 int 型或迭代器 string::iterator 型&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;s.push_back(字符)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  在字符串尾部加入一个字符&lt;/p&gt;
+&lt;p&gt;  你也可以写成 &lt;strong&gt;s+字符&lt;/strong&gt; 来达成这个效果&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;s.c_str()&lt;br&gt;s.data()&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  返回一个C风格的字符串，或者说成字符数组，用 c_str 将会有 \0 的结束符，data 则没有 \0 的结束符&lt;/p&gt;
+&lt;h2 id=&quot;6-两个简单的应用-string-类程序&quot;&gt;&lt;a href=&quot;#6-两个简单的应用-string-类程序&quot; class=&quot;headerlink&quot; title=&quot;6.两个简单的应用 string 类程序&quot;&gt;&lt;/a&gt;6.两个简单的应用 string 类程序&lt;/h2&gt;&lt;p&gt;  遍历string中的数据:&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;for(char a: str) cout&amp;lt;&amp;lt;a&amp;lt;&amp;lt;endl;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;  在C++中，我们可以用for(数据类型，不知道为auto : 数组名，vector 名，string 名)来遍历其中的数据&lt;/p&gt;
+&lt;p&gt;  string split的方法，将字符串用指定标示符来分割:&lt;/p&gt;
+&lt;p&gt;  如果字符串为 abcdeca ，用指定符 c 来分割，结果为 ab de a 三个字符串&lt;/p&gt;
+&lt;p&gt;  &amp;lt;&amp;lt; 本函数将结果存储在 Vector 中，Vector 的使用将在下篇提及:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;vector&amp;lt;string&amp;gt; str_split(string str, char sign)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	vector&amp;lt;string&amp;gt; strs;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	string split(&amp;quot;&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	for (char c : str)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		if (c == sign)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			strs.push_back(split);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			split = &amp;quot;&amp;quot;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		else split = split + c;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	strs.push_back(split);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	return strs;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;下篇-从C到C-3-：reference-vector和iterator&quot;&gt;&lt;a href=&quot;#下篇-从C到C-3-：reference-vector和iterator&quot; class=&quot;headerlink&quot; title=&quot;下篇 从C到C++(3)：reference,vector和iterator&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#&quot;&gt;下篇&lt;/a&gt; 从C到C++(3)：reference,vector和iterator&lt;/h3&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文将介绍C++的控制台输入输出，与string类的部分操作&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;1-你好，世界&quot;&gt;&lt;a href=&quot;#1-你好，世界&quot; class=&quot;headerlink&quot; title=&quot;1.你好，世界&quot;&gt;&lt;/a&gt;1.你好，世界&lt;/h2&gt;&lt;p&gt;   我们可以在任意文本编译器或IDE中，输入以下程序:&lt;/p&gt;
+&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;meta-string&quot;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;std&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;built_in&quot;&gt;cout&lt;/span&gt;&amp;lt;&amp;lt;&lt;span class=&quot;string&quot;&gt;&quot;hello world&quot;&lt;/span&gt;&amp;lt;&amp;lt;&lt;span class=&quot;built_in&quot;&gt;endl&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   system(&lt;span class=&quot;string&quot;&gt;&quot;pause&quot;&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//用vs的同学请加上这句&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;   经过编译，就可以在 cmd 上看到我们的成果了&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>如何hexo搭建属于自己的博客</title>
