@@ -18,7 +18,7 @@
 
 1.你好，世界   我们可以在任意文本编译器或IDE中，输入以下程序:
 1234567#include&amp;lt;iostream&amp;gt;using namespace std;void main()&amp;#123;   cout&amp;lt;&amp;lt;&quot;hello world&quot;&amp;lt;&amp;lt;endl;   system(&quot;pause&quot;); //">
-<meta property="og:updated_time" content="2016-05-19T12:55:25.172Z">
+<meta property="og:updated_time" content="2016-05-19T13:09:07.231Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从C到C++(2)：你好，世界">
 <meta name="twitter:description" content="本文将介绍C++的控制台输入输出，与string类的部分操作
@@ -89,7 +89,7 @@
 						<li>Links</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -242,10 +242,10 @@
         <blockquote>
 <p>本文将介绍C++的控制台输入输出，与string类的部分操作</p>
 </blockquote>
-<h2 id="1-你好，世界"><a href="#1-你好，世界" class="headerlink" title="1.你好，世界"></a>1.你好，世界</h2><p>   我们可以在任意文本编译器或IDE中，输入以下程序:</p>
+<h1 id="1-你好，世界"><a href="#1-你好，世界" class="headerlink" title="1.你好，世界"></a>1.你好，世界</h1><p>   我们可以在任意文本编译器或IDE中，输入以下程序:</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">   <span class="built_in">cout</span>&lt;&lt;<span class="string">"hello world"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">   system(<span class="string">"pause"</span>); <span class="comment">//用vs的同学请加上这句</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>   经过编译，就可以在 cmd 上看到我们的成果了<br><a id="more"></a></p>
-<h2 id="2-C-中的标准输入和输出"><a href="#2-C-中的标准输入和输出" class="headerlink" title="2.C++中的标准输入和输出"></a>2.C++中的标准输入和输出</h2><blockquote>
+<h1 id="2-C-中的标准输入和输出"><a href="#2-C-中的标准输入和输出" class="headerlink" title="2.C++中的标准输入和输出"></a>2.C++中的标准输入和输出</h1><blockquote>
 <p>std::cin&gt;&gt;s&gt;&gt;s1&gt;&gt;s2&gt;&gt;sn;</p>
 </blockquote>
 <p>  上式为标准输入，将控制台输入的值置入s中,s可以为整型，长整，浮点，字符串……</p>
@@ -271,7 +271,7 @@
 <p><strong>不能用 cin 或 cout 直接输出非特殊类的对象</strong></p>
 </blockquote>
 <p>  ps:大家可以通过问度来获取这些函数更多的用法，问谷歌可以得到更多，上谷歌需要翻墙才可以进行访问，有需求的朋友可以参考<a href="http://scannery.github.io/2016/05/13/blogmake/" target="_blank" rel="external">我的另一篇博客</a></p>
-<h2 id="3-字符串类string与c-style-string"><a href="#3-字符串类string与c-style-string" class="headerlink" title="3.字符串类string与c_style string"></a>3.字符串类string与c_style string</h2><p>  相信大家都了解c_style的字符串的表达方式，在C中，我们用 <strong>字符串</strong> 加上 <strong>\0</strong> 的方式来存储一个字符串</p>
+<h1 id="3-字符串类string与c-style-string"><a href="#3-字符串类string与c-style-string" class="headerlink" title="3.字符串类string与c_style string"></a>3.字符串类string与c_style string</h1><p>  相信大家都了解c_style的字符串的表达方式，在C中，我们用 <strong>字符串</strong> 加上 <strong>\0</strong> 的方式来存储一个字符串</p>
 <p>  比如说，如果我输入的字符串是 <strong>c++isverygood</strong>,c会以一下方式来存储</p>
 <blockquote>
 <p>c++isverygood\0</p>
@@ -285,14 +285,14 @@
 <p>  如下，用string类来定义并使用一个字符串</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">void</span> main</span><br><span class="line">&#123;</span><br><span class="line">   <span class="built_in">string</span> s;</span><br><span class="line">   <span class="built_in">cin</span>&gt;&gt;s;</span><br><span class="line">   <span class="built_in">cout</span>&lt;&lt;s&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>  注意，string类可以直接调用cin来输入；</p>
-<h2 id="4-string类的初始化"><a href="#4-string类的初始化" class="headerlink" title="4.string类的初始化"></a>4.string类的初始化</h2><p>  在上面的程序中，我们用 string s 来声明一个字符串，但在声明的同时，给其赋予了初值空；</p>
+<h1 id="4-string类的初始化"><a href="#4-string类的初始化" class="headerlink" title="4.string类的初始化"></a>4.string类的初始化</h1><p>  在上面的程序中，我们用 string s 来声明一个字符串，但在声明的同时，给其赋予了初值空；</p>
 <blockquote>
 <p>同样的，我们再定义其他数据类型时，系统也会赋予其一个初始值。如 int 型将被赋予0， boolean 型将被赋予 false</p>
 </blockquote>
 <p>  我们可以使用以下方式声明并初始化一个字符串:</p>
  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> s=<span class="string">"abc"</span>； <span class="comment">//将abc复制入s</span></span><br><span class="line"><span class="built_in">string</span> s(<span class="string">"abc"</span>); <span class="comment">//将s定义为abc</span></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">s</span><span class="params">(<span class="string">'c'</span>,<span class="number">10</span>)</span></span>; <span class="comment">//s为cccccccccc</span></span><br><span class="line"><span class="built_in">string</span> s; <span class="comment">//s是一个空的字符串</span></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">s</span><span class="params">(s1)</span></span>; <span class="comment">//将s1的值赋予s</span></span><br></pre></td></tr></table></figure>
 <p>  关于 string 类型还有很多的定义方法，但需要用 c++ 的朋友来说，这些足够了，需要拿 c++ 去应试的朋友，还是老老实实学更多吧</p>
-<h2 id="5-string-类的常用方法"><a href="#5-string-类的常用方法" class="headerlink" title="5.string 类的常用方法"></a>5.string 类的常用方法</h2><blockquote>
+<h1 id="5-string-类的常用方法"><a href="#5-string-类的常用方法" class="headerlink" title="5.string 类的常用方法"></a>5.string 类的常用方法</h1><blockquote>
 <p>s.empty()</p>
 </blockquote>
 <p>  返回一个布尔值，如果字符串s为空，返回 true ，否则返回 false </p>
@@ -332,12 +332,17 @@
 <p>s.c_str()<br>s.data()</p>
 </blockquote>
 <p>  返回一个C风格的字符串，或者说成字符数组，用 c_str 将会有 \0 的结束符，data 则没有 \0 的结束符</p>
-<h2 id="6-两个简单的应用-string-类程序"><a href="#6-两个简单的应用-string-类程序" class="headerlink" title="6.两个简单的应用 string 类程序"></a>6.两个简单的应用 string 类程序</h2><p>  遍历string中的数据:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for(char a: str) cout&lt;&lt;a&lt;&lt;endl;</span><br></pre></td></tr></table></figure></p>
+<h1 id="6-两个简单的应用-string-类程序"><a href="#6-两个简单的应用-string-类程序" class="headerlink" title="6.两个简单的应用 string 类程序"></a>6.两个简单的应用 string 类程序</h1><p>  遍历string中的数据:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for(char a: str) cout&lt;&lt;a&lt;&lt;endl;</span><br></pre></td></tr></table></figure></p>
 <p>  在C++中，我们可以用for(数据类型，不知道为auto : 数组名，vector 名，string 名)来遍历其中的数据</p>
+<p>##6.1,split方法</p>
 <p>  string split的方法，将字符串用指定标示符来分割:</p>
 <p>  如果字符串为 abcdeca ，用指定符 c 来分割，结果为 ab de a 三个字符串</p>
-<p>  &lt;&lt; 本函数将结果存储在 Vector 中，Vector 的使用将在下篇提及:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;string&gt; str_split(string str, char sign)</span><br><span class="line">&#123;</span><br><span class="line">	vector&lt;string&gt; strs;</span><br><span class="line">	string split(&quot;&quot;);</span><br><span class="line">	for (char c : str)</span><br><span class="line">	&#123;</span><br><span class="line">		if (c == sign)</span><br><span class="line">		&#123;</span><br><span class="line">			strs.push_back(split);</span><br><span class="line">			split = &quot;&quot;;</span><br><span class="line">		&#125;</span><br><span class="line">		else split = split + c;</span><br><span class="line">	&#125;</span><br><span class="line">	strs.push_back(split);</span><br><span class="line">	return strs;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  &lt; 本函数将结果存储在 Vector 中，Vector 的使用将在下篇提及:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; str_split(<span class="built_in">string</span> str, <span class="keyword">char</span> sign)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; strs;</span><br><span class="line">	<span class="function"><span class="built_in">string</span> <span class="title">split</span><span class="params">(<span class="string">""</span>)</span></span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">char</span> c : str)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (c == sign)</span><br><span class="line">		&#123;</span><br><span class="line">			strs.push_back(split);</span><br><span class="line">			split = <span class="string">""</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> split = split + c;</span><br><span class="line">	&#125;</span><br><span class="line">	strs.push_back(split);</span><br><span class="line">	return strs;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="6-2-trim-方法"><a href="#6-2-trim-方法" class="headerlink" title="6.2 trim 方法"></a>6.2 trim 方法</h2><p>  trim 方法的作用是，删除字符串两端的空格，中间的空格不予删除，如;</p>
+<p>  字符串” 我 就是力量的 化身   “，经过trim方法后的结果为：</p>
+<p>  “我 就是力量的 化身”</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span>&amp; <span class="title">str_trim</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">string</span> &amp;s)</span> </span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (s.empty()) </span><br><span class="line">    &#123;</span><br><span class="line">        return s;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    s.erase(<span class="number">0</span>,s.find_first_not_of(<span class="string">" "</span>)); </span><br><span class="line">    s.erase(s.find_last_not_of(<span class="string">" "</span>) + <span class="number">1</span>);</span><br><span class="line">    return s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="下篇-从C到C-3-：reference-vector和iterator"><a href="#下篇-从C到C-3-：reference-vector和iterator" class="headerlink" title="下篇 从C到C++(3)：reference,vector和iterator"></a><a href="#">下篇</a> 从C到C++(3)：reference,vector和iterator</h3>
       
     </div>
