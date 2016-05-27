@@ -18,7 +18,7 @@
 
 1.你好，世界   我们可以在任意文本编译器或IDE中，输入以下程序:
 1234567#include&amp;lt;iostream&amp;gt;using namespace std;void main()&amp;#123;   cout&amp;lt;&amp;lt;&quot;hello world&quot;&amp;lt;&amp;lt;endl;   system(&quot;pause&quot;); //">
-<meta property="og:updated_time" content="2016-05-19T13:15:58.717Z">
+<meta property="og:updated_time" content="2016-05-27T14:19:05.288Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从C到C++(2)：你好，世界">
 <meta name="twitter:description" content="本文将介绍C++的控制台输入输出，与string类的部分操作
@@ -89,7 +89,7 @@
 						<li>Links</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -350,7 +350,7 @@
 <p>  字符串” 我 就是力量的 化身   “，经过trim方法后的结果为：</p>
 <p>  “我 就是力量的 化身”</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span>&amp; <span class="title">str_trim</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">string</span> &amp;s)</span> </span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (s.empty()) </span><br><span class="line">    &#123;</span><br><span class="line">        return s;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    s.erase(<span class="number">0</span>,s.find_first_not_of(<span class="string">" "</span>)); </span><br><span class="line">    s.erase(s.find_last_not_of(<span class="string">" "</span>) + <span class="number">1</span>);</span><br><span class="line">    return s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="下篇-从C到C-3-：reference-vector和iterator"><a href="#下篇-从C到C-3-：reference-vector和iterator" class="headerlink" title="下篇 从C到C++(3)：reference,vector和iterator"></a><a href="#">下篇</a> 从C到C++(3)：reference,vector和iterator</h3>
+<h3 id="下篇-从C到C-3-：”万能”的Vector"><a href="#下篇-从C到C-3-：”万能”的Vector" class="headerlink" title="下篇 从C到C++(3)：”万能”的Vector"></a><a href="#">下篇</a> 从C到C++(3)：”万能”的Vector</h3>
       
     </div>
     
@@ -358,6 +358,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2016/05/27/softintro/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
   
   
     <a href="/2016/05/13/blogmake/" id="article-nav-older" class="article-nav-link-wrap">

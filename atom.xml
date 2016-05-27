@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/Scannery/Scannery.github.io/"/>
-  <updated>2016-05-19T13:15:58.717Z</updated>
+  <updated>2016-05-27T16:31:28.348Z</updated>
   <id>https://github.com/Scannery/Scannery.github.io/</id>
   
   <author>
@@ -16,11 +16,100 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title></title>
+    <link href="https://github.com/Scannery/Scannery.github.io/2016/05/27/softintro/"/>
+    <id>https://github.com/Scannery/Scannery.github.io/2016/05/27/softintro/</id>
+    <published>2016-05-27T14:48:44.598Z</published>
+    <updated>2016-05-27T16:31:28.348Z</updated>
+    
+    <content type="html">&lt;hr&gt;
+&lt;h2 id=&quot;Scannery-的软件推荐：windows篇&quot;&gt;&lt;a href=&quot;#Scannery-的软件推荐：windows篇&quot; class=&quot;headerlink&quot; title=&quot;Scannery 的软件推荐：windows篇&quot;&gt;&lt;/a&gt;Scannery 的软件推荐：windows篇&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;本文将推荐一些个人用的习惯的软件&lt;/p&gt;
+&lt;p&gt;博客大致会做到周更，闲时可能会多更&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;Windows-软件&quot;&gt;&lt;a href=&quot;#Windows-软件&quot; class=&quot;headerlink&quot; title=&quot;Windows 软件&quot;&gt;&lt;/a&gt;Windows 软件&lt;/h1&gt;&lt;h2 id=&quot;bililocal-视频播放器&quot;&gt;&lt;a href=&quot;#bililocal-视频播放器&quot; class=&quot;headerlink&quot; title=&quot;bililocal 视频播放器&quot;&gt;&lt;/a&gt;bililocal 视频播放器&lt;/h2&gt;&lt;p&gt;  bililocal 视频播放器是一个 &lt;strong&gt;本地 &lt;/strong&gt;的弹幕播放器，他可以让你在看本地视频的同时同样可以享受到网络上的弹幕&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;下载地址或想了解更多: &lt;a href=&quot;http://tieba.baidu.com/p/2319140116&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;软件更新帖&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;源码地址: &lt;a href=&quot;https://github.com/AncientLysine/BiliLocal/tree/master/src&quot;&gt;github源码&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;本作还有linux版&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  界面如下:&lt;/p&gt;
+ &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt; &lt;img src=&quot;http://tieba.baidu.com/photo/p?kw=bilibili&amp;amp;ie=utf-8&amp;amp;flux=1&amp;amp;tid=2319140116&amp;amp;pic_id=007cd21f3a292df5664cc250bd315c6035a8737e&amp;amp;pn=1&amp;amp;fp=2&amp;amp;see_lz=1&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;bililocal 同时支持 Acfun 的弹幕&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  值得一提的是，博主的版本加载字幕时候会特别卡，可能最新版已经修复了这个问题&lt;/p&gt;
+&lt;p&gt;  另外安利腾讯的QQ播放器，算是一个功能较为齐全，且适合国人使用习惯的播放器了，腾讯难得的良心软件&lt;/p&gt;
+&lt;h2 id=&quot;chrome-谷歌浏览器&quot;&gt;&lt;a href=&quot;#chrome-谷歌浏览器&quot; class=&quot;headerlink&quot; title=&quot;chrome 谷歌浏览器&quot;&gt;&lt;/a&gt;chrome 谷歌浏览器&lt;/h2&gt;&lt;p&gt;  谷歌是一个值得尊敬的公司，作为一个国际级的公司，他的关注点在 &lt;strong&gt;前景&lt;/strong&gt; ，而非国内大部分公司所关心的 &lt;strong&gt;钱景&lt;/strong&gt; 上&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我们熟悉的手机操作的系统 Android ,便由谷歌公司参与开发&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  谷歌浏览器是一款非常好用的浏览器，并且有功能丰富且使用的小插件，比如:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;广告屏蔽插件 : Adguard&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;翻译插件 : Google Translate&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;键盘操作插件，用键盘浏览网页 : Vimium&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;更多知乎大大推荐的好用插件，戳&lt;a href=&quot;https://www.zhihu.com/question/19594682&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;谷歌浏览器的界面，清爽+简洁:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://i4.buimg.com/5d5ca4ee787ab122.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;附链，&lt;a href=&quot;https://chrome.google.com/webstore/category/extensions?hl=zh-CN&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;谷歌插件店&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;Lantern&quot;&gt;&lt;a href=&quot;#Lantern&quot; class=&quot;headerlink&quot; title=&quot;Lantern&quot;&gt;&lt;/a&gt;Lantern&lt;/h2&gt;&lt;p&gt; 蓝灯是一款非常简单的翻墙软件，基本安装上之后，让他开机启动，就可以直接去墙外了。比较省事的一款软件&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;值得一提的是，使用代理也可以加快访问非被墙网站的速度，比如git,twitch之类&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt; 贴一张墙外的世界:&lt;/p&gt;
+&lt;p&gt; &lt;img src=&quot;http://i4.buimg.com/6b13ef0bc0d581a8.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt; 附一些常用的墙外链:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://www.facebook.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;facebook&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://twitter.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;twitter&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://www.tumblr.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;最近被墙某网址&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;steam-钱包掏空者&quot;&gt;&lt;a href=&quot;#steam-钱包掏空者&quot; class=&quot;headerlink&quot; title=&quot;steam , 钱包掏空者&quot;&gt;&lt;/a&gt;steam , 钱包掏空者&lt;/h2&gt;&lt;p&gt; G胖的邪恶嘴脸；&lt;/p&gt;
+&lt;p&gt; 啥也不说了，我先去剁手……&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;steam 是最大的PC游戏发售平台之一，这里可以接触到很多优秀的独立游戏和游戏大作。也是一个很好的交友平台，恩，男人的淘宝&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt; &lt;img src=&quot;http://tieba.baidu.com/photo/p?kw=bilibili&amp;amp;ie=utf-8&amp;amp;flux=1&amp;amp;tid=4158893045&amp;amp;pic_id=130686c27d1ed21b7954ba03ab6eddc453da3fcd&amp;amp;pn=1&amp;amp;fp=2&amp;amp;see_lz=0&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt; 对方不想和你说话，并向你扔了一个垃圾平台；&lt;/p&gt;
+&lt;p&gt; 你接住了垃圾平台，并被抢光了钱；&lt;/p&gt;
+&lt;h3 id=&quot;下篇-Scannery-的软件推荐：Andriod篇&quot;&gt;&lt;a href=&quot;#下篇-Scannery-的软件推荐：Andriod篇&quot; class=&quot;headerlink&quot; title=&quot;下篇 Scannery 的软件推荐：Andriod篇&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#&quot;&gt;下篇&lt;/a&gt; Scannery 的软件推荐：Andriod篇&lt;/h3&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;hr&gt;
+&lt;h2 id=&quot;Scannery-的软件推荐：windows篇&quot;&gt;&lt;a href=&quot;#Scannery-的软件推荐：windows篇&quot; class=&quot;headerlink&quot; title=&quot;Scannery 的软件推荐：windows篇&quot;&gt;&lt;/a&gt;Scannery 的软件推荐：windows篇&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;本文将推荐一些个人用的习惯的软件&lt;/p&gt;
+&lt;p&gt;博客大致会做到周更，闲时可能会多更&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;Windows-软件&quot;&gt;&lt;a href=&quot;#Windows-软件&quot; class=&quot;headerlink&quot; title=&quot;Windows 软件&quot;&gt;&lt;/a&gt;Windows 软件&lt;/h1&gt;&lt;h2 id=&quot;bililocal-视频播放器&quot;&gt;&lt;a href=&quot;#bililocal-视频播放器&quot; class=&quot;headerlink&quot; title=&quot;bililocal 视频播放器&quot;&gt;&lt;/a&gt;bililocal 视频播放器&lt;/h2&gt;&lt;p&gt;  bililocal 视频播放器是一个 &lt;strong&gt;本地 &lt;/strong&gt;的弹幕播放器，他可以让你在看本地视频的同时同样可以享受到网络上的弹幕&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;下载地址或想了解更多: &lt;a href=&quot;http://tieba.baidu.com/p/2319140116&quot;&gt;软件更新帖&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;源码地址: &lt;a href=&quot;https://github.com/AncientLysine/BiliLocal/tree/master/src&quot;&gt;github源码&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;本作还有linux版&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  界面如下:&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>从C到C++(2)：你好，世界</title>
     <link href="https://github.com/Scannery/Scannery.github.io/2016/05/18/cplus2/"/>
     <id>https://github.com/Scannery/Scannery.github.io/2016/05/18/cplus2/</id>
     <published>2016-05-18T13:32:45.609Z</published>
-    <updated>2016-05-19T13:15:58.717Z</updated>
+    <updated>2016-05-27T14:19:05.288Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;本文将介绍C++的控制台输入输出，与string类的部分操作&lt;/p&gt;
@@ -133,7 +222,7 @@
 &lt;p&gt;  字符串” 我 就是力量的 化身   “，经过trim方法后的结果为：&lt;/p&gt;
 &lt;p&gt;  “我 就是力量的 化身”&lt;/p&gt;
 &lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt;&amp;amp; &lt;span class=&quot;title&quot;&gt;str_trim&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;built_in&quot;&gt;std&lt;/span&gt;::&lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt; &amp;amp;s)&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (s.empty()) &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        return s;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    s.erase(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;,s.find_first_not_of(&lt;span class=&quot;string&quot;&gt;&quot; &quot;&lt;/span&gt;)); &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    s.erase(s.find_last_not_of(&lt;span class=&quot;string&quot;&gt;&quot; &quot;&lt;/span&gt;) + &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return s;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;下篇-从C到C-3-：reference-vector和iterator&quot;&gt;&lt;a href=&quot;#下篇-从C到C-3-：reference-vector和iterator&quot; class=&quot;headerlink&quot; title=&quot;下篇 从C到C++(3)：reference,vector和iterator&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#&quot;&gt;下篇&lt;/a&gt; 从C到C++(3)：reference,vector和iterator&lt;/h3&gt;</content>
+&lt;h3 id=&quot;下篇-从C到C-3-：”万能”的Vector&quot;&gt;&lt;a href=&quot;#下篇-从C到C-3-：”万能”的Vector&quot; class=&quot;headerlink&quot; title=&quot;下篇 从C到C++(3)：”万能”的Vector&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#&quot;&gt;下篇&lt;/a&gt; 从C到C++(3)：”万能”的Vector&lt;/h3&gt;</content>
     
     <summary type="html">
     
