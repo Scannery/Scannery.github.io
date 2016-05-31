@@ -20,7 +20,7 @@
 1.容器与C++中的容器类  容器是什么呢，这很容易理解，是装东西的东西，换句话说，这个东西里边有其他的东西，我们就把它叫做容器，编程中的容器同样是如此。我们最常见到的容器就是数组，比如，一个 int 型的数组便是一堆 int 数据的容器，C风格的字符串也是很常见的容器，是字符的容器。
 
 那么，既然数组这么万能，为什么我们需要容器这个东西呢。这要从">
-<meta property="og:updated_time" content="2016-05-31T11:12:52.199Z">
+<meta property="og:updated_time" content="2016-05-31T11:21:45.549Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从C到C++(3)："万能"的vector">
 <meta name="twitter:description" content="本文将介绍c++中常用的容器类，vector
@@ -92,7 +92,7 @@
 						<li>Links</li>
 						
 						
-						<li>A propos</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -259,8 +259,9 @@
 </li>
 </ul>
 <blockquote>
-<p>在使用 vector 类的时候，我们需要调用 vector 头文件，即 #include<vector></vector></p>
+<p>在使用 vector 类的时候，我们需要调用 vector 头文件，即 </p>
 </blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">include&lt;vector&gt;</span><br></pre></td></tr></table></figure>
 <p>  值得一提的是，在传统的C语言编程中，上述的问题可以通过其他两种方式来解决。生成可以自动扩容的链表，需要作为函数返回值时，返回头指针即可。或者生成动态数组的方法。</p>
 <p>  学过 JAVA 的朋友，这里的 vector 相当于 JAVA 中用的最多的 ArrayList</p>
 <h1 id="2-生成一个-vector-容器"><a href="#2-生成一个-vector-容器" class="headerlink" title="2.生成一个 vector 容器"></a>2.生成一个 vector 容器</h1><p>  当我们需要创建一个容器类的时候，我们用以下方式来声明他：</p>
@@ -270,7 +271,12 @@
 <p>这里的数据类型可以是 int , float 这种变量类型，也可以是类</p>
 </blockquote>
 <p>  如下，我们生成一个空的字符串容器</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">   <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; a;</span><br><span class="line">   return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">~~~ </span><br><span class="line"></span><br><span class="line"><span class="meta"># 3. vector 类的初始化</span></span><br><span class="line"></span><br><span class="line">  很多时候，我们并不需要对 <span class="built_in">vector</span> 进行初始化，相反，会在定义之后直接向里边添加数据的操作相对而言更为常见。不过作为了解性的，我们会用以下方法初始化一个 <span class="built_in">vector</span> </span><br><span class="line"></span><br><span class="line">&gt; 本例中将以 <span class="keyword">int</span> 为例</span><br><span class="line"></span><br><span class="line">~~~ c++</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; a; <span class="comment">//a是一个空的int容器</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; a&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;; <span class="comment">//a中含有数据123</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; a=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;<span class="comment">//a中含有数据123 同上</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; a(<span class="number">10</span>,<span class="number">-1</span>); <span class="comment">//a中含有10个值，每个值为-1</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; a(<span class="number">10</span>); <span class="comment">//缺一个参数，a中将含有10个0</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; a(b); <span class="comment">//将 vector b 中的内容复制到 vector a</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; a=b; <span class="comment">//同上</span></span><br><span class="line"><span class="comment">// 特别注意</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">   <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; a;</span><br><span class="line">   return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="3-vector-类的初始化"><a href="#3-vector-类的初始化" class="headerlink" title="3. vector 类的初始化"></a>3. vector 类的初始化</h1><p>  很多时候，我们并不需要对 vector 进行初始化，相反，会在定义之后直接向里边添加数据的操作相对而言更为常见。不过作为了解性的，我们会用以下方法初始化一个 vector </p>
+<blockquote>
+<p>本例中将以 int 为例</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; a; <span class="comment">//a是一个空的int容器</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; a&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;; <span class="comment">//a中含有数据123</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; a=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;<span class="comment">//a中含有数据123 同上</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; a(<span class="number">10</span>,<span class="number">-1</span>); <span class="comment">//a中含有10个值，每个值为-1</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; a(<span class="number">10</span>); <span class="comment">//缺一个参数，a中将含有10个0</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; a(b); <span class="comment">//将 vector b 中的内容复制到 vector a</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; a=b; <span class="comment">//同上</span></span><br><span class="line"><span class="comment">// 特别注意</span></span><br></pre></td></tr></table></figure>
 <p> 这里，学过 JAVA 的朋友，请 <strong>特别注意</strong> !!!</p>
 <p> 最后一种定义方法，和 JAVA 中对 ArrayList 的操作不同，使用这种方法定义一个 ArrayList 时，两个变量将指向同一个地址，相反，在C++中，两个变量将指向不同的地址。</p>
 <blockquote>
@@ -308,7 +314,7 @@
 </blockquote>
 <p>  在所示位置删除元素，args 的参数可以是迭代器，也可以 int 值，比如：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a.erase(a.begin()+1); //删除 a 中第二个元素</span><br><span class="line">a.erase(1); //同上</span><br></pre></td></tr></table></figure>
-<p>  注意， verctor a 开始的元素为 a[0] ，第 n 个元素的索引为 a[n-1]</p>
+<p>  <strong>注意， verctor a 开始的元素为 a[0] ，第 n 个元素的索引为 a[n-1]</strong></p>
 <blockquote>
 <p>a.swap(b)</p>
 </blockquote>
