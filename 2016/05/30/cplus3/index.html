@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>从C到C++(3)：&quot;万能&quot;的vector | Scannery的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文将介绍c++中常用的容器类，vector
+
+1.容器与C++中的容器类  容器是什么呢，这很容易理解，是装东西的东西，换句话说，这个东西里边有其他的东西，我们就把它叫做容器，编程中的容器同样是如此。我们最常见到的容器就是数组，比如，一个 int 型的数组便是一堆 int 数据的容器，C风格的字符串也是很常见的容器，是字符的容器。
+
+那么，既然数组这么万能，为什么我们需要容器这个东西呢。这要从">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从C到C++(3)："万能"的vector">
+<meta property="og:url" content="https://github.com/Scannery/Scannery.github.io/2016/05/30/cplus3/index.html">
+<meta property="og:site_name" content="Scannery的博客">
+<meta property="og:description" content="本文将介绍c++中常用的容器类，vector
+
+1.容器与C++中的容器类  容器是什么呢，这很容易理解，是装东西的东西，换句话说，这个东西里边有其他的东西，我们就把它叫做容器，编程中的容器同样是如此。我们最常见到的容器就是数组，比如，一个 int 型的数组便是一堆 int 数据的容器，C风格的字符串也是很常见的容器，是字符的容器。
+
+那么，既然数组这么万能，为什么我们需要容器这个东西呢。这要从">
+<meta property="og:updated_time" content="2016-05-31T11:12:52.199Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="从C到C++(3)："万能"的vector">
+<meta name="twitter:description" content="本文将介绍c++中常用的容器类，vector
+
+1.容器与C++中的容器类  容器是什么呢，这很容易理解，是装东西的东西，换句话说，这个东西里边有其他的东西，我们就把它叫做容器，编程中的容器同样是如此。我们最常见到的容器就是数组，比如，一个 int 型的数组便是一堆 int 数据的容器，C风格的字符串也是很常见的容器，是字符的容器。
+
+那么，既然数组这么万能，为什么我们需要容器这个东西呢。这要从">
+  
+    <link rel="alternative" href="/atom.xml" title="Scannery的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://i3.buimg.com/4c24f206badd271f.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://i2.buimg.com/ac712072589d8d98.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Scannery</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">让我看看你是否学有所成</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>A propos</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="mail" target="_blank" href="/tycf0013@126.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://tieba.baidu.com/f?kw=%D9%BB%C5%AE%D3%C4%BB%EA%C2%BC">倩女幽魂录吧</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://pan.baidu.com/s/1kVGUACB">百度网盘</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">从还没入门到夺门而逃</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Scannery</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img src="http://i2.buimg.com/ac712072589d8d98.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Scannery</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">让我看看你是否学有所成</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="mail" target="_blank" href="/tycf0013@126.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-cplus3" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/30/cplus3/" class="article-date">
+  	<time datetime="2016-05-30T14:47:38.292Z" itemprop="datePublished">2016-05-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      从C到C++(3)：&quot;万能&quot;的vector
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>本文将介绍c++中常用的容器类，vector</p>
+</blockquote>
+<h1 id="1-容器与C-中的容器类"><a href="#1-容器与C-中的容器类" class="headerlink" title="1.容器与C++中的容器类"></a>1.容器与C++中的容器类</h1><p>  容器是什么呢，这很容易理解，是装东西的东西，换句话说，这个东西里边有其他的东西，我们就把它叫做容器，编程中的容器同样是如此。我们最常见到的容器就是数组，比如，一个 int 型的数组便是一堆 int 数据的容器，C风格的字符串也是很常见的容器，是字符的容器。</p>
+<blockquote>
+<p><strong>那么，既然数组这么万能，为什么我们需要容器这个东西呢。这要从数组的缺点说起了</strong></p>
+</blockquote>
+<p>  在实际的编程中，我们经常会遇到这样的问题：</p>
+<ul>
+<li><p>问题1：数组不能自动扩容，而我们很多时候不知道要处理数据的数量，这是最经常性的一个问题了。</p>
+</li>
+<li><p>问题2：数组不能作为程序的返回值,在C/C++语言中。而我们会经常性的需要从函数返回一个数组。但特殊的，char * 的C风格字符串可以作为直接的返回值</p>
+<p>这些情况下，数组就并不是一种很好的选择。C++在标准库中，定义了一批容器类来解决这种问题，在本文中，我们只介绍用的最多，除非在有特别需求的地方，否则任何时候你都可以用的一个具有代表性的容器类，“万能”的 <strong>vector</strong> 类</p>
+<a id="more"></a>
+</li>
+</ul>
+<blockquote>
+<p>在使用 vector 类的时候，我们需要调用 vector 头文件，即 #include<vector></vector></p>
+</blockquote>
+<p>  值得一提的是，在传统的C语言编程中，上述的问题可以通过其他两种方式来解决。生成可以自动扩容的链表，需要作为函数返回值时，返回头指针即可。或者生成动态数组的方法。</p>
+<p>  学过 JAVA 的朋友，这里的 vector 相当于 JAVA 中用的最多的 ArrayList</p>
+<h1 id="2-生成一个-vector-容器"><a href="#2-生成一个-vector-容器" class="headerlink" title="2.生成一个 vector 容器"></a>2.生成一个 vector 容器</h1><p>  当我们需要创建一个容器类的时候，我们用以下方式来声明他：</p>
+<p>  vector&lt;数据类型&gt; 名称;</p>
+<p>  这样，我们就定义了一个存有特定数据类型的 vector 容器，当然暂时它里面什么都没有。</p>
+<blockquote>
+<p>这里的数据类型可以是 int , float 这种变量类型，也可以是类</p>
+</blockquote>
+<p>  如下，我们生成一个空的字符串容器</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">   <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; a;</span><br><span class="line">   return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">~~~ </span><br><span class="line"></span><br><span class="line"><span class="meta"># 3. vector 类的初始化</span></span><br><span class="line"></span><br><span class="line">  很多时候，我们并不需要对 <span class="built_in">vector</span> 进行初始化，相反，会在定义之后直接向里边添加数据的操作相对而言更为常见。不过作为了解性的，我们会用以下方法初始化一个 <span class="built_in">vector</span> </span><br><span class="line"></span><br><span class="line">&gt; 本例中将以 <span class="keyword">int</span> 为例</span><br><span class="line"></span><br><span class="line">~~~ c++</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; a; <span class="comment">//a是一个空的int容器</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; a&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;; <span class="comment">//a中含有数据123</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; a=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;<span class="comment">//a中含有数据123 同上</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; a(<span class="number">10</span>,<span class="number">-1</span>); <span class="comment">//a中含有10个值，每个值为-1</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; a(<span class="number">10</span>); <span class="comment">//缺一个参数，a中将含有10个0</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; a(b); <span class="comment">//将 vector b 中的内容复制到 vector a</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; a=b; <span class="comment">//同上</span></span><br><span class="line"><span class="comment">// 特别注意</span></span><br></pre></td></tr></table></figure>
+<p> 这里，学过 JAVA 的朋友，请 <strong>特别注意</strong> !!!</p>
+<p> 最后一种定义方法，和 JAVA 中对 ArrayList 的操作不同，使用这种方法定义一个 ArrayList 时，两个变量将指向同一个地址，相反，在C++中，两个变量将指向不同的地址。</p>
+<blockquote>
+<p>上述结论意味着，两个 ArrayList 变量会随着另一个的改变而改变。而 C++ 中的 Vector 则不会有这种情况</p>
+</blockquote>
+<p>  同样的，JAVA 中同样含有 Vector 函数，但几乎被效率更高的 ArrayList 取代了。还有，在 C++ 中，类名首字母并不会大写，但自定义类中使用大写依然是一个不错的习惯</p>
+<h1 id="4-vector中的常用方法"><a href="#4-vector中的常用方法" class="headerlink" title="4. vector中的常用方法"></a>4. vector中的常用方法</h1><p>  这里以一个名为 a 的 vector<int>  举例</int></p>
+<blockquote>
+<p>a.empty()</p>
+</blockquote>
+<p>  返回一个布尔值，如果 vector 为空返回 true ，反之为 false</p>
+<blockquote>
+<p>a.size()</p>
+</blockquote>
+<p>  返回一个 int 值，为 vector 所含元素的个数</p>
+<blockquote>
+<p>a.push_back(int num)</p>
+</blockquote>
+<p>  将 num 加入到 a 中</p>
+<blockquote>
+<p>a[n]</p>
+</blockquote>
+<p>  返回 a 在 n 处的元素引用。初学者直接看成元素就可以了</p>
+<blockquote>
+<p>a.clear()</p>
+</blockquote>
+<p>  删除 a 中所有的元素</p>
+<blockquote>
+<p>a.insert(迭代器，int num)</p>
+</blockquote>
+<p>  在迭代器的位置插入 num 元素。迭代器相关的知识参考<a href="#">下篇</a>，这里举一个例子来说明这种方法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a.insert(a.begin(),3); //在 a 开头插入元素 3</span><br><span class="line">a.insert(a.begin()+2,3); //在 a 的第三个元素前，即第二个元素后插入元素 3</span><br><span class="line">a.insert(a.end(),3); //在 a 的结尾处插入元素 3</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>a.erase(args)</p>
+</blockquote>
+<p>  在所示位置删除元素，args 的参数可以是迭代器，也可以 int 值，比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a.erase(a.begin()+1); //删除 a 中第二个元素</span><br><span class="line">a.erase(1); //同上</span><br></pre></td></tr></table></figure>
+<p>  注意， verctor a 开始的元素为 a[0] ，第 n 个元素的索引为 a[n-1]</p>
+<blockquote>
+<p>a.swap(b)</p>
+</blockquote>
+<p> 将b的值赋予a，通常要比直接的等号复制快一些。</p>
+<blockquote>
+<p>swap(a,b)</p>
+</blockquote>
+<p> 交换 a 与 b 内的元素，a b 必须拥有相同类型的参量</p>
+<h1 id="5-vector-的应用举例"><a href="#5-vector-的应用举例" class="headerlink" title="5. vector 的应用举例"></a>5. vector 的应用举例</h1><p> 举例：用 vector 拼接字符串</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> str;</span><br><span class="line">    <span class="built_in">string</span> outstr;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;str;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; svec;</span><br><span class="line">    <span class="keyword">while</span>(str!=<span class="string">"stop"</span>)</span><br><span class="line">    &#123;</span><br><span class="line">      svec.push_back(str);</span><br><span class="line">      <span class="built_in">cin</span>&gt;&gt;str;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">string</span> str:svec)</span><br><span class="line">    &#123;</span><br><span class="line">      outstr=outstr+str;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;outstr&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="下篇-从C到C-4-：迭代器Iterator"><a href="#下篇-从C到C-4-：迭代器Iterator" class="headerlink" title="下篇 从C到C++(4)：迭代器Iterator"></a><a href="#">下篇</a> 从C到C++(4)：迭代器Iterator</h2>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/05/27/softintro/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Scannery 的软件推荐：windows篇</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="cplus3" data-title="从C到C++(3)：&quot;万能&quot;的vector" data-url="https://github.com/Scannery/Scannery.github.io/2016/05/30/cplus3/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"scannery"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Scannery
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: false,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

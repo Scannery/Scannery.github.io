@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/Scannery/Scannery.github.io/"/>
-  <updated>2016-05-28T05:22:20.333Z</updated>
+  <updated>2016-05-31T11:12:52.199Z</updated>
   <id>https://github.com/Scannery/Scannery.github.io/</id>
   
   <author>
@@ -16,11 +16,118 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>从C到C++(3)：&quot;万能&quot;的vector</title>
+    <link href="https://github.com/Scannery/Scannery.github.io/2016/05/30/cplus3/"/>
+    <id>https://github.com/Scannery/Scannery.github.io/2016/05/30/cplus3/</id>
+    <published>2016-05-30T14:47:38.292Z</published>
+    <updated>2016-05-31T11:12:52.199Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;本文将介绍c++中常用的容器类，vector&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;1-容器与C-中的容器类&quot;&gt;&lt;a href=&quot;#1-容器与C-中的容器类&quot; class=&quot;headerlink&quot; title=&quot;1.容器与C++中的容器类&quot;&gt;&lt;/a&gt;1.容器与C++中的容器类&lt;/h1&gt;&lt;p&gt;  容器是什么呢，这很容易理解，是装东西的东西，换句话说，这个东西里边有其他的东西，我们就把它叫做容器，编程中的容器同样是如此。我们最常见到的容器就是数组，比如，一个 int 型的数组便是一堆 int 数据的容器，C风格的字符串也是很常见的容器，是字符的容器。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;那么，既然数组这么万能，为什么我们需要容器这个东西呢。这要从数组的缺点说起了&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  在实际的编程中，我们经常会遇到这样的问题：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;问题1：数组不能自动扩容，而我们很多时候不知道要处理数据的数量，这是最经常性的一个问题了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;问题2：数组不能作为程序的返回值,在C/C++语言中。而我们会经常性的需要从函数返回一个数组。但特殊的，char * 的C风格字符串可以作为直接的返回值&lt;/p&gt;
+&lt;p&gt;这些情况下，数组就并不是一种很好的选择。C++在标准库中，定义了一批容器类来解决这种问题，在本文中，我们只介绍用的最多，除非在有特别需求的地方，否则任何时候你都可以用的一个具有代表性的容器类，“万能”的 &lt;strong&gt;vector&lt;/strong&gt; 类&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在使用 vector 类的时候，我们需要调用 vector 头文件，即 #include&lt;vector&gt;&lt;/vector&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  值得一提的是，在传统的C语言编程中，上述的问题可以通过其他两种方式来解决。生成可以自动扩容的链表，需要作为函数返回值时，返回头指针即可。或者生成动态数组的方法。&lt;/p&gt;
+&lt;p&gt;  学过 JAVA 的朋友，这里的 vector 相当于 JAVA 中用的最多的 ArrayList&lt;/p&gt;
+&lt;h1 id=&quot;2-生成一个-vector-容器&quot;&gt;&lt;a href=&quot;#2-生成一个-vector-容器&quot; class=&quot;headerlink&quot; title=&quot;2.生成一个 vector 容器&quot;&gt;&lt;/a&gt;2.生成一个 vector 容器&lt;/h1&gt;&lt;p&gt;  当我们需要创建一个容器类的时候，我们用以下方式来声明他：&lt;/p&gt;
+&lt;p&gt;  vector&amp;lt;数据类型&amp;gt; 名称;&lt;/p&gt;
+&lt;p&gt;  这样，我们就定义了一个存有特定数据类型的 vector 容器，当然暂时它里面什么都没有。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这里的数据类型可以是 int , float 这种变量类型，也可以是类&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  如下，我们生成一个空的字符串容器&lt;/p&gt;
+&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;meta-string&quot;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;meta-string&quot;&gt;&amp;lt;vector&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;built_in&quot;&gt;vector&lt;/span&gt;&amp;lt;&lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt;&amp;gt; a;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   return &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;~~~ &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;# 3. vector 类的初始化&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  很多时候，我们并不需要对 &lt;span class=&quot;built_in&quot;&gt;vector&lt;/span&gt; 进行初始化，相反，会在定义之后直接向里边添加数据的操作相对而言更为常见。不过作为了解性的，我们会用以下方法初始化一个 &lt;span class=&quot;built_in&quot;&gt;vector&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; 本例中将以 &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; 为例&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;~~~ c++&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;vector&lt;/span&gt;&amp;lt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;&amp;gt; a; &lt;span class=&quot;comment&quot;&gt;//a是一个空的int容器&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;vector&lt;/span&gt;&amp;lt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;&amp;gt; a&amp;#123;&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;&amp;#125;; &lt;span class=&quot;comment&quot;&gt;//a中含有数据123&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;vector&lt;/span&gt;&amp;lt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;&amp;gt; a=&amp;#123;&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;&amp;#125;;&lt;span class=&quot;comment&quot;&gt;//a中含有数据123 同上&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;vector&lt;/span&gt;&amp;lt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;&amp;gt; a(&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//a中含有10个值，每个值为-1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;vector&lt;/span&gt;&amp;lt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;&amp;gt; a(&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//缺一个参数，a中将含有10个0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;vector&lt;/span&gt;&amp;lt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;&amp;gt; a(b); &lt;span class=&quot;comment&quot;&gt;//将 vector b 中的内容复制到 vector a&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;vector&lt;/span&gt;&amp;lt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;&amp;gt; a=b; &lt;span class=&quot;comment&quot;&gt;//同上&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 特别注意&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt; 这里，学过 JAVA 的朋友，请 &lt;strong&gt;特别注意&lt;/strong&gt; !!!&lt;/p&gt;
+&lt;p&gt; 最后一种定义方法，和 JAVA 中对 ArrayList 的操作不同，使用这种方法定义一个 ArrayList 时，两个变量将指向同一个地址，相反，在C++中，两个变量将指向不同的地址。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;上述结论意味着，两个 ArrayList 变量会随着另一个的改变而改变。而 C++ 中的 Vector 则不会有这种情况&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  同样的，JAVA 中同样含有 Vector 函数，但几乎被效率更高的 ArrayList 取代了。还有，在 C++ 中，类名首字母并不会大写，但自定义类中使用大写依然是一个不错的习惯&lt;/p&gt;
+&lt;h1 id=&quot;4-vector中的常用方法&quot;&gt;&lt;a href=&quot;#4-vector中的常用方法&quot; class=&quot;headerlink&quot; title=&quot;4. vector中的常用方法&quot;&gt;&lt;/a&gt;4. vector中的常用方法&lt;/h1&gt;&lt;p&gt;  这里以一个名为 a 的 vector&lt;int&gt;  举例&lt;/int&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;a.empty()&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  返回一个布尔值，如果 vector 为空返回 true ，反之为 false&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;a.size()&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  返回一个 int 值，为 vector 所含元素的个数&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;a.push_back(int num)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  将 num 加入到 a 中&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;a[n]&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  返回 a 在 n 处的元素引用。初学者直接看成元素就可以了&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;a.clear()&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  删除 a 中所有的元素&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;a.insert(迭代器，int num)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  在迭代器的位置插入 num 元素。迭代器相关的知识参考&lt;a href=&quot;#&quot;&gt;下篇&lt;/a&gt;，这里举一个例子来说明这种方法:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;a.insert(a.begin(),3); //在 a 开头插入元素 3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;a.insert(a.begin()+2,3); //在 a 的第三个元素前，即第二个元素后插入元素 3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;a.insert(a.end(),3); //在 a 的结尾处插入元素 3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;a.erase(args)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  在所示位置删除元素，args 的参数可以是迭代器，也可以 int 值，比如：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;a.erase(a.begin()+1); //删除 a 中第二个元素&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;a.erase(1); //同上&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;  注意， verctor a 开始的元素为 a[0] ，第 n 个元素的索引为 a[n-1]&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;a.swap(b)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt; 将b的值赋予a，通常要比直接的等号复制快一些。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;swap(a,b)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt; 交换 a 与 b 内的元素，a b 必须拥有相同类型的参量&lt;/p&gt;
+&lt;h1 id=&quot;5-vector-的应用举例&quot;&gt;&lt;a href=&quot;#5-vector-的应用举例&quot; class=&quot;headerlink&quot; title=&quot;5. vector 的应用举例&quot;&gt;&lt;/a&gt;5. vector 的应用举例&lt;/h1&gt;&lt;p&gt; 举例：用 vector 拼接字符串&lt;/p&gt;
+&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;meta-string&quot;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;meta-string&quot;&gt;&amp;lt;vector&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;meta-string&quot;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;std&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt; str;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt; outstr;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;cin&lt;/span&gt;&amp;gt;&amp;gt;str;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;vector&lt;/span&gt;&amp;lt;&lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt;&amp;gt; svec;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt;(str!=&lt;span class=&quot;string&quot;&gt;&quot;stop&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      svec.push_back(str);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;built_in&quot;&gt;cin&lt;/span&gt;&amp;gt;&amp;gt;str;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;(&lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt; str:svec)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      outstr=outstr+str;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;cout&lt;/span&gt;&amp;lt;&amp;lt;outstr&amp;lt;&amp;lt;&lt;span class=&quot;built_in&quot;&gt;endl&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;下篇-从C到C-4-：迭代器Iterator&quot;&gt;&lt;a href=&quot;#下篇-从C到C-4-：迭代器Iterator&quot; class=&quot;headerlink&quot; title=&quot;下篇 从C到C++(4)：迭代器Iterator&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#&quot;&gt;下篇&lt;/a&gt; 从C到C++(4)：迭代器Iterator&lt;/h2&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文将介绍c++中常用的容器类，vector&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;1-容器与C-中的容器类&quot;&gt;&lt;a href=&quot;#1-容器与C-中的容器类&quot; class=&quot;headerlink&quot; title=&quot;1.容器与C++中的容器类&quot;&gt;&lt;/a&gt;1.容器与C++中的容器类&lt;/h1&gt;&lt;p&gt;  容器是什么呢，这很容易理解，是装东西的东西，换句话说，这个东西里边有其他的东西，我们就把它叫做容器，编程中的容器同样是如此。我们最常见到的容器就是数组，比如，一个 int 型的数组便是一堆 int 数据的容器，C风格的字符串也是很常见的容器，是字符的容器。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;那么，既然数组这么万能，为什么我们需要容器这个东西呢。这要从数组的缺点说起了&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  在实际的编程中，我们经常会遇到这样的问题：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;问题1：数组不能自动扩容，而我们很多时候不知道要处理数据的数量，这是最经常性的一个问题了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;问题2：数组不能作为程序的返回值,在C/C++语言中。而我们会经常性的需要从函数返回一个数组。但特殊的，char * 的C风格字符串可以作为直接的返回值&lt;/p&gt;
+&lt;p&gt;这些情况下，数组就并不是一种很好的选择。C++在标准库中，定义了一批容器类来解决这种问题，在本文中，我们只介绍用的最多，除非在有特别需求的地方，否则任何时候你都可以用的一个具有代表性的容器类，“万能”的 &lt;strong&gt;vector&lt;/strong&gt; 类&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Scannery 的软件推荐：windows篇</title>
     <link href="https://github.com/Scannery/Scannery.github.io/2016/05/27/softintro/"/>
     <id>https://github.com/Scannery/Scannery.github.io/2016/05/27/softintro/</id>
     <published>2016-05-27T14:48:44.598Z</published>
-    <updated>2016-05-28T05:22:20.333Z</updated>
+    <updated>2016-05-31T11:13:54.601Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;本文将推荐一些个人用的习惯的软件&lt;/p&gt;
