@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/Scannery/Scannery.github.io/"/>
-  <updated>2016-05-31T11:21:45.549Z</updated>
+  <updated>2016-06-12T08:11:04.962Z</updated>
   <id>https://github.com/Scannery/Scannery.github.io/</id>
   
   <author>
@@ -14,6 +14,111 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从C到C++(4)：迭代器Iterator</title>
+    <link href="https://github.com/Scannery/Scannery.github.io/2016/06/12/cplus4/"/>
+    <id>https://github.com/Scannery/Scannery.github.io/2016/06/12/cplus4/</id>
+    <published>2016-06-12T05:35:51.784Z</published>
+    <updated>2016-06-12T08:11:04.962Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;本文将介绍关于C++中迭代器的介绍&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;1-一个简单的迭代器&quot;&gt;&lt;a href=&quot;#1-一个简单的迭代器&quot; class=&quot;headerlink&quot; title=&quot;1.一个简单的迭代器&quot;&gt;&lt;/a&gt;1.一个简单的迭代器&lt;/h1&gt;&lt;p&gt;  迭代器新手可以理解为，集合中元素的指针。如下，我们用 begin() 函数返回字符串首的指针&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;string s=&amp;quot;dqcqczceqf&amp;quot;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;string::iterator a=s.begin();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;  这样就定义了简单的迭代器，同理，我们也可以用 end() 函数来返回字符串尾的指针，也就是字符串尾的迭代器&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;string::iterator a=s.end();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;  这样写的坏处是，前边那个名字太长了，绝大多数时候我们可以用以下方式来简化他&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;auto a=s.begin();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;auto a=s.end();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;但不是所有情况，注意一下&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  同理，大家也可以在 vector 之类的容器上，使用迭代器&lt;/p&gt;
+&lt;h1 id=&quot;2-迭代器的操作&quot;&gt;&lt;a href=&quot;#2-迭代器的操作&quot; class=&quot;headerlink&quot; title=&quot;2.迭代器的操作&quot;&gt;&lt;/a&gt;2.迭代器的操作&lt;/h1&gt;&lt;p&gt;  迭代器可以进行运算符的操作，如&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;vector&amp;lt;string&amp;gt; a=&amp;#123;&amp;quot;dqcqa&amp;quot;,&amp;quot;cquwhqcq&amp;quot;,&amp;quot;hcqiiqe&amp;quot;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;auto c=a.begin(); // c 指向 a 的第一个元素&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;c=c+5; // c 指向 a 的第六个元素  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;c=c-1; // c 指向 a 的第五个元素&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;  迭代器之间可以进行减法运算&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;必须是指向&lt;strong&gt;同一个容器&lt;/strong&gt;的迭代器，才可以进行运算&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;auto b=a.end();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;auto c=b-a;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意，有些编译器不认这些写法，最新版的 C++ 支持的&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;3-指向类的迭代器&quot;&gt;&lt;a href=&quot;#3-指向类的迭代器&quot; class=&quot;headerlink&quot; title=&quot;3.指向类的迭代器&quot;&gt;&lt;/a&gt;3.指向类的迭代器&lt;/h1&gt;&lt;p&gt;  迭代器可以以指针的方式访问到类内的成员，如下:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;class liya&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;public :int a;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        liya(int i):a(i)&amp;#123;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;int main()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;vector&amp;lt;liya&amp;gt; c;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;liya m(3);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;c.push_back(m);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;vector&amp;lt;liya&amp;gt;::iterator iter=c.begin();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;int i=iter-&amp;gt;a;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;return 0;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h1 id=&quot;4-引用&quot;&gt;&lt;a href=&quot;#4-引用&quot; class=&quot;headerlink&quot; title=&quot;4.引用&quot;&gt;&lt;/a&gt;4.引用&lt;/h1&gt;&lt;p&gt;  C++ 中,定义了一种名为引用的类型，（由于上课时并未讲到，这里我就当做 C++ 中的特性了)&lt;/p&gt;
+&lt;p&gt;  我们用以下方式来定义引用&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;int a=24;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;int &amp;amp;refer=a;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;  这里定义了名为 refer 的引用，refer 指向 int 值 a&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;与指针不同的是，refer 指向的单位不用 * 来访问，直接用引用名就可以了&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  例如，我们这样来应用：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;int i=refer;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;  这里的 i 会具有和上边定义的 a 相同的值&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;也就是，你可以理解为，引用是变量的另一个名字&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  注意，引用必须是对象，而且必须与源对象相同，以下定义方法是错误的：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;int &amp;amp;m=100; //不行，100必须先有个名字，才能上引用&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;float c=3.14;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;int &amp;amp;d=c; //不行，必须与原对象格式相同&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;  对象的简单应用，作为函数的传递值&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;void swap(int &amp;amp;a,int &amp;amp;b)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;int c;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;c=a;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;a=b;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;b=c;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;int main()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;int a=3;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;int b=4;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;swap(a,b);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;return 0;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;  二者交换之后，结果为 a=4,b=3。在传输参数时，我们将函数的形参定义为引用，也就是a,b 在函数 swap 里的另一个名字&lt;/p&gt;
+&lt;h1 id=&quot;5-迭代举例，快速排序算法&quot;&gt;&lt;a href=&quot;#5-迭代举例，快速排序算法&quot; class=&quot;headerlink&quot; title=&quot;5.迭代举例，快速排序算法&quot;&gt;&lt;/a&gt;5.迭代举例，快速排序算法&lt;/h1&gt;&lt;p&gt;  我们举一个快速排序的例子，来看看这种经典排序方法的执行步骤。&lt;/p&gt;
+&lt;h3 id=&quot;1-快速排序的原理，&quot;&gt;&lt;a href=&quot;#1-快速排序的原理，&quot; class=&quot;headerlink&quot; title=&quot;1.快速排序的原理，&quot;&gt;&lt;/a&gt;1.快速排序的原理，&lt;/h3&gt;&lt;p&gt;  快速排序的本质是将数组一份为二。&lt;/p&gt;
+&lt;p&gt;  首先，我们再数组中取一个 key 值，我们进行排序交换，将小于 key 的值放到 key 的左边，将大于 key 的值放在 key 的右边。&lt;/p&gt;
+&lt;p&gt;  之后，我们将 key 左边，右边的数组进行同样方式的排序。再次分割，然后将分割后的四部分进行再次的快速排序……&lt;/p&gt;
+&lt;p&gt;  直到，划分的每个数组元素量为1，或者，划分后的数组排序并没有经历过一个数据移动，即为数组子集的完成&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;值得一提的是，快速排序的时间复杂度为 n(log2(n)) ;相比于冒泡排序的 n平方 要快不少。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;2-简单的快速排序说明&quot;&gt;&lt;a href=&quot;#2-简单的快速排序说明&quot; class=&quot;headerlink&quot; title=&quot;2.简单的快速排序说明&quot;&gt;&lt;/a&gt;2.简单的快速排序说明&lt;/h3&gt;&lt;p&gt;  我们定义一下数组:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;3,5,6,2,7&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  取 key 为1，定义 i=0 ，j = 4（即数组的首和尾)&lt;/p&gt;
+&lt;p&gt;  从尾开始排序，7&amp;gt;3，合理，2&amp;lt;3，交换2和3，数组变为&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;2,5,6,3,7&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  这时候，j 的值保存为 3，i 变量进行自增，2&lt;3，但5&gt;3 ，交换二者&lt;/3，但5&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;2,3,6,5,7&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  这时候，i 的值保存，j再开始减，直到 i 的值和 j 的值相等时，我们发现&lt;/p&gt;
+&lt;p&gt;  数组已经划分为 key 值3的左右两部分，左边小于三，右边大于三&lt;/p&gt;
+&lt;p&gt;  我们将集合分为两部分，2，和6,5,7&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;2    6,5,7&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  2为单字，排序完成，进行6,5,7排序，&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;同上，取第一个数字 6 为 key 值。 i 设为起始值2，j设为子数组最大元素4.同理进行排序&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;3-用-c-实现快速排序&quot;&gt;&lt;a href=&quot;#3-用-c-实现快速排序&quot; class=&quot;headerlink&quot; title=&quot;3.用 c++ 实现快速排序&quot;&gt;&lt;/a&gt;3.用 c++ 实现快速排序&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;void quiksort(int a[],int i,int j)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	if (i&amp;lt;j)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		int qidian = i;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		int zhongdian = j;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		int key = a[i];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		int c;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		for (; j&amp;gt;i; j--)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			if (a[j] &amp;lt; key)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;				c = a[i];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;				a[i] = a[j];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;				a[j] = c;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;				i++;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;				for (; i&amp;lt;j; i++)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;				&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;					if (a[i] &amp;gt; key)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;					&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;						c = a[i];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;						a[i] = a[j];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;						a[j] = c;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;						break;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;					&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;				&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		for (int c = 0; c &amp;lt; (sizeof(a) / sizeof(int)); c++) cout &amp;lt;&amp;lt; *(a + c) &amp;lt;&amp;lt; &amp;quot; &amp;quot;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		cout &amp;lt;&amp;lt; endl;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		cout &amp;lt;&amp;lt; qidian &amp;lt;&amp;lt; &amp;quot; &amp;quot; &amp;lt;&amp;lt; i - 1 &amp;lt;&amp;lt; &amp;quot; &amp;quot; &amp;lt;&amp;lt; j+1 &amp;lt;&amp;lt; &amp;quot; &amp;quot; &amp;lt;&amp;lt;zhongdian &amp;lt;&amp;lt; endl;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		quiksort(a,qidian, i-1);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		quiksort(a, i+1, zhongdian);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	else return;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;4-C-中的快速排序算法&quot;&gt;&lt;a href=&quot;#4-C-中的快速排序算法&quot; class=&quot;headerlink&quot; title=&quot;4.C++ 中的快速排序算法&quot;&gt;&lt;/a&gt;4.C++ 中的快速排序算法&lt;/h3&gt;&lt;p&gt;  可能大家看过上边的函数之后，发现和迭代器半毛钱关系都没有，这里我们提一个有关系的东西&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在头文件 algorithm 中，定义了如下排序算法&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sort(迭代器开头,迭代器结尾,排序方式);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;  迭代器头尾很好理解，排序方式可以省略，默认为升序。&lt;/p&gt;
+&lt;p&gt;  我们可以用以下方式让他变为降序&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sort(begin,end,[](int a,int b)&amp;#123;return a&amp;gt;b;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;  这种写法，将第三个变量写为一个 lamda 函数，想了解更多可以问度，或者参考其他参考书。&lt;/p&gt;
+&lt;h2 id=&quot;下篇-从C到C-5-：第一个自定义class&quot;&gt;&lt;a href=&quot;#下篇-从C到C-5-：第一个自定义class&quot; class=&quot;headerlink&quot; title=&quot;下篇 从C到C++(5)：第一个自定义class&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#&quot;&gt;下篇&lt;/a&gt; 从C到C++(5)：第一个自定义class&lt;/h2&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文将介绍关于C++中迭代器的介绍&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;1-一个简单的迭代器&quot;&gt;&lt;a href=&quot;#1-一个简单的迭代器&quot; class=&quot;headerlink&quot; title=&quot;1.一个简单的迭代器&quot;&gt;&lt;/a&gt;1.一个
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>从C到C++(3)：&quot;万能&quot;的vector</title>
