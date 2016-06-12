@@ -20,7 +20,7 @@
 1.容器与C++中的容器类  容器是什么呢，这很容易理解，是装东西的东西，换句话说，这个东西里边有其他的东西，我们就把它叫做容器，编程中的容器同样是如此。我们最常见到的容器就是数组，比如，一个 int 型的数组便是一堆 int 数据的容器，C风格的字符串也是很常见的容器，是字符的容器。
 
 那么，既然数组这么万能，为什么我们需要容器这个东西呢。这要从">
-<meta property="og:updated_time" content="2016-05-31T11:21:45.549Z">
+<meta property="og:updated_time" content="2016-06-12T08:17:53.093Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从C到C++(3)："万能"的vector">
 <meta name="twitter:description" content="本文将介绍c++中常用的容器类，vector
@@ -92,7 +92,7 @@
 						<li>Links</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -307,7 +307,7 @@
 <blockquote>
 <p>a.insert(迭代器，int num)</p>
 </blockquote>
-<p>  在迭代器的位置插入 num 元素。迭代器相关的知识参考<a href="#">下篇</a>，这里举一个例子来说明这种方法:</p>
+<p>  在迭代器的位置插入 num 元素。迭代器相关的知识参考<a href="http://scannery.github.io/2016/06/12/cplus4/" target="_blank" rel="external">下篇</a>，这里举一个例子来说明这种方法:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a.insert(a.begin(),3); //在 a 开头插入元素 3</span><br><span class="line">a.insert(a.begin()+2,3); //在 a 的第三个元素前，即第二个元素后插入元素 3</span><br><span class="line">a.insert(a.end(),3); //在 a 的结尾处插入元素 3</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>a.erase(args)</p>
@@ -325,7 +325,7 @@
 <p> 交换 a 与 b 内的元素，a b 必须拥有相同类型的参量</p>
 <h1 id="5-vector-的应用举例"><a href="#5-vector-的应用举例" class="headerlink" title="5. vector 的应用举例"></a>5. vector 的应用举例</h1><p> 举例：用 vector 拼接字符串</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> str;</span><br><span class="line">    <span class="built_in">string</span> outstr;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;str;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; svec;</span><br><span class="line">    <span class="keyword">while</span>(str!=<span class="string">"stop"</span>)</span><br><span class="line">    &#123;</span><br><span class="line">      svec.push_back(str);</span><br><span class="line">      <span class="built_in">cin</span>&gt;&gt;str;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">string</span> str:svec)</span><br><span class="line">    &#123;</span><br><span class="line">      outstr=outstr+str;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;outstr&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="下篇-从C到C-4-：迭代器Iterator"><a href="#下篇-从C到C-4-：迭代器Iterator" class="headerlink" title="下篇 从C到C++(4)：迭代器Iterator"></a><a href="#">下篇</a> 从C到C++(4)：迭代器Iterator</h2>
+<h2 id="下篇-从C到C-4-：迭代器Iterator"><a href="#下篇-从C到C-4-：迭代器Iterator" class="headerlink" title="下篇 从C到C++(4)：迭代器Iterator"></a><a href="http://scannery.github.io/2016/06/12/cplus4/" target="_blank" rel="external">下篇</a> 从C到C++(4)：迭代器Iterator</h2>
       
     </div>
     

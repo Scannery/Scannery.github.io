@@ -22,7 +22,7 @@
 12string s=&amp;quot;dqcqczceqf&amp;quot;;string::iterator a=s.begin();
   这样就定义了简单的迭代器，同理，我们也可以用 end() 函数来返回字符串尾的指针，也就是字符串尾的迭代器
 1">
-<meta property="og:updated_time" content="2016-06-12T08:11:04.962Z">
+<meta property="og:updated_time" content="2016-06-12T08:18:21.895Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从C到C++(4)：迭代器Iterator">
 <meta name="twitter:description" content="本文将介绍关于C++中迭代器的介绍
@@ -95,7 +95,7 @@
 						<li>Links</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -253,6 +253,7 @@
 <p>  这样就定义了简单的迭代器，同理，我们也可以用 end() 函数来返回字符串尾的指针，也就是字符串尾的迭代器</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string::iterator a=s.end();</span><br></pre></td></tr></table></figure>
 <p>  这样写的坏处是，前边那个名字太长了，绝大多数时候我们可以用以下方式来简化他</p>
+<a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">auto a=s.begin();</span><br><span class="line">auto a=s.end();</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><strong>但不是所有情况，注意一下</strong></p>

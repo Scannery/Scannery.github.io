@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/Scannery/Scannery.github.io/"/>
-  <updated>2016-06-12T08:11:04.962Z</updated>
+  <updated>2016-06-12T08:18:21.895Z</updated>
   <id>https://github.com/Scannery/Scannery.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://github.com/Scannery/Scannery.github.io/2016/06/12/cplus4/"/>
     <id>https://github.com/Scannery/Scannery.github.io/2016/06/12/cplus4/</id>
     <published>2016-06-12T05:35:51.784Z</published>
-    <updated>2016-06-12T08:11:04.962Z</updated>
+    <updated>2016-06-12T08:18:21.895Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;本文将介绍关于C++中迭代器的介绍&lt;/p&gt;
@@ -30,6 +30,7 @@
 &lt;p&gt;  这样就定义了简单的迭代器，同理，我们也可以用 end() 函数来返回字符串尾的指针，也就是字符串尾的迭代器&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;string::iterator a=s.end();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;  这样写的坏处是，前边那个名字太长了，绝大多数时候我们可以用以下方式来简化他&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;auto a=s.begin();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;auto a=s.end();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;但不是所有情况，注意一下&lt;/strong&gt;&lt;/p&gt;
@@ -113,7 +114,11 @@
       &lt;blockquote&gt;
 &lt;p&gt;本文将介绍关于C++中迭代器的介绍&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h1 id=&quot;1-一个简单的迭代器&quot;&gt;&lt;a href=&quot;#1-一个简单的迭代器&quot; class=&quot;headerlink&quot; title=&quot;1.一个简单的迭代器&quot;&gt;&lt;/a&gt;1.一个
+&lt;h1 id=&quot;1-一个简单的迭代器&quot;&gt;&lt;a href=&quot;#1-一个简单的迭代器&quot; class=&quot;headerlink&quot; title=&quot;1.一个简单的迭代器&quot;&gt;&lt;/a&gt;1.一个简单的迭代器&lt;/h1&gt;&lt;p&gt;  迭代器新手可以理解为，集合中元素的指针。如下，我们用 begin() 函数返回字符串首的指针&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;string s=&amp;quot;dqcqczceqf&amp;quot;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;string::iterator a=s.begin();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;  这样就定义了简单的迭代器，同理，我们也可以用 end() 函数来返回字符串尾的指针，也就是字符串尾的迭代器&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;string::iterator a=s.end();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;  这样写的坏处是，前边那个名字太长了，绝大多数时候我们可以用以下方式来简化他&lt;/p&gt;
     
     </summary>
     
@@ -125,7 +130,7 @@
     <link href="https://github.com/Scannery/Scannery.github.io/2016/05/30/cplus3/"/>
     <id>https://github.com/Scannery/Scannery.github.io/2016/05/30/cplus3/</id>
     <published>2016-05-30T14:47:38.292Z</published>
-    <updated>2016-05-31T11:21:45.549Z</updated>
+    <updated>2016-06-12T08:17:53.093Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;本文将介绍c++中常用的容器类，vector&lt;/p&gt;
@@ -192,7 +197,7 @@
 &lt;blockquote&gt;
 &lt;p&gt;a.insert(迭代器，int num)&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;  在迭代器的位置插入 num 元素。迭代器相关的知识参考&lt;a href=&quot;#&quot;&gt;下篇&lt;/a&gt;，这里举一个例子来说明这种方法:&lt;/p&gt;
+&lt;p&gt;  在迭代器的位置插入 num 元素。迭代器相关的知识参考&lt;a href=&quot;http://scannery.github.io/2016/06/12/cplus4/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;下篇&lt;/a&gt;，这里举一个例子来说明这种方法:&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;a.insert(a.begin(),3); //在 a 开头插入元素 3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;a.insert(a.begin()+2,3); //在 a 的第三个元素前，即第二个元素后插入元素 3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;a.insert(a.end(),3); //在 a 的结尾处插入元素 3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;blockquote&gt;
 &lt;p&gt;a.erase(args)&lt;/p&gt;
@@ -210,7 +215,7 @@
 &lt;p&gt; 交换 a 与 b 内的元素，a b 必须拥有相同类型的参量&lt;/p&gt;
 &lt;h1 id=&quot;5-vector-的应用举例&quot;&gt;&lt;a href=&quot;#5-vector-的应用举例&quot; class=&quot;headerlink&quot; title=&quot;5. vector 的应用举例&quot;&gt;&lt;/a&gt;5. vector 的应用举例&lt;/h1&gt;&lt;p&gt; 举例：用 vector 拼接字符串&lt;/p&gt;
 &lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;meta-string&quot;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;meta-string&quot;&gt;&amp;lt;vector&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;meta-string&quot;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;std&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt; str;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt; outstr;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;cin&lt;/span&gt;&amp;gt;&amp;gt;str;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;vector&lt;/span&gt;&amp;lt;&lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt;&amp;gt; svec;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt;(str!=&lt;span class=&quot;string&quot;&gt;&quot;stop&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      svec.push_back(str);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;built_in&quot;&gt;cin&lt;/span&gt;&amp;gt;&amp;gt;str;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;(&lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt; str:svec)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      outstr=outstr+str;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;cout&lt;/span&gt;&amp;lt;&amp;lt;outstr&amp;lt;&amp;lt;&lt;span class=&quot;built_in&quot;&gt;endl&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;下篇-从C到C-4-：迭代器Iterator&quot;&gt;&lt;a href=&quot;#下篇-从C到C-4-：迭代器Iterator&quot; class=&quot;headerlink&quot; title=&quot;下篇 从C到C++(4)：迭代器Iterator&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#&quot;&gt;下篇&lt;/a&gt; 从C到C++(4)：迭代器Iterator&lt;/h2&gt;</content>
+&lt;h2 id=&quot;下篇-从C到C-4-：迭代器Iterator&quot;&gt;&lt;a href=&quot;#下篇-从C到C-4-：迭代器Iterator&quot; class=&quot;headerlink&quot; title=&quot;下篇 从C到C++(4)：迭代器Iterator&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://scannery.github.io/2016/06/12/cplus4/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;下篇&lt;/a&gt; 从C到C++(4)：迭代器Iterator&lt;/h2&gt;</content>
     
     <summary type="html">
     

@@ -79,7 +79,7 @@
 						<li>Links</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -232,83 +232,6 @@
 <p>  这样就定义了简单的迭代器，同理，我们也可以用 end() 函数来返回字符串尾的指针，也就是字符串尾的迭代器</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string::iterator a=s.end();</span><br></pre></td></tr></table></figure>
 <p>  这样写的坏处是，前边那个名字太长了，绝大多数时候我们可以用以下方式来简化他</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">auto a=s.begin();</span><br><span class="line">auto a=s.end();</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>但不是所有情况，注意一下</strong></p>
-</blockquote>
-<p>  同理，大家也可以在 vector 之类的容器上，使用迭代器</p>
-<h1 id="2-迭代器的操作"><a href="#2-迭代器的操作" class="headerlink" title="2.迭代器的操作"></a>2.迭代器的操作</h1><p>  迭代器可以进行运算符的操作，如</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;string&gt; a=&#123;&quot;dqcqa&quot;,&quot;cquwhqcq&quot;,&quot;hcqiiqe&quot;&#125;;</span><br><span class="line">auto c=a.begin(); // c 指向 a 的第一个元素</span><br><span class="line">c=c+5; // c 指向 a 的第六个元素  </span><br><span class="line">c=c-1; // c 指向 a 的第五个元素</span><br></pre></td></tr></table></figure>
-<p>  迭代器之间可以进行减法运算</p>
-<blockquote>
-<p>必须是指向<strong>同一个容器</strong>的迭代器，才可以进行运算</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">auto b=a.end();</span><br><span class="line">auto c=b-a;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意，有些编译器不认这些写法，最新版的 C++ 支持的</p>
-</blockquote>
-<h1 id="3-指向类的迭代器"><a href="#3-指向类的迭代器" class="headerlink" title="3.指向类的迭代器"></a>3.指向类的迭代器</h1><p>  迭代器可以以指针的方式访问到类内的成员，如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class liya&#123;</span><br><span class="line">public :int a;</span><br><span class="line">        liya(int i):a(i)&#123;&#125;;</span><br><span class="line">&#125;;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">vector&lt;liya&gt; c;</span><br><span class="line">liya m(3);</span><br><span class="line">c.push_back(m);</span><br><span class="line">vector&lt;liya&gt;::iterator iter=c.begin();</span><br><span class="line">int i=iter-&gt;a;</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="4-引用"><a href="#4-引用" class="headerlink" title="4.引用"></a>4.引用</h1><p>  C++ 中,定义了一种名为引用的类型，（由于上课时并未讲到，这里我就当做 C++ 中的特性了)</p>
-<p>  我们用以下方式来定义引用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int a=24;</span><br><span class="line">int &amp;refer=a;</span><br></pre></td></tr></table></figure>
-<p>  这里定义了名为 refer 的引用，refer 指向 int 值 a</p>
-<blockquote>
-<p>与指针不同的是，refer 指向的单位不用 * 来访问，直接用引用名就可以了</p>
-</blockquote>
-<p>  例如，我们这样来应用：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int i=refer;</span><br></pre></td></tr></table></figure>
-<p>  这里的 i 会具有和上边定义的 a 相同的值</p>
-<blockquote>
-<p>也就是，你可以理解为，引用是变量的另一个名字</p>
-</blockquote>
-<p>  注意，引用必须是对象，而且必须与源对象相同，以下定义方法是错误的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int &amp;m=100; //不行，100必须先有个名字，才能上引用</span><br><span class="line">float c=3.14;</span><br><span class="line">int &amp;d=c; //不行，必须与原对象格式相同</span><br></pre></td></tr></table></figure>
-<p>  对象的简单应用，作为函数的传递值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">void swap(int &amp;a,int &amp;b)</span><br><span class="line">&#123;</span><br><span class="line">int c;</span><br><span class="line">c=a;</span><br><span class="line">a=b;</span><br><span class="line">b=c;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">int a=3;</span><br><span class="line">int b=4;</span><br><span class="line">swap(a,b);</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>  二者交换之后，结果为 a=4,b=3。在传输参数时，我们将函数的形参定义为引用，也就是a,b 在函数 swap 里的另一个名字</p>
-<h1 id="5-迭代举例，快速排序算法"><a href="#5-迭代举例，快速排序算法" class="headerlink" title="5.迭代举例，快速排序算法"></a>5.迭代举例，快速排序算法</h1><p>  我们举一个快速排序的例子，来看看这种经典排序方法的执行步骤。</p>
-<h3 id="1-快速排序的原理，"><a href="#1-快速排序的原理，" class="headerlink" title="1.快速排序的原理，"></a>1.快速排序的原理，</h3><p>  快速排序的本质是将数组一份为二。</p>
-<p>  首先，我们再数组中取一个 key 值，我们进行排序交换，将小于 key 的值放到 key 的左边，将大于 key 的值放在 key 的右边。</p>
-<p>  之后，我们将 key 左边，右边的数组进行同样方式的排序。再次分割，然后将分割后的四部分进行再次的快速排序……</p>
-<p>  直到，划分的每个数组元素量为1，或者，划分后的数组排序并没有经历过一个数据移动，即为数组子集的完成</p>
-<blockquote>
-<p>值得一提的是，快速排序的时间复杂度为 n(log2(n)) ;相比于冒泡排序的 n平方 要快不少。</p>
-</blockquote>
-<h3 id="2-简单的快速排序说明"><a href="#2-简单的快速排序说明" class="headerlink" title="2.简单的快速排序说明"></a>2.简单的快速排序说明</h3><p>  我们定义一下数组:</p>
-<blockquote>
-<p>3,5,6,2,7</p>
-</blockquote>
-<p>  取 key 为1，定义 i=0 ，j = 4（即数组的首和尾)</p>
-<p>  从尾开始排序，7&gt;3，合理，2&lt;3，交换2和3，数组变为</p>
-<blockquote>
-<p>2,5,6,3,7</p>
-</blockquote>
-<p>  这时候，j 的值保存为 3，i 变量进行自增，2<3，但5>3 ，交换二者</3，但5></p>
-<blockquote>
-<p>2,3,6,5,7</p>
-</blockquote>
-<p>  这时候，i 的值保存，j再开始减，直到 i 的值和 j 的值相等时，我们发现</p>
-<p>  数组已经划分为 key 值3的左右两部分，左边小于三，右边大于三</p>
-<p>  我们将集合分为两部分，2，和6,5,7</p>
-<blockquote>
-<p>2    6,5,7</p>
-</blockquote>
-<p>  2为单字，排序完成，进行6,5,7排序，</p>
-<blockquote>
-<p>同上，取第一个数字 6 为 key 值。 i 设为起始值2，j设为子数组最大元素4.同理进行排序</p>
-</blockquote>
-<h3 id="3-用-c-实现快速排序"><a href="#3-用-c-实现快速排序" class="headerlink" title="3.用 c++ 实现快速排序"></a>3.用 c++ 实现快速排序</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">void quiksort(int a[],int i,int j)</span><br><span class="line">&#123;</span><br><span class="line">	if (i&lt;j)</span><br><span class="line">	&#123;</span><br><span class="line">		int qidian = i;</span><br><span class="line">		int zhongdian = j;</span><br><span class="line">		int key = a[i];</span><br><span class="line">		int c;</span><br><span class="line">		for (; j&gt;i; j--)</span><br><span class="line">		&#123;</span><br><span class="line">			if (a[j] &lt; key)</span><br><span class="line">			&#123;</span><br><span class="line">				c = a[i];</span><br><span class="line">				a[i] = a[j];</span><br><span class="line">				a[j] = c;</span><br><span class="line">				i++;</span><br><span class="line">				for (; i&lt;j; i++)</span><br><span class="line">				&#123;</span><br><span class="line">					if (a[i] &gt; key)</span><br><span class="line">					&#123;</span><br><span class="line">						c = a[i];</span><br><span class="line">						a[i] = a[j];</span><br><span class="line">						a[j] = c;</span><br><span class="line">						break;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		for (int c = 0; c &lt; (sizeof(a) / sizeof(int)); c++) cout &lt;&lt; *(a + c) &lt;&lt; &quot; &quot;;</span><br><span class="line">		cout &lt;&lt; endl;</span><br><span class="line">		cout &lt;&lt; qidian &lt;&lt; &quot; &quot; &lt;&lt; i - 1 &lt;&lt; &quot; &quot; &lt;&lt; j+1 &lt;&lt; &quot; &quot; &lt;&lt;zhongdian &lt;&lt; endl;</span><br><span class="line">		quiksort(a,qidian, i-1);</span><br><span class="line">		quiksort(a, i+1, zhongdian);</span><br><span class="line">	&#125;</span><br><span class="line">	else return;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="4-C-中的快速排序算法"><a href="#4-C-中的快速排序算法" class="headerlink" title="4.C++ 中的快速排序算法"></a>4.C++ 中的快速排序算法</h3><p>  可能大家看过上边的函数之后，发现和迭代器半毛钱关系都没有，这里我们提一个有关系的东西</p>
-<blockquote>
-<p>在头文件 algorithm 中，定义了如下排序算法</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sort(迭代器开头,迭代器结尾,排序方式);</span><br></pre></td></tr></table></figure>
-<p>  迭代器头尾很好理解，排序方式可以省略，默认为升序。</p>
-<p>  我们可以用以下方式让他变为降序</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sort(begin,end,[](int a,int b)&#123;return a&gt;b;&#125;);</span><br></pre></td></tr></table></figure>
-<p>  这种写法，将第三个变量写为一个 lamda 函数，想了解更多可以问度，或者参考其他参考书。</p>
-<h2 id="下篇-从C到C-5-：第一个自定义class"><a href="#下篇-从C到C-5-：第一个自定义class" class="headerlink" title="下篇 从C到C++(5)：第一个自定义class"></a><a href="#">下篇</a> 从C到C++(5)：第一个自定义class</h2>
       
     </div>
     
@@ -317,6 +240,10 @@
       
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/06/12/cplus4/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
