@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>从C到C++(5)：第一个自定义class | Scannery的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文将介绍 c++ 基本的类操作
+
+1. 类与访问权限  类，新手可以看做含有函数的结构体。
+  在一个类中，变量和方法可以声明为 private，public，或 protected.他们的区别如下：
+
+ 当你在类外使用一个类的对象的时候：
+
+  你可以通过，对象名.变量，来访问声明为 public 的变量或方法。其他两者则不可以。
+  子类对象可以访问父类对象的 protected 和 pu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从C到C++(5)：第一个自定义class">
+<meta property="og:url" content="https://github.com/Scannery/Scannery.github.io/2016/06/25/cplus5/index.html">
+<meta property="og:site_name" content="Scannery的博客">
+<meta property="og:description" content="本文将介绍 c++ 基本的类操作
+
+1. 类与访问权限  类，新手可以看做含有函数的结构体。
+  在一个类中，变量和方法可以声明为 private，public，或 protected.他们的区别如下：
+
+ 当你在类外使用一个类的对象的时候：
+
+  你可以通过，对象名.变量，来访问声明为 public 的变量或方法。其他两者则不可以。
+  子类对象可以访问父类对象的 protected 和 pu">
+<meta property="og:updated_time" content="2016-06-26T13:47:38.639Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="从C到C++(5)：第一个自定义class">
+<meta name="twitter:description" content="本文将介绍 c++ 基本的类操作
+
+1. 类与访问权限  类，新手可以看做含有函数的结构体。
+  在一个类中，变量和方法可以声明为 private，public，或 protected.他们的区别如下：
+
+ 当你在类外使用一个类的对象的时候：
+
+  你可以通过，对象名.变量，来访问声明为 public 的变量或方法。其他两者则不可以。
+  子类对象可以访问父类对象的 protected 和 pu">
+  
+    <link rel="alternative" href="/atom.xml" title="Scannery的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://i3.buimg.com/4c24f206badd271f.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://i2.buimg.com/ac712072589d8d98.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Scannery</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">让我看看你是否学有所成</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="mail" target="_blank" href="/tycf0013@126.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://tieba.baidu.com/f?kw=%D9%BB%C5%AE%D3%C4%BB%EA%C2%BC">倩女幽魂录吧</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://pan.baidu.com/s/1kVGUACB">百度网盘</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">从还没入门到夺门而逃</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Scannery</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img src="http://i2.buimg.com/ac712072589d8d98.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Scannery</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">让我看看你是否学有所成</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="mail" target="_blank" href="/tycf0013@126.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-cplus5" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/25/cplus5/" class="article-date">
+  	<time datetime="2016-06-25T14:34:39.114Z" itemprop="datePublished">2016-06-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      从C到C++(5)：第一个自定义class
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>本文将介绍 c++ 基本的类操作</p>
+</blockquote>
+<h1 id="1-类与访问权限"><a href="#1-类与访问权限" class="headerlink" title="1. 类与访问权限"></a>1. 类与访问权限</h1><p>  类，新手可以看做含有函数的结构体。</p>
+<p>  在一个类中，变量和方法可以声明为 private，public，或 protected.他们的区别如下：</p>
+<blockquote>
+<p> 当你在类外使用一个类的对象的时候：</p>
+</blockquote>
+<p>  你可以通过，<strong>对象名.变量</strong>，来访问声明为 <strong>public</strong> 的变量或方法。其他两者则不可以。</p>
+<p>  子类对象可以访问父类对象的 protected 和 public 变量或方法。</p>
+<a id="more"></a>
+<blockquote>
+<p>关于父子类会在后文说明</p>
+</blockquote>
+<p>  一个简单例子：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Test&#123;</span><br><span class="line"><span class="keyword">public</span>: <span class="keyword">int</span> i; <span class="comment">//i是一个 public 变量</span></span><br><span class="line">        <span class="keyword">int</span> j; <span class="comment">//j也是一个 public 变量</span></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">deploy</span><span class="params">()</span></span>; <span class="comment">//deploy 是一个 public 方法</span></span><br><span class="line"><span class="keyword">private</span>:<span class="keyword">int</span> m; <span class="comment">//m 是一个private变量</span></span><br><span class="line">&#125;; <span class="comment">//别忘了这个分号</span></span><br></pre></td></tr></table></figure>
+<p>  可以新学的朋友，不明白为什么把变量设为 private。这是为了实现对数据的封装。</p>
+<p>  即，<strong>你的类拿去给别人使用的时候，你并不一定希望别人通过访问改变你类中的变量。而是只想让别人用到你提供给他用的东西</strong>。实现了数据的保护。</p>
+<p>  某些情况下。你希望你的伙伴可以得到变量的值，但不希望他们更改。我们可以用以下方式达成这个目的</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Test&#123;</span><br><span class="line"><span class="keyword">private</span>:<span class="keyword">int</span> m;</span><br><span class="line"><span class="keyword">public</span>:<span class="function"><span class="keyword">int</span> <span class="title">getm</span><span class="params">()</span></span>&#123;return m&#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>  通过一个 getm() 的函数，在别人需要使用 m 的时候，可以通过这个函数来得到 m 的值。但他无法修改这个值。</p>
+<h1 id="2-构造函数"><a href="#2-构造函数" class="headerlink" title="2. 构造函数"></a>2. 构造函数</h1><p>  大家在使用 string 类的时候，会发现，string 类在初始化的时候，并不像我们再第一节中那样，声明对象，再给对象赋值的方式来进行构造。而是采用如下的方式：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">s</span><span class="params">(<span class="string">"liya"</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">s</span><span class="params">(<span class="number">10</span>,<span class="string">'c'</span>)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>  这里，便是采用了类的构造函数。构造函数用于生成一个类（而不是声明）。大家可以理解为，为类成员变量赋值的函数。</p>
+<blockquote>
+<p>构造函数可以为 private 变量进行赋值。</p>
+</blockquote>
+<p>  一个简单的构造函数的例子</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Test&#123;</span><br><span class="line"><span class="keyword">public</span>: <span class="keyword">int</span> i; </span><br><span class="line">        <span class="keyword">int</span> j; </span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">deploy</span><span class="params">()</span></span>; </span><br><span class="line">        Test(<span class="keyword">int</span> i1,<span class="keyword">int</span> j1):i(i1),j(j1)&#123;&#125; <span class="comment">//构造函数</span></span><br><span class="line"><span class="keyword">private</span>:<span class="keyword">int</span> m; </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p> 简单解释一下这个构造函造函数：</p>
+<p> 首先，<strong>构造函数的名称必须与类名相同</strong>，而且，构造函数没有任何返回值。</p>
+<p> 上述写法，为构造函数名(形参1，形参2):类变量（形参1），类变量（形参2）{}</p>
+<blockquote>
+<p>意义为，将形参1赋予类变量1，将形参2赋予变量2</p>
+</blockquote>
+<p> 上述的构造函数等价于这种形式:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Test::Test(int i1,int j1)</span><br><span class="line">&#123;</span><br><span class="line">   i = i1;</span><br><span class="line">   j = j1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> 在上述函数中，我们使用前缀 Test:: 来表示他是 Test 类中的函数。这样写可以在类外定义类中的方法。</p>
+<blockquote>
+<p><strong>前提是他在类中声明过</strong></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Test&#123;</span><br><span class="line"><span class="keyword">public</span>: <span class="keyword">int</span> i; </span><br><span class="line">        <span class="keyword">int</span> j; </span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">deploy</span><span class="params">()</span></span>; </span><br><span class="line">        Test(<span class="keyword">int</span>,<span class="keyword">int</span>); <span class="comment">//声明函数</span></span><br><span class="line"><span class="keyword">private</span>:<span class="keyword">int</span> m; </span><br><span class="line">&#125;;</span><br><span class="line">Test::Test(<span class="keyword">int</span> i1,<span class="keyword">int</span> j1) <span class="comment">//类外实现</span></span><br><span class="line">&#123;</span><br><span class="line">   i = i1;</span><br><span class="line">   j = j1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  需要定义该类的对象时候，我们用如下的方式进行构造</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int i,j;</span><br><span class="line">Test a(i,j);</span><br></pre></td></tr></table></figure>
+<p>  上述方式定义了一个名为 a 的 Test 类对象。对象的 i,j 值被赋予。</p>
+<h1 id="3-函数的重载"><a href="#3-函数的重载" class="headerlink" title="3. 函数的重载"></a>3. 函数的重载</h1><p> 在 C++ 中，可以存在有函数名相同，但形参不同的函数，这样我们可以使用一个函数名，对多类数据类型进行处理。</p>
+<p> 如下:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">max</span><span class="params">(<span class="keyword">int</span> i,<span class="keyword">int</span> j)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">   <span class="keyword">if</span>(i&gt;j) return i;</span><br><span class="line">   <span class="keyword">else</span> return j;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">max</span><span class="params">(<span class="keyword">int</span> i,<span class="keyword">int</span> j,<span class="keyword">int</span> k)</span></span><br><span class="line"></span>&#123;</span><br><span class="line"><span class="comment">//...具体内容省略</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">max</span><span class="params">(<span class="keyword">int</span> i,<span class="keyword">int</span> j,<span class="keyword">int</span> k,<span class="keyword">int</span> l)</span></span><br><span class="line"></span>&#123;</span><br><span class="line"><span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>  如上所示，我们定义了三个名为 max 的函数。当我们需要调用的时候，系统会根据所给参数的多少，来确定具体调用哪个函数。</p>
+<p>  同理</p>
+<blockquote>
+<p>构造函数也是可以进行重载的</p>
+</blockquote>
+<p>  如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Test&#123;</span><br><span class="line"><span class="keyword">public</span>: <span class="keyword">int</span> i; </span><br><span class="line">        <span class="keyword">int</span> j; </span><br><span class="line">        Test(<span class="keyword">int</span> i,<span class="keyword">int</span> j):i(i),j(j)&#123;&#125;  <span class="comment">//构造函数一</span></span><br><span class="line">        Test(<span class="keyword">int</span> i,<span class="keyword">int</span> j,<span class="keyword">int</span> m):i(i),j(j),m(m)&#123;&#125;  <span class="comment">//构造函数二</span></span><br><span class="line">        Test()&#123;&#125; <span class="comment">//构造函数三</span></span><br><span class="line"><span class="keyword">private</span>:<span class="keyword">int</span> m; </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h1 id="4-类的共享"><a href="#4-类的共享" class="headerlink" title="4. 类的共享"></a>4. 类的共享</h1><p>  很多 cpp 新人可能会不解，在一个 project 里，如何做到类在不同 .cpp 文件中的共享。作为一个从 .java 转过来的人，我就有过这样的疑问。</p>
+<blockquote>
+<p>java 中，可以直接进行引用，而 C++ 中，需要采用如下方式：</p>
+</blockquote>
+<p>  首先：</p>
+<p>  <strong>将你要分享的类，写到一个 .h 文件里</strong></p>
+<p>  其次：</p>
+<p>  <strong>在你需要引用该类的文件里，引用这个文件作为头文件</strong></p>
+<p>  这也是为什么类的函数在类外实现的原因之一。为了不让 .h 文件看起来过于繁杂。将 .h 文件中类的方法写在文件外，使之变得更有可读性。</p>
+<h1 id="5-类的命名"><a href="#5-类的命名" class="headerlink" title="5. 类的命名"></a>5. 类的命名</h1><p>  一些约定俗称的规则，可以让你的程序更具可读性。</p>
+<p>  类的定义，类名，首字母要大写。 比如 class Test;</p>
+<p>  方法名和变量名，采用第一个单词小写，其余单词大写的方式， 比如 int getIndexOf();</p>
+<h3 id="下篇-从C到C-6-：析构函数和友元函数"><a href="#下篇-从C到C-6-：析构函数和友元函数" class="headerlink" title="下篇 从C到C++(6)：析构函数和友元函数"></a><a href="#">下篇</a> 从C到C++(6)：析构函数和友元函数</h3>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/06/12/cplus4/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">从C到C++(4)：迭代器Iterator</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="cplus5" data-title="从C到C++(5)：第一个自定义class" data-url="https://github.com/Scannery/Scannery.github.io/2016/06/25/cplus5/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"scannery"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Scannery
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: false,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

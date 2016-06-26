@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/Scannery/Scannery.github.io/"/>
-  <updated>2016-06-25T16:17:23.346Z</updated>
+  <updated>2016-06-26T13:47:38.639Z</updated>
   <id>https://github.com/Scannery/Scannery.github.io/</id>
   
   <author>
@@ -14,6 +14,98 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从C到C++(5)：第一个自定义class</title>
+    <link href="https://github.com/Scannery/Scannery.github.io/2016/06/25/cplus5/"/>
+    <id>https://github.com/Scannery/Scannery.github.io/2016/06/25/cplus5/</id>
+    <published>2016-06-25T14:34:39.114Z</published>
+    <updated>2016-06-26T13:47:38.639Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;本文将介绍 c++ 基本的类操作&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;1-类与访问权限&quot;&gt;&lt;a href=&quot;#1-类与访问权限&quot; class=&quot;headerlink&quot; title=&quot;1. 类与访问权限&quot;&gt;&lt;/a&gt;1. 类与访问权限&lt;/h1&gt;&lt;p&gt;  类，新手可以看做含有函数的结构体。&lt;/p&gt;
+&lt;p&gt;  在一个类中，变量和方法可以声明为 private，public，或 protected.他们的区别如下：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt; 当你在类外使用一个类的对象的时候：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  你可以通过，&lt;strong&gt;对象名.变量&lt;/strong&gt;，来访问声明为 &lt;strong&gt;public&lt;/strong&gt; 的变量或方法。其他两者则不可以。&lt;/p&gt;
+&lt;p&gt;  子类对象可以访问父类对象的 protected 和 public 变量或方法。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;blockquote&gt;
+&lt;p&gt;关于父子类会在后文说明&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  一个简单例子：&lt;/p&gt;
+&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; Test&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt;: &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i; &lt;span class=&quot;comment&quot;&gt;//i是一个 public 变量&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; j; &lt;span class=&quot;comment&quot;&gt;//j也是一个 public 变量&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;deploy&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;; &lt;span class=&quot;comment&quot;&gt;//deploy 是一个 public 方法&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt;:&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; m; &lt;span class=&quot;comment&quot;&gt;//m 是一个private变量&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;; &lt;span class=&quot;comment&quot;&gt;//别忘了这个分号&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;  可以新学的朋友，不明白为什么把变量设为 private。这是为了实现对数据的封装。&lt;/p&gt;
+&lt;p&gt;  即，&lt;strong&gt;你的类拿去给别人使用的时候，你并不一定希望别人通过访问改变你类中的变量。而是只想让别人用到你提供给他用的东西&lt;/strong&gt;。实现了数据的保护。&lt;/p&gt;
+&lt;p&gt;  某些情况下。你希望你的伙伴可以得到变量的值，但不希望他们更改。我们可以用以下方式达成这个目的&lt;/p&gt;
+&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; Test&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt;:&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; m;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt;:&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;getm&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&amp;#123;return m&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;  通过一个 getm() 的函数，在别人需要使用 m 的时候，可以通过这个函数来得到 m 的值。但他无法修改这个值。&lt;/p&gt;
+&lt;h1 id=&quot;2-构造函数&quot;&gt;&lt;a href=&quot;#2-构造函数&quot; class=&quot;headerlink&quot; title=&quot;2. 构造函数&quot;&gt;&lt;/a&gt;2. 构造函数&lt;/h1&gt;&lt;p&gt;  大家在使用 string 类的时候，会发现，string 类在初始化的时候，并不像我们再第一节中那样，声明对象，再给对象赋值的方式来进行构造。而是采用如下的方式：&lt;/p&gt;
+&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;string&quot;&gt;&quot;liya&quot;&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;c&#39;&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;  这里，便是采用了类的构造函数。构造函数用于生成一个类（而不是声明）。大家可以理解为，为类成员变量赋值的函数。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;构造函数可以为 private 变量进行赋值。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  一个简单的构造函数的例子&lt;/p&gt;
+&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; Test&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt;: &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; j; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;deploy&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        Test(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i1,&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; j1):i(i1),j(j1)&amp;#123;&amp;#125; &lt;span class=&quot;comment&quot;&gt;//构造函数&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt;:&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; m; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt; 简单解释一下这个构造函造函数：&lt;/p&gt;
+&lt;p&gt; 首先，&lt;strong&gt;构造函数的名称必须与类名相同&lt;/strong&gt;，而且，构造函数没有任何返回值。&lt;/p&gt;
+&lt;p&gt; 上述写法，为构造函数名(形参1，形参2):类变量（形参1），类变量（形参2）{}&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;意义为，将形参1赋予类变量1，将形参2赋予变量2&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt; 上述的构造函数等价于这种形式:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Test::Test(int i1,int j1)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   i = i1;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   j = j1;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt; 在上述函数中，我们使用前缀 Test:: 来表示他是 Test 类中的函数。这样写可以在类外定义类中的方法。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;前提是他在类中声明过&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; Test&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt;: &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; j; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;deploy&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        Test(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;,&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//声明函数&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt;:&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; m; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Test::Test(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i1,&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; j1) &lt;span class=&quot;comment&quot;&gt;//类外实现&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   i = i1;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   j = j1;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;  需要定义该类的对象时候，我们用如下的方式进行构造&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;int i,j;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Test a(i,j);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;  上述方式定义了一个名为 a 的 Test 类对象。对象的 i,j 值被赋予。&lt;/p&gt;
+&lt;h1 id=&quot;3-函数的重载&quot;&gt;&lt;a href=&quot;#3-函数的重载&quot; class=&quot;headerlink&quot; title=&quot;3. 函数的重载&quot;&gt;&lt;/a&gt;3. 函数的重载&lt;/h1&gt;&lt;p&gt; 在 C++ 中，可以存在有函数名相同，但形参不同的函数，这样我们可以使用一个函数名，对多类数据类型进行处理。&lt;/p&gt;
+&lt;p&gt; 如下:&lt;br&gt;&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i,&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; j)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(i&amp;gt;j) return i;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; return j;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i,&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; j,&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; k)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//...具体内容省略&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i,&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; j,&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; k,&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; l)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;  如上所示，我们定义了三个名为 max 的函数。当我们需要调用的时候，系统会根据所给参数的多少，来确定具体调用哪个函数。&lt;/p&gt;
+&lt;p&gt;  同理&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;构造函数也是可以进行重载的&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  如下：&lt;br&gt;&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; Test&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt;: &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; j; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        Test(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i,&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; j):i(i),j(j)&amp;#123;&amp;#125;  &lt;span class=&quot;comment&quot;&gt;//构造函数一&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        Test(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i,&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; j,&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; m):i(i),j(j),m(m)&amp;#123;&amp;#125;  &lt;span class=&quot;comment&quot;&gt;//构造函数二&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        Test()&amp;#123;&amp;#125; &lt;span class=&quot;comment&quot;&gt;//构造函数三&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt;:&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; m; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h1 id=&quot;4-类的共享&quot;&gt;&lt;a href=&quot;#4-类的共享&quot; class=&quot;headerlink&quot; title=&quot;4. 类的共享&quot;&gt;&lt;/a&gt;4. 类的共享&lt;/h1&gt;&lt;p&gt;  很多 cpp 新人可能会不解，在一个 project 里，如何做到类在不同 .cpp 文件中的共享。作为一个从 .java 转过来的人，我就有过这样的疑问。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;java 中，可以直接进行引用，而 C++ 中，需要采用如下方式：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  首先：&lt;/p&gt;
+&lt;p&gt;  &lt;strong&gt;将你要分享的类，写到一个 .h 文件里&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;  其次：&lt;/p&gt;
+&lt;p&gt;  &lt;strong&gt;在你需要引用该类的文件里，引用这个文件作为头文件&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;  这也是为什么类的函数在类外实现的原因之一。为了不让 .h 文件看起来过于繁杂。将 .h 文件中类的方法写在文件外，使之变得更有可读性。&lt;/p&gt;
+&lt;h1 id=&quot;5-类的命名&quot;&gt;&lt;a href=&quot;#5-类的命名&quot; class=&quot;headerlink&quot; title=&quot;5. 类的命名&quot;&gt;&lt;/a&gt;5. 类的命名&lt;/h1&gt;&lt;p&gt;  一些约定俗称的规则，可以让你的程序更具可读性。&lt;/p&gt;
+&lt;p&gt;  类的定义，类名，首字母要大写。 比如 class Test;&lt;/p&gt;
+&lt;p&gt;  方法名和变量名，采用第一个单词小写，其余单词大写的方式， 比如 int getIndexOf();&lt;/p&gt;
+&lt;h3 id=&quot;下篇-从C到C-6-：析构函数和友元函数&quot;&gt;&lt;a href=&quot;#下篇-从C到C-6-：析构函数和友元函数&quot; class=&quot;headerlink&quot; title=&quot;下篇 从C到C++(6)：析构函数和友元函数&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#&quot;&gt;下篇&lt;/a&gt; 从C到C++(6)：析构函数和友元函数&lt;/h3&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文将介绍 c++ 基本的类操作&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;1-类与访问权限&quot;&gt;&lt;a href=&quot;#1-类与访问权限&quot; class=&quot;headerlink&quot; title=&quot;1. 类与访问权限&quot;&gt;&lt;/a&gt;1. 类与访问权限&lt;/h1&gt;&lt;p&gt;  类，新手可以看做含有函数的结构体。&lt;/p&gt;
+&lt;p&gt;  在一个类中，变量和方法可以声明为 private，public，或 protected.他们的区别如下：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt; 当你在类外使用一个类的对象的时候：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  你可以通过，&lt;strong&gt;对象名.变量&lt;/strong&gt;，来访问声明为 &lt;strong&gt;public&lt;/strong&gt; 的变量或方法。其他两者则不可以。&lt;/p&gt;
+&lt;p&gt;  子类对象可以访问父类对象的 protected 和 public 变量或方法。&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>从C到C++(4)：迭代器Iterator</title>
