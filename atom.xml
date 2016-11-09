@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/Scannery/Scannery.github.io/"/>
-  <updated>2016-11-03T15:49:17.649Z</updated>
+  <updated>2016-11-09T09:48:38.279Z</updated>
   <id>https://github.com/Scannery/Scannery.github.io/</id>
   
   <author>
@@ -16,19 +16,19 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>走迷宫算法之Java大法好，弃C保平安</title>
+    <title>走迷宫算法</title>
     <link href="https://github.com/Scannery/Scannery.github.io/2016/11/03/MiGong/"/>
     <id>https://github.com/Scannery/Scannery.github.io/2016/11/03/MiGong/</id>
     <published>2016-11-03T14:16:41.607Z</published>
-    <updated>2016-11-03T15:49:17.649Z</updated>
+    <updated>2016-11-09T09:48:38.279Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;本文主要提供作者解决问题的思路与方法，各位大神如果有别的方法，欢迎指出&lt;/p&gt;
-&lt;p&gt;虽然标题是 Java 大法好，但本博客里的程序还是C&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h1 id=&quot;1-题目&quot;&gt;&lt;a href=&quot;#1-题目&quot; class=&quot;headerlink&quot; title=&quot;1.题目&quot;&gt;&lt;/a&gt;1.题目&lt;/h1&gt;&lt;p&gt;  设有一个迷宫，他是一个宽为M，长为N的数组&lt;/p&gt;
 &lt;p&gt;  迷宫中，可以通行的地方值为1，不能通行的地方值为0&lt;/p&gt;
 &lt;p&gt;  迷宫入口为A,B.出口为C,D.求小明走出迷宫的最短路径MIN，和路线图。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;  输入：第一行为M,N，其下为矩阵，每行为M个值，共N行，其后为入口和出口的坐标。&lt;/p&gt;
 &lt;p&gt;  举例：&lt;/p&gt;
 &lt;p&gt;  5,5&lt;br&gt;  1 0 0 0 0&lt;br&gt;  1 1 1 1 0&lt;br&gt;  0 1 0 1 0&lt;br&gt;  0 1 1 1 1&lt;br&gt;  0 0 0 1 1&lt;br&gt;  0,0,4,4 &lt;/p&gt;
@@ -75,7 +75,7 @@
 &lt;p&gt;  被截断为&lt;/p&gt;
 &lt;p&gt;  1&lt;/p&gt;
 &lt;p&gt;  这里推荐一下两种方式：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;#include&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;char *str;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gets(str);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;#include&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;char str[5]; //注意，千万别用 char *str。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gets(str);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;  这里调用标准库的gets函数&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;#include&amp;lt;unistd.h&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;char *str;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;read(STD_FILENO,str,1024)；&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;  这里调用unix系统库里的函数，记住，先试一试笔试环境是否提供Unix环境&lt;/p&gt;
@@ -92,9 +92,10 @@
     
       &lt;blockquote&gt;
 &lt;p&gt;本文主要提供作者解决问题的思路与方法，各位大神如果有别的方法，欢迎指出&lt;/p&gt;
-&lt;p&gt;虽然标题是 Java 大法好，但本博客里的程序还是C&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h1 id=&quot;1-题目&quot;&gt;&lt;a href=&quot;#1-题目&quot; class=
+&lt;h1 id=&quot;1-题目&quot;&gt;&lt;a href=&quot;#1-题目&quot; class=&quot;headerlink&quot; title=&quot;1.题目&quot;&gt;&lt;/a&gt;1.题目&lt;/h1&gt;&lt;p&gt;  设有一个迷宫，他是一个宽为M，长为N的数组&lt;/p&gt;
+&lt;p&gt;  迷宫中，可以通行的地方值为1，不能通行的地方值为0&lt;/p&gt;
+&lt;p&gt;  迷宫入口为A,B.出口为C,D.求小明走出迷宫的最短路径MIN，和路线图。&lt;/p&gt;
     
     </summary>
     
