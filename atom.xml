@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/Scannery/Scannery.github.io/"/>
-  <updated>2016-11-09T09:51:39.634Z</updated>
+  <updated>2016-11-20T09:56:17.599Z</updated>
   <id>https://github.com/Scannery/Scannery.github.io/</id>
   
   <author>
@@ -16,11 +16,60 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>树的旋转与实现</title>
+    <link href="https://github.com/Scannery/Scannery.github.io/2016/11/20/roll/"/>
+    <id>https://github.com/Scannery/Scannery.github.io/2016/11/20/roll/</id>
+    <published>2016-11-20T08:06:40.008Z</published>
+    <updated>2016-11-20T09:56:17.599Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;本文主要提供作者解决问题的思路与方法，各位大神如果有别的方法，欢迎指出&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;树旋&quot;&gt;&lt;a href=&quot;#树旋&quot; class=&quot;headerlink&quot; title=&quot;树旋&quot;&gt;&lt;/a&gt;树旋&lt;/h1&gt;&lt;h3 id=&quot;1-树旋是什么&quot;&gt;&lt;a href=&quot;#1-树旋是什么&quot; class=&quot;headerlink&quot; title=&quot;1.树旋是什么&quot;&gt;&lt;/a&gt;1.树旋是什么&lt;/h3&gt;&lt;p&gt;  树旋是对树进行旋转的操作，具体应用于高级二叉搜索树中，如AVL树与红黑树。使用旋转可以在不破坏树的顺序结构情况下，保证树的平衡。&lt;/p&gt;
+&lt;p&gt;  树旋的时间复杂度为O（1），是效率很高的一种方式。通常，又分为左旋（zig）和右旋（zag）&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;2-树旋的举例&quot;&gt;&lt;a href=&quot;#2-树旋的举例&quot; class=&quot;headerlink&quot; title=&quot;2.树旋的举例&quot;&gt;&lt;/a&gt;2.树旋的举例&lt;/h3&gt;&lt;p&gt;  我们这里有一棵二叉搜索树，如下图（1）&lt;/p&gt;
+&lt;p&gt;  当我们插入一个新的数，9时候，树就会失衡，如图（2）&lt;/p&gt;
+&lt;p&gt;  我们需要对树进行一次旋转，降低它的高度&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这样做的意义是，保证，在N个元素的树中进行元素的查找时候，搜索复杂度不大于log2（N）。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  首先，我们找到失衡点的位置，如图（3）.&lt;/p&gt;
+&lt;p&gt;  我们发现右边偏重，且失衡点是右子树，于是我们需要对他进行左旋&lt;br&gt;  左旋的过程如图（4）（5）（6）&lt;/p&gt;
+&lt;p&gt;  如图（6），树高变为原来的树高-1&lt;br&gt;                                                                                                    树高&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; 5             5         root-&amp;gt;5       root-&amp;gt;5                 7           root-&amp;gt;7                1        
+/ \           / \             / \           / \               / \               / \  
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;   3   7         3   7           3   7         3  |  7     root-&amp;gt;5   8             5   8              2&lt;br&gt;      / \           / \             / \           |   \         / \   \           / \   \&lt;br&gt;     6   8         6   8           6   8          6    8       3   6   9         3   6   9 ———–3&lt;br&gt;                        \               \               \&lt;br&gt;                         9               9               9——————————————–4&lt;br&gt;    （1）          (2)           （3）           （4）            （5）             （6）&lt;/p&gt;
+&lt;p&gt;  下边的树中，我们发现左边偏重，但失衡点是右子树，我们需要对2点左旋，5点右旋&lt;/p&gt;
+&lt;p&gt;  （4）（5）如图，我们对2点进行左旋&lt;/p&gt;
+&lt;p&gt;  （6）图，对5点进行一次右旋，结果如下&lt;br&gt;                                                                                                     树高&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; 5             5               5             5                  5                 4                1
+/ \           / \             / \             \                / \               / \ 
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;   2   7         2   7           2   7        2    7              4   7             2   5              2&lt;br&gt;  / \           / \             / \          / \                 /                 / \   \&lt;br&gt; 1   4         1   4           1   4        1  | 4              2                 1   3   7————3&lt;br&gt;                  /               /            |               / \&lt;br&gt;                 3               3             3              1   3————————————4&lt;br&gt;    （1）          (2)           （3）           （4）            （5）             （6）&lt;/p&gt;
+&lt;h3 id=&quot;3-树旋的实现&quot;&gt;&lt;a href=&quot;#3-树旋的实现&quot; class=&quot;headerlink&quot; title=&quot;3.树旋的实现&quot;&gt;&lt;/a&gt;3.树旋的实现&lt;/h3&gt;&lt;p&gt;  这里不细究旋转在二叉搜索树中的各种判定与实现，有兴趣的同学可以自己学习，仅给出旋转的算法&lt;/p&gt;
+&lt;p&gt;  树结构参考如下：&lt;br&gt;&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;struct&lt;/span&gt; tree&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;struct&lt;/span&gt; tree *lc;&lt;span class=&quot;comment&quot;&gt;//左孩子&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;struct&lt;/span&gt; tree *rc;&lt;span class=&quot;comment&quot;&gt;//右孩子&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;struct&lt;/span&gt; tree *pa;&lt;span class=&quot;comment&quot;&gt;//父亲&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; data;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;  以左旋为例，如下&lt;br&gt;&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;zig&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;struct&lt;/span&gt; tree *point)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;struct&lt;/span&gt; tree *pare,*q,*r;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; flag;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   pare = point-&amp;gt;pa;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   q = null;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(point == pare -&amp;gt; lc) flag = &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; flag = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(point-&amp;gt;rc != null) q = point -&amp;gt; rc -&amp;gt; lc;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   r = point-&amp;gt;rc;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   point -&amp;gt; rc = q;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   q -&amp;gt; pa = point;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   r -&amp;gt; lc = point;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   point -&amp;gt; pa = r;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(flag) pare -&amp;gt; lc = r;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; pare -&amp;gt; rc = r;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   r -&amp;gt; pa = pare;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;下篇-敬请期待&quot;&gt;&lt;a href=&quot;#下篇-敬请期待&quot; class=&quot;headerlink&quot; title=&quot;下篇 敬请期待~&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#&quot;&gt;下篇&lt;/a&gt; 敬请期待~&lt;/h3&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文主要提供作者解决问题的思路与方法，各位大神如果有别的方法，欢迎指出&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;树旋&quot;&gt;&lt;a href=&quot;#树旋&quot; class=&quot;headerlink&quot; title=&quot;树旋&quot;&gt;&lt;/a&gt;树旋&lt;/h1&gt;&lt;h3 id=&quot;1-树旋是什么&quot;&gt;&lt;a href=&quot;#1-树旋是什么&quot; class=&quot;headerlink&quot; title=&quot;1.树旋是什么&quot;&gt;&lt;/a&gt;1.树旋是什么&lt;/h3&gt;&lt;p&gt;  树旋是对树进行旋转的操作，具体应用于高级二叉搜索树中，如AVL树与红黑树。使用旋转可以在不破坏树的顺序结构情况下，保证树的平衡。&lt;/p&gt;
+&lt;p&gt;  树旋的时间复杂度为O（1），是效率很高的一种方式。通常，又分为左旋（zig）和右旋（zag）&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>走迷宫算法</title>
     <link href="https://github.com/Scannery/Scannery.github.io/2016/11/03/MiGong/"/>
     <id>https://github.com/Scannery/Scannery.github.io/2016/11/03/MiGong/</id>
     <published>2016-11-03T14:16:41.607Z</published>
-    <updated>2016-11-09T09:51:39.634Z</updated>
+    <updated>2016-11-20T09:55:50.680Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;本文主要提供作者解决问题的思路与方法，各位大神如果有别的方法，欢迎指出&lt;/p&gt;
@@ -93,7 +142,7 @@
 &lt;p&gt;  也可以调用标准库函数，大家自行搜索。&lt;/p&gt;
 &lt;h2 id=&quot;4-Java大法好&quot;&gt;&lt;a href=&quot;#4-Java大法好&quot; class=&quot;headerlink&quot; title=&quot;4 Java大法好&quot;&gt;&lt;/a&gt;4 Java大法好&lt;/h2&gt;&lt;p&gt;  有 Java 基础的同学，碰到这种题可以用 Java 解决，可以省掉很多很多的麻烦。这里就不提供范例了。&lt;/p&gt;
 &lt;p&gt;  某些脚本语言也会很方便，比如js,python,go。毕竟有现成的库函数。&lt;/p&gt;
-&lt;h3 id=&quot;下篇-老千算法：我玩斗地主必摸炸&quot;&gt;&lt;a href=&quot;#下篇-老千算法：我玩斗地主必摸炸&quot; class=&quot;headerlink&quot; title=&quot;下篇 老千算法：我玩斗地主必摸炸&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#&quot;&gt;下篇&lt;/a&gt; 老千算法：我玩斗地主必摸炸&lt;/h3&gt;</content>
+&lt;h3 id=&quot;下篇-树的旋转与实现&quot;&gt;&lt;a href=&quot;#下篇-树的旋转与实现&quot; class=&quot;headerlink&quot; title=&quot;下篇 树的旋转与实现&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#&quot;&gt;下篇&lt;/a&gt; 树的旋转与实现&lt;/h3&gt;</content>
     
     <summary type="html">
     
