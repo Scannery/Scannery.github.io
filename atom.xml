@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/Scannery/Scannery.github.io/"/>
-  <updated>2016-11-29T05:08:48.897Z</updated>
+  <updated>2016-11-29T05:15:05.566Z</updated>
   <id>https://github.com/Scannery/Scannery.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://github.com/Scannery/Scannery.github.io/2016/11/28/sort/"/>
     <id>https://github.com/Scannery/Scannery.github.io/2016/11/28/sort/</id>
     <published>2016-11-28T10:01:21.438Z</published>
-    <updated>2016-11-29T05:08:48.897Z</updated>
+    <updated>2016-11-29T05:15:05.566Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;本文主要提供常见的排序方式，快速排序请参考 &lt;a href=&quot;http://scannery.github.io/2016/06/12/cplus4/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;此文&lt;/a&gt;&lt;/p&gt;
@@ -33,7 +33,7 @@
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;http://www.processon.com/&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;  流程图如下&lt;/p&gt;
-&lt;p&gt;   &lt;img src=&quot;http://p1.bqimg.com/4851/96e316f6fb2f1cc3.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;   &lt;img src=&quot;http://p1.bpimg.com/1949/645c77c1cbeac76c.png&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;
 &lt;h3 id=&quot;2-插入排序的实现&quot;&gt;&lt;a href=&quot;#2-插入排序的实现&quot; class=&quot;headerlink&quot; title=&quot;2.插入排序的实现&quot;&gt;&lt;/a&gt;2.插入排序的实现&lt;/h3&gt;&lt;p&gt; C语言实现插入排序&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;void insert_sort(int *arr, int arrlen)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	int i = 1;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	int *j;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	int swap_num;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	while (i &amp;lt; arrlen)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		for (j = arr+i; j != arr; j--)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			if (*j &amp;lt; *(j - 1))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;				swap_num = *j;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;				*j = *(j - 1);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;				*(j - 1) = swap_num;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			else break;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		i++;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	return;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;h1 id=&quot;归并排序&quot;&gt;&lt;a href=&quot;#归并排序&quot; class=&quot;headerlink&quot; title=&quot;归并排序&quot;&gt;&lt;/a&gt;归并排序&lt;/h1&gt;&lt;p&gt;  归并排序采用了分治的策略，首先，将数组分成有序数列的集合&lt;/p&gt;
 &lt;blockquote&gt;
@@ -129,7 +129,7 @@
     <link href="https://github.com/Scannery/Scannery.github.io/2016/11/03/MiGong/"/>
     <id>https://github.com/Scannery/Scannery.github.io/2016/11/03/MiGong/</id>
     <published>2016-11-03T14:16:41.607Z</published>
-    <updated>2016-11-20T09:55:50.680Z</updated>
+    <updated>2016-11-29T05:16:46.375Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;本文主要提供作者解决问题的思路与方法，各位大神如果有别的方法，欢迎指出&lt;/p&gt;
@@ -202,7 +202,7 @@
 &lt;p&gt;  也可以调用标准库函数，大家自行搜索。&lt;/p&gt;
 &lt;h2 id=&quot;4-Java大法好&quot;&gt;&lt;a href=&quot;#4-Java大法好&quot; class=&quot;headerlink&quot; title=&quot;4 Java大法好&quot;&gt;&lt;/a&gt;4 Java大法好&lt;/h2&gt;&lt;p&gt;  有 Java 基础的同学，碰到这种题可以用 Java 解决，可以省掉很多很多的麻烦。这里就不提供范例了。&lt;/p&gt;
 &lt;p&gt;  某些脚本语言也会很方便，比如js,python,go。毕竟有现成的库函数。&lt;/p&gt;
-&lt;h3 id=&quot;下篇-树的旋转与实现&quot;&gt;&lt;a href=&quot;#下篇-树的旋转与实现&quot; class=&quot;headerlink&quot; title=&quot;下篇 树的旋转与实现&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#&quot;&gt;下篇&lt;/a&gt; 树的旋转与实现&lt;/h3&gt;</content>
+&lt;h3 id=&quot;下篇-树的旋转与实现&quot;&gt;&lt;a href=&quot;#下篇-树的旋转与实现&quot; class=&quot;headerlink&quot; title=&quot;下篇 树的旋转与实现&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://scannery.github.io/2016/11/20/roll/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;下篇&lt;/a&gt; 树的旋转与实现&lt;/h3&gt;</content>
     
     <summary type="html">
     
